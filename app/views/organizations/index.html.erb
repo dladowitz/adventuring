@@ -1,0 +1,15 @@
+<h1>Organizations, Guides, Tour Operators</h1>
+
+
+<% @orgs.each do |org| %>
+<%= link_to org.name, org %>
+<br>
+<% end %>
+
+
+<br>
+<br>
+Currently Logged in as: <%= current_user.email %>
+
+<br>
+<%= link_to 'Log Out', '/users/sign_out', :method => :delete %>

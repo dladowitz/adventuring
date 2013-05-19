@@ -1,0 +1,28 @@
+<br>
+<br>
+<strong><%= @org.name %></strong>
+<br>
+Description:
+<%= @org.description %>
+<br>
+Website:
+<%= @org.website %>
+<br>
+Phone:
+<%= @org.phone_num %>
+<br>
+<br>
+<% @org.courses.each do |course| %>
+  <strong>Course Name:</strong>
+  <%= link_to course.name, organization_course_path(@org.id, course) %>
+  <br>
+  Description:
+  <%= course.description %>
+<br>
+<br>
+<% end %>
+
+<%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
+
+
+

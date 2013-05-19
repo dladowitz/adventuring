@@ -7,6 +7,7 @@ gem 'rails', '3.2.12'
 
 gem 'pg'
 gem 'devise'
+gem 'dynamic_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +25,7 @@ gem 'jquery-rails'
 
 group :development do
   gem 'awesome_print'
+  gem 'quiet_assets'
 end
 
 

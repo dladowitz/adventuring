@@ -1,0 +1,16 @@
+<%= form_for @org do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br />
+  </p>
+  <%= f.label :description %>:
+  <%= f.text_area :description %><br />
+
+  <%= f.label :website %>:
+  <%= f.text_field :website %><br />
+
+  <%= f.label :phone_num %>:
+  <%= f.text_field :phone_num %><br />
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,15 @@
+<strong>Course Name: </strong>
+  <%= @course.name %>
+<br>
+<strong>Organiation: </strong>
+<%= @course.organization.name %>
+<br>
+<strong>Description: </strong>
+<%= @course.description %>
+<br>
+<strong>Price: </strong>
+<%= @course.price %>
+
+<br><br>
+<%= button_to 'edit course', edit_organization_course_path(@org, @course), :method => :get %>
+<%= button_to 'Delete course', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>

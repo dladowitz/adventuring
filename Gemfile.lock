@@ -44,6 +44,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -63,6 +64,8 @@ GEM
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -117,8 +120,10 @@ DEPENDENCIES
   awesome_print
   coffee-rails (~> 3.2.1)
   devise
+  dynamic_form
   jquery-rails
   pg
+  quiet_assets
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

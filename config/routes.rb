@@ -1,9 +1,12 @@
 Adventuring::Application.routes.draw do
-  root to: 'home#index'
-
-  get "home/index"
+  root to: 'organizations#index'
 
 
+  resources :organizations do
+    resources :courses
+  end
+
+  resources :home
 
   devise_for :users
 
