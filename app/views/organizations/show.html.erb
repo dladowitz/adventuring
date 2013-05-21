@@ -11,6 +11,13 @@ Website:
 Phone:
 <%= @org.phone_num %>
 <br>
+
+<% if current_user.site_admin? %>
+  (owner: <%= @org.owner.name ? @org.owner.name : @org.owner.email %>)
+<% end %>
+
+
+<br>
 <br>
 <% @org.courses.each do |course| %>
   <strong>Course Name:</strong>
@@ -22,7 +29,12 @@ Phone:
 <br>
 <% end %>
 
-<%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
-
+<% if current_user == @org.owner || current_user.site_admin? %>
+  <span>
+    <%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
+    <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
+    <%= button_to 'Delete Organization', pre_destroy_organization_path(@org.id), :method => :get, :confirm => "Are you sure?"%>
+   </span>
+<% end %>
 
 

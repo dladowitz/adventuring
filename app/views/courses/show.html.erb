@@ -11,5 +11,7 @@
 <%= @course.price %>
 
 <br><br>
-<%= button_to 'edit course', edit_organization_course_path(@org, @course), :method => :get %>
-<%= button_to 'Delete course', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
+<% if current_user == @org.owner || current_user.site_admin? %>
+  <%= button_to 'edit course', edit_organization_course_path(@org, @course), :method => :get %>
+  <%= button_to 'Delete course', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
+<% end %>

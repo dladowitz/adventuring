@@ -10,7 +10,8 @@
   <h1> Adventuring </h1>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
+  <%= link_to 'Home', root_url %>
+  <%= link_to 'Organization', organization_path(@org) if @org %>
   <%= yield %>
 
 </body>

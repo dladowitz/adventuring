@@ -1,16 +1,25 @@
 <%= form_for @org do |f| %>
+  <table>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :name %>:
-    <%= f.text_field :name %><br />
-  </p>
-  <%= f.label :description %>:
-  <%= f.text_area :description %><br />
+  <tr>
+    <td><%= f.label :name %>:</td>
+    <td><%= f.text_field :name, :placeholder => "#{@org.name}" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :description %>:</td>
+    <td><%= f.text_area(:description, :rows => 4) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :website %>:</td>
+    <td><%= f.text_field :website %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :phone_num %>:</td>
+    <td><%= f.text_field :phone_num %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
 
-  <%= f.label :website %>:
-  <%= f.text_field :website %><br />
-
-  <%= f.label :phone_num %>:
-  <%= f.text_field :phone_num %><br />
-  <%= f.submit %>
+  </table>
 <% end %>

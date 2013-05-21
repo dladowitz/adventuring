@@ -9,5 +9,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :age, :name
   has_many :reviews
+  has_many :roles
   belongs_to :organization
+
+  def site_admin?
+    self.roles.each do |role|
+      if role.permission == 'site_admin'
+        return true
+      end
+    end
+
+    return false
+  end
 end
