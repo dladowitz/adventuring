@@ -7,7 +7,7 @@ class OrganizationsController < ApplicationController
 
   def new
     @org = Organization.new
-    @review = Review.new
+    # @review = Review.new
   end
 
   def create
