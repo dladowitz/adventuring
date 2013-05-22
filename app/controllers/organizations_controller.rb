@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
 
   def new
     @org = Organization.new
+    @review = Review.new
   end
 
   def create
@@ -50,5 +51,6 @@ class OrganizationsController < ApplicationController
 
   def show
     @org = Organization.find(params[:id])
+    @review = Review.new
   end
 end

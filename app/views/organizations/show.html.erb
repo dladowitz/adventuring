@@ -1,7 +1,6 @@
 <br>
 <br>
-<strong><%= @org.name %></strong>
-<br>
+<h2><strong><%= @org.name %></strong></h2>
 Description:
 <%= @org.description %>
 <br>
@@ -15,8 +14,17 @@ Phone:
 <% if current_user.site_admin? %>
   (owner: <%= @org.owner.name ? @org.owner.name : @org.owner.email %>)
 <% end %>
-
-
+<br>
+<br>
+<% if current_user == @org.owner || current_user.site_admin? %>
+  <span>
+    <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
+    <%= button_to 'Delete Organization', pre_destroy_organization_path(@org.id), :method => :get, :confirm => "Are you sure?"%>
+   </span>
+<% end %>
+________________________________________________________________________
+<br>
+<strong>Courses Offered</strong>
 <br>
 <br>
 <% @org.courses.each do |course| %>
@@ -32,9 +40,46 @@ Phone:
 <% if current_user == @org.owner || current_user.site_admin? %>
   <span>
     <%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
-    <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
-    <%= button_to 'Delete Organization', pre_destroy_organization_path(@org.id), :method => :get, :confirm => "Are you sure?"%>
    </span>
 <% end %>
+________________________________________________________________________
+<br>
+<strong> User Reviews </strong>
+<br>
+<br>
+<% @org.reviews.each do |review|%>
 
+  "<%= review.content %>"
+  <br>
+  rating: <%= "*" * review.rating %>
+  <br>
+  <% user = User.find(review.user_id) %>
+  -<%= user.name ? user.name : user.email %>
+  <br>
+  ----------------------------
+    <br>
+    <br>
+<% end %>
+<strong>Add a review to the Organization</strong>
+<%= form_for @review do |f| %>
+  <table>
+  <%= f.error_messages %>
+  <tr>
+    <td><%= f.label :content %>:</td>
+    <td><%= f.text_area :content, :rows => 4, :placeholder => "These guys where awesome, no one died on this trip. Way to go, five stars! " %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :rating %>:</td>
+    <td><%= f.select(:rating, [['Five Stars', 5],['Four Stars', 4],['Three Stars', 3],['Two Stars', 2],['One Star', 1]]) %></td>
+  </tr>
+  <tr>
+    <td><%= f.hidden_field :organization_id, value: params[:id] %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
 
+  </table>
+<% end %>
+<br>
+________________________________________________________________________
