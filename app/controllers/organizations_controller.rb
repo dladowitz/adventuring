@@ -6,8 +6,8 @@ class OrganizationsController < ApplicationController
   end
 
   def new
-    @org = Organization.new
-    # @review = Review.new
+    @organization = Organization.new
+    @review = Review.new
   end
 
   def create
