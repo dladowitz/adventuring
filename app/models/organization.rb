@@ -1,11 +1,13 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :description, :name, :phone_num, :website
+  attr_accessible :description, :name, :phone_num, :website, :logo
 
-  has_many :reviews
+  has_many :reviews, :dependent => :destroy
   has_many :users
-  has_many :courses
-  has_many :roles
+  has_many :courses, :dependent => :destroy
+  has_many :roles, :dependent => :destroy
   validates_presence_of :name
+
+  has_attached_file :logo, :styles => { :medium => "300x300>", square: '200x200>', :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
   #only works while orgs have only one owner
   def owner

@@ -1,2 +1,36 @@
 <h2>Update Organization</h2>
-<%= render 'form' %>
+<%= form_for @org do |f| %>
+  <table>
+  <%= f.error_messages %>
+    <tr>
+      <td><%= f.label :name %>:</td>
+      <td><%= f.text_field :name, :placeholder => "#{@org.name}" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %>:</td>
+      <td><%= f.text_area(:description, :rows => 4) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :website %>:</td>
+      <td><%= f.text_field :website %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :phone_num %>:</td>
+      <td><%= f.text_field :phone_num %></td>
+    </tr>
+    <tr>
+      <td><%=  "Current Logo:" if @org.logo_file_name %></td>
+      <td><%=  image_tag @org.logo.url(:thumb) if @org.logo_file_name %> </td>
+    </tr>
+    <tr>
+      <td><%= f.label :logo %></td>
+      <td><%= f.file_field :logo %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit %></td>
+    </tr>
+
+  </table>
+<% end %>
+
+

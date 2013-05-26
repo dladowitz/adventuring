@@ -18,8 +18,14 @@
     <td><%= f.text_field :phone_num %></td>
   </tr>
   <tr>
+    <td><%= f.label :logo %></td>
+    <td><%= f.file_field :logo %></td>
+  </tr>
+  <tr>
     <td><%= f.submit %></td>
   </tr>
 
   </table>
 <% end %>
+
+

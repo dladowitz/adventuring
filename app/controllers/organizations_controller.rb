@@ -42,7 +42,7 @@ class OrganizationsController < ApplicationController
 
   def destroy
     @org = Organization.find(params[:id])
-    if @org.delete
+    if @org.destroy
       redirect_to @org
     else
       render :text => 'Something went wrong'

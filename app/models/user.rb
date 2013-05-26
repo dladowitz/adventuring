@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :age, :name
   has_many :reviews
-  has_many :roles
-  belongs_to :organization
+  has_many :roles, :dependent => :destroy
+  belongs_to :organization #TODO currently if a user creates an Org he is the owner. If he is
+                           #then deleted the Org has no admin. Need ensure a user can't be deleted without
+                           #setting a new Org owner
 
   def site_admin?
     self.roles.each do |role|
