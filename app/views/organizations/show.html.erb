@@ -1,9 +1,11 @@
 <br>
 <br>
 <h2><strong><%= @org.name %></strong></h2>
-<%=  image_tag @org.logo.url(:square) %>
-<br>
-<br>
+<% if @org.logo_file_name %>
+  <%=  image_tag @org.logo.url(:square) %>
+  <br>
+  <br>
+<% end %>
 Description:
 <%= @org.description %>
 <br>
@@ -22,7 +24,6 @@ Phone:
 <% if current_user == @org.owner || current_user.site_admin? %>
   <span>
     <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
-    <%= button_to 'Delete Organization', pre_destroy_organization_path(@org.id), :method => :get, :confirm => "Are you sure?"%>
    </span>
 <% end %>
 ________________________________________________________________________
@@ -36,6 +37,9 @@ ________________________________________________________________________
   <br>
   Description:
   <%= course.description %>
+  <br>
+  <%= image_tag course.photos.first.image.url(:thumb) if course.photos.any?%>
+
 <br>
 <br>
 <% end %>
@@ -86,3 +90,10 @@ ________________________________________________________________________
 <% end %>
 <br>
 ________________________________________________________________________
+<br>
+<strong> Photos </strong>
+<br>
+<br>
+<% @org.photos.each do |photo| %>
+  <%= image_tag photo.image.url(:medium) %>
+<% end %>

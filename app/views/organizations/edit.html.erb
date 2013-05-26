@@ -32,5 +32,47 @@
 
   </table>
 <% end %>
+<br>
+__________________________________
+
+<% if @org.photos.any? %>
+  <br>
+  <strong>Current Photos</strong>
+  <br>
+<% end %>
+
+<% @org.photos.each do |photo| %>
+  <%= image_tag photo.image.url(:thumb) %>
+  <%= button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"%>
+  <br>
+<% end %>
+<br>
+
+<strong>Add a photo</strong>
+<%= form_for @photo do |f| %>
+  <table>
+  <%= f.error_messages %>
+  <tr>
+    <td><%= f.label :image %></td>
+    <td><%= f.file_field :image %></td>
+  </tr>
+  <tr>
+    <td><%= f.hidden_field :organization_id, value: params[:id] %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
+
+  </table>
+<% end %>
+
+<% if current_user == @org.owner || current_user.site_admin? %>
+__________________________________
+<br>
+<strong>Delete Organization</strong>
+<br>
+<br>
+    <%= button_to 'Delete Organization Now', pre_destroy_organization_path(@org.id), :method => :get, :confirm => "Are you sure?"%>
+<% end %>
 
 

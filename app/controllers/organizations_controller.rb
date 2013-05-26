@@ -24,6 +24,7 @@ class OrganizationsController < ApplicationController
 
   def edit
     @org = Organization.find(params[:id])
+    @photo = Photo.new
   end
 
   def update

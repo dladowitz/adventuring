@@ -4,9 +4,9 @@ Adventuring::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-    :bucket => 'adventuring_images', #ENV['AWS_BUCKET'],
-      :access_key_id => 'AKIAI6BGNZC3TWP5VUSA',# ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => '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' #ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
 

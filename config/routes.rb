@@ -1,17 +1,18 @@
 Adventuring::Application.routes.draw do
 
-  resources :reviews
-
   root to: 'organizations#index'
   get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
 
+  resources :photos
+  resources :reviews
+  resources :home
+
+  devise_for :users
 
   resources :organizations do
     resources :courses
   end
-  resources :home
 
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -5,6 +5,7 @@ class Organization < ActiveRecord::Base
   has_many :users
   has_many :courses, :dependent => :destroy
   has_many :roles, :dependent => :destroy
+  has_many :photos, :dependent => :destroy
   validates_presence_of :name
 
   has_attached_file :logo, :styles => { :medium => "300x300>", square: '200x200>', :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

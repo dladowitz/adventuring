@@ -21,6 +21,7 @@ class CoursesController < ApplicationController
   def edit
     @org = Organization.find(params[:organization_id])
     @course = Course.find(params[:id])
+    @photo = Photo.new
   end
 
   def update

@@ -1,3 +1,41 @@
 <h2>Change Course Details</h2>
 
 <%= render 'form' %>
+____________________________________
+<% if @course.photos.any? %>
+  <br>
+  <strong>Course Photos</strong>
+  <br>
+<% end %>
+
+<% @course.photos.each do |photo| %>
+  <%= image_tag photo.image.url(:thumb) %>
+  <%= button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"%>
+  <br>
+<% end %>
+<br>
+
+<strong>Add a photo</strong>
+<%= form_for @photo do |f| %>
+  <table>
+  <%= f.error_messages %>
+  <tr>
+    <td><%= f.label :image %></td>
+    <td><%= f.file_field :image %></td>
+  </tr>
+  <tr>
+    <td><%= f.hidden_field :course_id, value: params[:id] %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
+
+  </table>
+<% end %>
+
+<% if current_user == @org.owner || current_user.site_admin? %>
+  ____________________________________
+  <br>
+  <stong>Delete Course</strong>
+  <%= button_to 'Delete course now', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
+<% end %>

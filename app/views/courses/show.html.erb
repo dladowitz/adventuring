@@ -11,10 +11,17 @@
 <%= @course.description %>
 <br>
 <strong>Price: </strong>
-<%= @course.price %>
+<%= number_to_currency(@course.price) %>
 
 <br><br>
+_____________________________________________________________________
+<br>
+<strong> Photos </strong>
+<br>
+<br>
+<% @course.photos.each do |photo| %>
+  <%= image_tag photo.image.url(:medium) %>
+<% end %>
 <% if current_user == @org.owner || current_user.site_admin? %>
   <%= button_to 'edit course', edit_organization_course_path(@org, @course), :method => :get %>
-  <%= button_to 'Delete course', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
 <% end %>
