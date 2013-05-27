@@ -69,6 +69,29 @@ __________________________________
 <% if current_user == @org.owner || current_user.site_admin? %>
 __________________________________
 <br>
+<strong>User Permissions for Organization</strong>
+<br>
+<br>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Permission</th>
+  </tr>
+  <% @org.roles.each do |role| %>
+  <tr>
+    <td><%= role.user.email %></td>
+    <td><%= role.permission %></td>
+    <% if role.user.other_org_owners?(@org) or role.permission != 'owner' %>
+      <td><%= link_to 'Delete Role', role_path(role), :method => :delete %></td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'Add User to Organization', {:controller => "roles", :action => "new", :organization_id => @org.id }, :method => :get %>
+<br>
+__________________________________
+<br>
 <strong>Delete Organization</strong>
 <br>
 <br>

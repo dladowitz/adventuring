@@ -38,7 +38,7 @@ class CoursesController < ApplicationController
   def destroy
     @org = Organization.find(params[:organization_id])
     @course = Course.find(params[:id])
-    if @course.delete
+    if @course.destroy
       redirect_to organization_path(@org)
     else
       render :text => "Could not delete course"

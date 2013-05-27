@@ -1,0 +1,29 @@
+<h1>My Account</h1>
+<table>
+  <tr>
+    <th>Name: </th>
+    <td><%= current_user.name %></td>
+  </tr>
+  <tr>
+    <th>Email: </th>
+    <td><%= current_user.email %></td>
+  </tr>
+</table>
+<%= button_to 'Change or Cancel Account', edit_user_registration_path, :method => :get %>
+<br>
+<% if current_user.profile_photo_file_name %>
+  <%=  image_tag current_user.profile_photo.url(:square) %>
+  <br>
+  <br>
+<% end %>
+<table>
+  <tr>
+    <th>Organizations: </th>
+  </tr>
+  <% current_user.roles.each do |role| %>
+  <tr>
+    <th><strong><%= link_to role.organization.name, role.organization %>: </strong></th>
+    <td><%= role.permission %></td>
+  <% end %>
+  </tr>
+</table>

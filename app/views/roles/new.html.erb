@@ -1,0 +1,24 @@
+<h1>Add a User to <%= @org.name %></h1>
+
+
+<%= form_for @role do |f| %>
+  <table>
+  <%= f.error_messages %>
+    <tr>
+      <td><%= f.label :email_address %>:</td>
+      <td><%= f.email_field :user_id %></td> <!-- here we are hacking the user_id field and because we really want an email address -->
+
+    </tr>
+    <tr>
+      <td><%= f.label :permission %>:</td>
+      <td><%= f.select :permission, [['owner','owner'],['admin','owner']]%></td>
+    </tr>
+    <tr>
+      <td><%= f.hidden_field :organization_id, value: @org.id %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit %></td>
+    </tr>
+
+  </table>
+<% end %>

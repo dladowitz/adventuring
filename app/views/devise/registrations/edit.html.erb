@@ -6,6 +6,9 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -16,6 +19,12 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div><%=  "Current Photo" if current_user.profile_photo_file_name %></br>
+  <%=  image_tag current_user.profile_photo.url(:thumb) if current_user.profile_photo_file_name %> </div>
+
+  <div><%= f.label :profile_photo %></br>
+  <%= f.file_field :profile_photo %></div>
+
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
@@ -23,7 +32,27 @@
 <% end %>
 
 <h3>Cancel my account</h3>
+<p>Unhappy? Feel the need to split this place?</p>
+<% if current_user.org_owner? %>
+  You currently are listed as the <strong>Owner</strong> of the following organizations.
+  <br>
+  Please delete the organizations or transfer ownership before deleting your account.
+  <br>
+  <br>
+<table>
+  <tr>
+    <th>Organizations</th>
+  <tr>
+  <% current_user.roles.each do |role| %>
+  <tr>
+    <td><%= link_to role.organization.name, role.organization %></td>
+  <% end %>
+  </tr>
+</table>
+<% elsif %>
+<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+<% end %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<br>
 
 <%= link_to "Back", :back %>
