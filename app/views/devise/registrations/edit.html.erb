@@ -1,45 +1,78 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-horizontal", :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div class="control-group">
+    <%= f.label :email, :class => "control-label"  %>
+    <div class="controls">
+      <%= f.email_field :email, :autofocus => true %>
+    </div>
+  </div>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
+  <div class="control-group">
+    <%= f.label :name, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password, :autocomplete => "off" %> <br> <i> (leave blank if you don't want to change)</i>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+   <div class="control-group">
+    <div class="control-label">
+      <%=  "Current Photo" if current_user.profile_photo_file_name %>
+    </div>
+    <div class="controls">
+      <%=  image_tag current_user.profile_photo.url(:thumb) if current_user.profile_photo_file_name %>
+    </div>
+  <div>
+  <div class="control-group">
+    <%= f.label :profile_photo, :class => "control-label" %></br>
+    <div class="controls">
+      <%= f.file_field :profile_photo %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_password, :class => "control-label" %> <br />
+    <div class="controls">
+      <%= f.password_field :current_password %><br>
+    <i>(we need your current password to confirm your changes)</i>
+  </div>
+</div>
 
-  <div><%=  "Current Photo" if current_user.profile_photo_file_name %></br>
-  <%=  image_tag current_user.profile_photo.url(:thumb) if current_user.profile_photo_file_name %> </div>
 
-  <div><%= f.label :profile_photo %></br>
-  <%= f.file_field :profile_photo %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Update" %>
+    </div>
+  </div>
 <% end %>
 
 <h3>Cancel my account</h3>
-<p>Unhappy? Feel the need to split this place?</p>
+Unhappy? Feel the need to split this place?</p>
 <% if current_user.org_owner? %>
   You currently are listed as the <strong>Owner</strong> of the following organizations.
   <br>
   Please delete the organizations or transfer ownership before deleting your account.
   <br>
   <br>
-<table>
+<table class="controls">
   <tr>
     <th>Organizations</th>
   <tr>
