@@ -68,26 +68,12 @@ ________________________________________________________________________
     <br>
 <% end %>
 <strong>Add a review to the Organization</strong>
-<%= form_for @review do |f| %>
-  <table>
-  <%= f.error_messages %>
-  <tr>
-    <td><%= f.label :content %>:</td>
-    <td><%= f.text_area :content, :rows => 4, :placeholder => "These guys where awesome, no one died on this trip. Way to go, five stars! " %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :rating %>:</td>
-    <td><%= f.select(:rating, [['Five Stars', 5],['Four Stars', 4],['Three Stars', 3],['Two Stars', 2],['One Star', 1]]) %></td>
-  </tr>
-  <tr>
-    <td><%= f.hidden_field :organization_id, value: params[:id] %></td>
-  </tr>
-  <tr>
-    <td><%= f.submit %></td>
-  </tr>
+<br>
+<br>
+<%= render 'reviews/form' %>
 
-  </table>
-<% end %>
+
+
 <br>
 ________________________________________________________________________
 <br>

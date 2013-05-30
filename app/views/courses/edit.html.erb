@@ -16,26 +16,43 @@ ____________________________________
 <br>
 
 <strong>Add a photo</strong>
-<%= form_for @photo do |f| %>
-  <table>
-  <%= f.error_messages %>
-  <tr>
-    <td><%= f.label :image %></td>
-    <td><%= f.file_field :image %></td>
-  </tr>
-  <tr>
-    <td><%= f.hidden_field :course_id, value: params[:id] %></td>
-  </tr>
-  <tr>
-    <td><%= f.submit %></td>
-  </tr>
+<%= form_for @photo, :html => { :class => "form-horizontal" } do |f| %>
 
-  </table>
+  <%= f.error_messages %>
+  <div class="control-group">
+    <%= f.label :image, :class => "control-label"  %>
+    <div class="controls">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+      <%= f.hidden_field :course_id, value: params[:id] %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit %>
+    </div>
+  </div>
+
+
+
 <% end %>
 
 <% if current_user == @org.owner || current_user.site_admin? %>
   ____________________________________
   <br>
-  <stong>Delete Course</strong>
-  <%= button_to 'Delete course now', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
+  <div class="row">
+    <div class="span12">
+      <stong>Delete Course</strong>
+    </div>
+
+  <div>
+  <div class="row">
+    <div class="span2"></div>
+    <div class="span4 offet2">
+      <%= button_to 'Delete course now', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
+    </div>
+  </div>
 <% end %>
+
+
+

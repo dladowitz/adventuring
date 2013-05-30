@@ -1,24 +1,39 @@
-<%= form_for ([@org, @course]) do |f| %>
-  <table>
-  <%= f.error_messages %>
-  <tr>
-    <td><%= f.label :name %>:</td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :description %>:</td>
-    <td><%= f.text_area(:description, :rows => 4) %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :price %>:</td>
-    <td><%= f.text_field :price %></td>
-  </tr>
-  <tr>
-    <td><%= f.hidden_field :organization_id, value: params[:organization_id] %></td>
-  </tr>
-  <tr>
-    <td><%= f.submit %></td>
-  </tr>
+<%= form_for [@org, @course], :html => { :class => "form-horizontal"} do |f| %>
 
-  </table>
+  <%= f.error_messages %>
+  <div class="control-group">
+    <%= f.label :name, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :description, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area(:description, :rows => 4) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :price, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :price %>
+    </div>
+  </div>
+
+    <%= f.hidden_field :organization_id, value: params[:organization_id] %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit %>
+    </div>
+  </div>
+
+
+
 <% end %>
+
+
+
+

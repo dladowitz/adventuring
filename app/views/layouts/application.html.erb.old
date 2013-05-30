@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adventuring</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1> Adventuring </h1>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= link_to 'Home', root_url %>
+  <%= link_to 'Organization', organization_path(@org) if @org %>
+  <%= link_to 'My Profile', profile_path(current_user) if current_user %>
+
+  <%= yield %>
+
+</body>
+</html>
