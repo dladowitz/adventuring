@@ -11,6 +11,7 @@ gem 'dynamic_form'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'bootstrap-sass'
 
 # Gems used only for assets and not required
 # in production environments by default.
