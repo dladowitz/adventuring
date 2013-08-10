@@ -9,6 +9,7 @@ Adventuring::Application.routes.draw do
   resources :home
   resources :roles
   resources :profiles
+  resources :courses
 
   resources :organizations do
     resources :courses

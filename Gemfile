@@ -29,7 +29,11 @@ gem 'jquery-rails'
 
 group :development do
   gem 'awesome_print'
+  gem 'debugger'
+  gem 'pry'
+  # gem 'pry-debugger'
   gem 'quiet_assets'
+
 end
 
 

@@ -1,26 +1,25 @@
-<%= link_to "Adventuring", root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if @org %>
-    <li>
-      <%= link_to @org.name, organization_path(@org) %>
-    <li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Log Out', '/users/sign_out', :method => :delete %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Profile', profile_path(current_user)) %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Sign up', new_user_registration_path)  %>
-    </li>
-  <% end %>
-</ul>
+<div class="header_bar">
+  <div class="logo">
+    <%= link_to "Adventuring", root_path, :class => 'brand' %>
+  </div>
+
+  <div class="nav_bar">
+    <ul>
+      <% if @org %>
+        <li> <%= link_to @org.name, organization_path(@org) %><li>
+      <% end %>
+      <% if user_signed_in? %>
+        <li> <%= link_to 'Log Out', '/users/sign_out', :method => :delete %> </li>
+      <% else %>
+        <li> <%= link_to('Login', new_user_session_path) %> </li>
+      <% end %>
+      <li> <%= link_to('Cities', '#') %> </li>
+      <li> <%= link_to('Categories', '#') %> </li>
+      <% if user_signed_in? %>
+        <li> <%= link_to('Profile', profile_path(current_user)) %> </li>
+      <% else %>
+        <li> <%= link_to('Sign up', new_user_registration_path) %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
