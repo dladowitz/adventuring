@@ -3,19 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Adventuring" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Piedra' %>
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Pathway+Gothic+One' %>
+
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag 'href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css'  %>
     <%= csrf_meta_tags %>
+
+  </head>
+
+
+
     <%= yield(:head) %>
   </head>
   <body>
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">
-          <%= render 'layouts/navigation' %>
+          <%= render 'layouts/header' %>
         </div>
       </nav>
     </header>
@@ -29,6 +38,7 @@
             </div>
           </div>
           <footer>
+            <%= render 'layouts/footer' %>
           </footer>
         </div>
       </div> <!--! end of .container -->
