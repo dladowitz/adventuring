@@ -29,6 +29,8 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
 
     if @course.update_attributes(params[:course])
+      debugger
+      binding.pry
       redirect_to organization_course_path(@org, @course)
     else
       render :edit
