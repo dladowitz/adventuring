@@ -1,0 +1,131 @@
+/* Place all the styles related to the Courses controller here.
+They will automatically be included in application.css. */
+
+.hero_bar {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.hero_bar img{
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+  width: 100%
+}
+
+.search {
+  background-color: rgba(200, 200, 200, .65);
+  box-shadow: 2px 2px 2px 2px rgba(100, 100, 100, .5);
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 1120px;
+  margin: 50px auto;
+  padding: 10px;
+  z-index: 2;
+  position: relative;
+}
+
+.search h1 {
+  font-size: 60px;
+  float: left;
+  font-weight: 300;
+  padding: 10px;
+  color: #343D3A;
+
+}
+.search_box {
+  width: 400px;
+  /*height: 40px;*/
+  font-size: 20px;
+  float: right;
+  padding: 5px;
+}
+
+.search_submit_button {
+  height: 38px;
+  width: 100px;
+  float: left;
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 15px;
+  margin-left: 15px;
+  float: right;
+}
+
+.search_submit_button:hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+}
+
+.course {
+  width: 360px;
+  height: 250px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin: 10px;
+  float: left;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.course:hover {
+  box-shadow: 0 0 10px darkgreen;
+}
+
+.course .course_info {
+  padding: 5px;
+  color: #8CA952;
+  height: 50px;
+  z-index: 1;
+}
+
+.course .course_photo {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+
+.course .course_photo img {
+  width: 100%
+}
+
+.course .index_page_overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, .7);
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  height: 200px;
+  width: 360px;
+  border-radius: 5px 5px 0 0;
+  position: absolute;
+  bottom: 50px;
+}
+
+.course .index_page_overlay .next_class {
+  color: rgba(255, 255, 255, .45);
+  margin-top: 30px;
+}
+
+.course .index_page_overlay .class_date {
+  color: rgba(255, 255, 255, 1);
+  margin-top: 20px;
+  font-size: 35px;
+}
+
+.course .course_info .course_name {
+  font-size: 20px;
+  padding-bottom: 2px;
+  color: #728A42;
+  clear: left;
+}
+.course .course_info .price {
+  float: right;
+}
+.course .course_info .locaton {
+  float: left;
+}

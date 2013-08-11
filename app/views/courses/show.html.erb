@@ -10,6 +10,9 @@
 <strong>Description: </strong>
 <%= @course.description %>
 <br>
+<strong>Currently Offered: </strong>
+<%= @course.active? %>
+<br>
 <strong>Price: </strong>
 <%= number_to_currency(@course.price) %>
 

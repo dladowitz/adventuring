@@ -22,6 +22,15 @@
     </div>
   </div>
 
+  <div class="control-group">
+    <%= f.label :active, :class => "control-label" %>
+    <div class="controls">
+      <%= radio_button_tag(:active, true) %>
+      <%= label_tag(:active_true, "yes") %>
+      <%= radio_button_tag(:active, false) %>
+      <%= label_tag(:active_false, "no") %>
+    </div>
+  </div>
     <%= f.hidden_field :organization_id, value: params[:organization_id] %>
 
   <div class="control-group">

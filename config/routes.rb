@@ -1,6 +1,6 @@
 Adventuring::Application.routes.draw do
 
-  root to: 'organizations#index'
+  root to: 'courses#index'
   get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
   devise_for :users
 

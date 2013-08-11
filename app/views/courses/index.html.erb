@@ -1,3 +1,49 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+    <div class="hero_bar">
+      <img class="hero_image" src="assets/courses/el_cap_hero_bar.jpg">
+      <div class="search">
+        <h1>Find Your Adventure</h1>
+        <form name="search" action="#" method="get">
+          <input class="search_submit_button" type="submit" value="Search">
+          <input class="search_box" type="text" name="search" placeholder="rock climbing, sailing, scuba diving....">
+        </form>
+      </div>
+    </div>
 
+    <div class="container">
+      <div class="main_content">
+        <h1>Courses</h1>
+
+        <% @courses.each do |course| %>
+          <a href="organizations/<%= course.organization.id %>/courses/<%= course.id %>">
+            <div class="course">
+              <div class="course_photo">
+                <% unless course.photos.empty? %>
+                  <%= image_tag course.photos.first.image.url %>
+                  <!-- TODO: Test out cycle.js pluging for scrolling images -->
+                <% end %>
+              </div>
+              <div class="index_page_overlay">
+                <div class="next_class">
+                  Next Class
+                </div>
+                <div class="class_date">
+                  Aug 17th
+                </div>
+              </div>
+              <div class="course_info">
+                <div class="course_name">
+                  <%= course.name %>
+                </div>
+                <div class="price">
+                  <%= number_to_currency(course.price) %>
+                </div>
+                <div class="location">
+                  <!-- <%= course.name %> TODO: add location to course model-->
+                </div>
+              </div>
+            </div>
+          </a>
+        <% end %>
+
+      </div>
+    </div>

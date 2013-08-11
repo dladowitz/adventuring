@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :description, :name, :organization_id, :price
+  attr_accessible :description, :name, :organization_id, :price, :active
   belongs_to :organization
   has_many :photos, :dependent => :destroy
 
