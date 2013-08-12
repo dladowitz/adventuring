@@ -1,0 +1,25 @@
+<%= form_for @instructor do |f| %>
+  <table>
+  <%= f.error_messages %>
+  <tr>
+    <td><%= f.label :first_name %>:</td>
+    <td><%= f.text_field :first_name, :placeholder => "first name" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :last_name %>:</td>
+    <td><%= f.text_field :last_name, :placeholder => "last name" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :profile_photo %></td>
+    <td><%= f.file_field :profile_photo %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :organization_id %></td>
+    <td><%= f.text_field :organization_id %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
+
+  </table>
+<% end %>

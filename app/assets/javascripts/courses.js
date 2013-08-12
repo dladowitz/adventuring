@@ -20,4 +20,13 @@ $(document).ready(function() {
     function(){$(this).find('.index_page_overlay').slideUp()}
   );
 
+   //cycles though images on course show page
+  $('.main_image').cycle({
+    fx:      'scrollRight',
+    next:   '.arrow',
+    timeout:  0,
+    speed: 1500,
+    easing:  'easeInOutBack',
+  });
+
 });
