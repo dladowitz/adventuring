@@ -1,30 +1,109 @@
-<br>
-<br>
+    <div class="container">
+      <div class="main">
+        <div class="course_content">
+          <div class="title"><%= @course.name %></div>
+          <!-- only show next arrow if there is more than one photo -->
+          <% if @course.photos.count > 1 %>
+            <img class='arrow' src="/assets/courses/arrow-next.png" height='100px'>
+          <% end %>
+          <div class="main_image_section">
+              <% @course.photos.each do |photo| %>
+                <div class="slide">
+                  <%= image_tag photo.image.url %>
+                </div>
+              <% end %>
+          </div>
+          <div class="description_group">
+            <h1>Course Info</h1>
+            <div class="description">
+              <%= @course.description %>
+            </div>
+          </div>
+        </div>
 
-<strong>Course Name: </strong>
-  <%= @course.name %>
-<br>
-<strong>Organiation: </strong>
-<%= @course.organization.name %>
-<br>
-<strong>Description: </strong>
-<%= @course.description %>
-<br>
-<strong>Currently Offered: </strong>
-<%= @course.active? %>
-<br>
-<strong>Price: </strong>
-<%= number_to_currency(@course.price) %>
+        <div class="reviews">
+          <% @course.organization.reviews.each do |review| %>
+            <div class="review_group">
+              <div class="reviewer">
+                <a href="#">
+                  <div class="image">
+                    <%= image_tag review.user.profile_photo.url %>
+                  </div>
+                </a>
+                <div class="name"><%= review.user.name %></div>
+              </div>
+              <div class='review'>
+                <%= review.content %>
+              </div>
+              <div class="rating">
+                <img src="/assets/courses/yelp_<%= review.rating.to_i %>_stars_transparent.png">
+              </div>
+            </div>
+          <% end %>
+        </div>
 
+      </div>
+
+      <aside>
+        <div class="dates">
+          <p>Next Dates:</p>
+          <form>
+            <input type="radio" name="date" value="July 20th">July 20th<br>
+            <input type="radio" name="date" value="Aug 1st">Aug 1st<br>
+            <input type="radio" name="date" value="Aug 21st">Aug 21st<br>
+            <!-- <input type="submit" value="Submit"> -->
+          </form>
+        </div>
+        <div class="price">
+          <%= number_to_currency(@course.price) %>
+          <input class="buy_now" type="submit" value="Buy Now">
+          <!-- <button>Buy Now</button> -->
+        </div>
+
+        <% if @course.instructor %>
+          <div class="profile">
+            <p>Instructor Profile</p>
+            <a href="#">
+              <div class="image">
+                <%= image_tag @course.instructor.profile_photo.url %>
+              </div>
+            </a>
+            <div class="name">Cameron S.</div>
+            <hr>
+            <div class="other_courses">
+              <p>Other Courses</p>
+              <ul>
+                <a href="#"><li>Self Rescue</li></a>
+                <a href="#"><li>Big Wall Climing</li></a>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="company">
+          <p>Company Profile</p>
+          <a href="company_profile.html">
+            <div class="image">
+              <%= image_tag @course.organization.logo.url %>
+            </div>
+          </a>
+          <div class="name"><%= @course.organization.name %></div>
+          <hr>
+          <div class="other_courses">
+            <p>All Courses</p>
+            <ul>
+              <% @course.organization.courses.each do |course| %>
+                <a href="/organizations/<%= course.organization.id %>/courses/<%= course.id %>"><li> <%= course.name %></li></a>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+
+----------Admin Section----------
 <br><br>
-_____________________________________________________________________
-<br>
-<strong> Photos </strong>
-<br>
-<br>
-<% @course.photos.each do |photo| %>
-  <%= image_tag photo.image.url(:medium) %>
-<% end %>
 <% if current_user && (current_user == @org.owner || current_user.site_admin?) %>
   <%= button_to 'edit course', edit_organization_course_path(@org, @course), :method => :get %>
 <% end %>
