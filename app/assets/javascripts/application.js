@@ -16,3 +16,18 @@
 //= require bootstrap
 //= require_tree .
 
+
+//'course' class could have conflicts as its name is used on both Course Index and Company Show
+
+//slides up and down over course images on Course index page.
+  $('.course').hover(
+    function(){$(this).find('.index_page_overlay').slideDown()},
+    function(){$(this).find('.index_page_overlay').slideUp()}
+  );
+
+
+//slides up and down over course images on company show page.
+  $('.course').hover(
+    function(){$(this).find('.course_overlay').slideDown()},
+    function(){$(this).find('.course_overlay').slideUp()}
+  );

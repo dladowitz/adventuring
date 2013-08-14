@@ -133,17 +133,7 @@ They will automatically be included in application.css. */
 /*************** Course Show Page ***************/
 
 
-.container {
-  padding-right: 5px;
-}
 
-.main {
-  /*background-color: skyblue;*/
-  overflow: hidden;
-  float: left;
-  width: 805px;
-  padding: 0 0px 0px 0;
-}
 .main .course_content {
   border: 1px solid gray;
   border-radius: 5px;
@@ -168,14 +158,12 @@ They will automatically be included in application.css. */
   z-index: 1;
 }
 
-.main .course_content .slide{
+.main .course_content .slide {
   width: 100%
 }
 
 .main .course_content .main_image_section img {
   width: 100%;
-  /*margin: auto;*/
-  /*display: block;*/
 }
 
 .main .course_content .arrow {
@@ -199,70 +187,7 @@ They will automatically be included in application.css. */
   font-weight: 100;
 }
 
-.main .reviews {
-  overflow: hidden;
-  padding-bottom: 10px;
-  /*background-color: tomato;*/
-  padding-right: 5px; /*to make shadow with course_content match*/
-}
 
-.main .reviews .review_group {
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-color: rgba(200, 200, 200, .15);
-  margin-top: 20px;
-  padding: 10px;
-  overflow: hidden;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
-  margin-right: 0px;
-
-  /*position: relative;*/
-  /*top: 30px;*/
-}
-.main .reviews .review_group .reviewer {
-  float: left;
-  margin-right: 15px;
-}
-.main .reviews .review_group .reviewer .image {
-  border-radius: 10px;
-  overflow: hidden;
-  height: 40px;
-  width: 40px;
-  box-shadow: 0 0 10px black;
-  border: 1px solid gray;
-}
-
-.main .reviews .review_group .reviewer .image:hover {
-  box-shadow: 0 0 10px darkgreen;
-}
-
-.main .reviews .review_group .reviewer .image img{
-  height: 40px;
-  float: left;
-}
-
-.main .reviews .review_group .reviewer .name {
-  margin-top: 5px;
-  text-align: center;
-}
-
-.main .reviews .review_group .review {
-  font-size: 18px;
-  line-height: 20px;
-  width: 600px;
-  float: left;
-}
-
-.main .reviews .review_group .rating img{
-  width: 80px;
-  float: right;
-  margin-right: 20px;
-}
-aside {
-  width: 320px;
-  float: right;
-  margin-right: 0px;
-}
 
 aside .dates {
   font-size: 20px;
@@ -284,6 +209,9 @@ aside .dates input {
   background-color: green;
 }
 
+
+
+/*price box*/
 aside .price {
   font-size: 30px;
   border: 1px solid gray;
@@ -311,6 +239,9 @@ aside .price .buy_now:hover {
   background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
 }
 
+
+
+/*instructor profile box*/
 aside .profile {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   background-color: rgba(114, 138, 66, .25);
@@ -345,7 +276,7 @@ aside .profile .image img {
   width: 200px;
 }
 
-aside .name {
+aside .profile .instructor_name {
   margin-top: 10px;
   font-size: 20px;
   text-align: center;
@@ -366,20 +297,17 @@ aside li {
   font-size: 18px;
 }
 
-aside a {
+aside .profile a {
   color: black;
   text-decoration: none;
 }
 
-aside a:hover {
+aside .profile a:hover {
   text-shadow: 0 0 4px green;
   color: rgb(255, 255, 255)
 }
 
-aside hr {
-  margin: 20px;
-}
-
+/*company profile box*/
 aside .company {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   background-color: rgba(114, 138, 66, .35);
@@ -391,9 +319,19 @@ aside .company {
   margin-bottom: 3px;
 }
 
+aside .company .company_name {
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+
+aside .company a {
+  color: black;
+  text-decoration: none;
+}
+
 aside .company .image {
-  /*max-width: 276px;*/
-  /*max-height: 350px;*/
   overflow: hidden;
   border-radius: 5px;
   border: 1px solid darkgray;
@@ -411,6 +349,11 @@ aside .company .image img {
 aside .company .image:hover {
   box-shadow: 0 0 10px darkgreen;
   border: 1px solid gray;
+}
+
+aside .company a:hover {
+  text-shadow: 0 0 4px green;
+  color: rgb(255, 255, 255)
 }
 
 aside .company p {

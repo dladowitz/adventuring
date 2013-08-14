@@ -1,20 +1,97 @@
+<div class="container">
+      <div class="main">
+        <div class="company_content">
+          <div class="title"><%= @org.name %></div>
+          <!-- only show next arrow if there is more than one photo -->
+          <% if @org.photos.count > 1 %>
+            <img class='arrow' src="/assets/courses/arrow-next.png" height='100px'>
+          <% end %>
+          <div class="main_image_section">
+            <% @org.photos.each do |photo| %>
+              <div class="slide">
+                <%= image_tag photo.image.url %>
+              </div>
+            <% end %>
+          </div>
+          <div class="description_group">
+            <h1>Company Info</h1>
+            <div class="description">
+              <%= @org.description %>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews">
+        <% @org.reviews.each do |review| %>
+            <div class="review_group">
+              <div class="reviewer">
+                <a href="#">
+                  <div class="image">
+                    <%= image_tag review.user.profile_photo.url %>
+                  </div>
+                </a>
+                <div class="name"><%= review.user.name %></div>
+              </div>
+              <div class='review'>
+                <%= review.content %>
+              </div>
+              <div class="rating">
+                <img src="/assets/courses/yelp_<%= review.rating.to_i %>_stars_transparent.png">
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <aside>
+        <div class="courses_offered">
+          <p>Courses Offered</p>
+            <% @org.courses.each do |course| %>
+
+            <!-- Watch out. There is another class called 'course' on the homepage -->
+              <div class="course">
+                <a href="/organizations/<%= course.organization.id %>/courses/<%= course.id %>">
+                  <div class="course_name"><%= course.name %></div>
+                  <%= image_tag course.photos.first.image.url %>
+                  <div class="course_overlay">
+                    <div class="next_class">
+                      Next Class
+                    </div>
+                    <div class="class_date">
+                      Aug 17th
+                    </div>
+                  </div>
+                </a>
+              </div>
+            <% end %>
+        </div>
+
+        <div class="instructors">
+          <p>Instructors</p>
+          <% @org.instructors.each do |instructor| %>
+            <div class="instructor">
+              <a href="#">
+                <div class="image">
+                  <%= image_tag instructor.profile_photo.url %>
+                </div>
+              </a>
+              <div class="name"><%= instructor.first_name %> <%= instructor.last_name_initial %></div>
+              <hr>
+            </div>
+          <% end %>
+        </div>
+      </aside>
+    </div>
+
+
+
+
 <br>
 <br>
-<h2><strong><%= @org.name %></strong></h2>
-<% if @org.logo_file_name %>
-  <%=  image_tag @org.logo.url(:square) %>
-  <br>
-  <br>
-<% end %>
-Description:
-<%= @org.description %>
+
+_____________________________________________________________________
 <br>
-Website:
-<%= @org.website %>
-<br>
-Phone:
-<%= @org.phone_num %>
-<br>
+Admin Stuffs
 
 <% if current_user.site_admin? %>
   (owner: <%= @org.owner.name ? @org.owner.name : @org.owner.email %>)
@@ -26,7 +103,7 @@ Phone:
     <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
    </span>
 <% end %>
-________________________________________________________________________
+______________________________________________
 <br>
 <strong>Courses Offered</strong>
 <br>
@@ -34,12 +111,6 @@ ________________________________________________________________________
 <% @org.courses.each do |course| %>
   <strong>Course Name:</strong>
   <%= link_to course.name, organization_course_path(@org.id, course) %>
-  <br>
-  Description:
-  <%= course.description %>
-  <br>
-  <%= image_tag course.photos.first.image.url(:thumb) if course.photos.any?%>
-
 <br>
 <br>
 <% end %>
@@ -49,37 +120,9 @@ ________________________________________________________________________
     <%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
    </span>
 <% end %>
-________________________________________________________________________
+______________________________________________
 <br>
-<strong> User Reviews </strong>
-<br>
-</br>
-<% @org.reviews.each do |review|%>
-
-  "<%= review.content %>"
-  <br>
-  rating: <%= "*" * review.rating %>
-  <br>
-  <% user = User.find(review.user_id) %>
-  -<%= user.name ? user.name : user.email %>
-  <br>
-  ----------------------------
-    <br>
-    <br>
-<% end %>
 <strong>Add a review to the Organization</strong>
 <br>
 <br>
 <%= render 'reviews/form' %>
-
-
-
-<br>
-________________________________________________________________________
-<br>
-<strong> Photos </strong>
-<br>
-<br>
-<% @org.photos.each do |photo| %>
-  <%= image_tag photo.image.url(:medium) %>
-<% end %>

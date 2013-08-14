@@ -1,0 +1,163 @@
+/* Place all the styles related to the Organization controller here.
+ They will automatically be included in application.css.*/
+
+
+
+.main .company_content {
+  border: 1px solid gray;
+  border-radius: 5px;
+  /*background-color: rgba(200, 200, 200, .1);*/
+  overflow: hidden;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-right: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.main .company_content .title  {
+  font-size: 50px;
+  margin-bottom: 20px;
+  margin: 15px;
+}
+
+.main .company_content .main_image_section {
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.main .company_content .slide {
+  width: 100%;
+}
+
+.main .company_content .main_image_section img {
+  width: 100%;
+}
+
+.main .company_content .arrow {
+  position: absolute;
+  left: 700px;
+  top: 250px;
+  opacity: .75;
+  z-index: 2;
+}
+
+.main .company_content .description_group h1 {
+  font-size: 20px;
+  margin: 15px;
+}
+
+.main .company_content .description_group .description {
+  font-size: 20px;
+  margin: 15px;
+  line-height: 24px;
+  color: black;
+  font-weight: 100;
+}
+
+
+aside .courses_offered {
+  font-size: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgba(114, 138, 66, .05);
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, .5);
+  overflow: hidden;
+  text-align: center;
+}
+
+aside .courses_offered p {
+  font-size: 30px;
+}
+
+/*Watch out. There is another class called 'course' on the course.css file*/
+aside .courses_offered .course {
+  margin: 15px;
+  height: 200px;
+  width: 90%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: rgba(114, 138, 66, .15);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+  position: relative;
+}
+
+aside .courses_offered .course .course_name {
+  padding: 5px;
+}
+
+aside .courses_offered .course:hover {
+  box-shadow: 0 0 10px darkgreen;
+  border: 1px solid gray;
+}
+
+aside .courses_offered .course .course_overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, .7);
+  text-align: center;
+  color: white;
+  height: 200px;
+  width: 100%;
+  border-radius: 0px 0px 5px 5px;
+  position: absolute;
+  bottom: -31px;
+}
+
+aside .courses_offered .course .course_overlay .next_class {
+  color: rgba(255, 255, 255, .45);
+  margin-top: 30px;
+}
+
+aside .courses_offered .course .course_overlay .class_date {
+  color: rgba(255, 255, 255, 1);
+  margin-top: 20px;
+  font-size: 35px;
+}
+
+aside .instructors {
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .25);
+  font-size: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 3px;
+}
+
+aside .instructors p {
+  text-align: center;
+}
+
+aside .instructor .image {
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+  box-shadow: 0 0 10px black;
+  margin: auto;
+  margin-top: 20px;
+}
+
+aside .instructor .image:hover {
+  box-shadow: 0 0 10px darkgreen;
+  border: 1px solid gray;
+}
+
+
+aside .instructor .image img {
+  width: 200px;
+}
+
+aside .instructor .name {
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+
+
+

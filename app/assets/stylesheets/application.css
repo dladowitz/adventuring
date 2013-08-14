@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS files within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+    font-family: 'Pathway Gothic One', sans-serif;
+    color: rgb(75, 75, 75)
+}
+
+
+
+
+
+
+/*Shared loyout for Course && Organization*/
+
+.container {
+  padding-right: 5px;
+}
+
+.main {
+  overflow: hidden;
+  float: left;
+  width: 805px;
+  padding: 0 0px 0px 0;
+}
+
+
+
+/*review*/
+.main .reviews {
+  overflow: hidden;
+  padding-bottom: 10px;
+  padding-right: 5px; /*to make shadow with course_content match*/
+}
+
+.main .reviews .review_group {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: rgba(200, 200, 200, .15);
+  margin-top: 20px;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-right: 0px;
+}
+.main .reviews .review_group .reviewer {
+  float: left;
+  margin-right: 15px;
+}
+.main .reviews .review_group .reviewer .image {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+  box-shadow: 0 0 10px black;
+  border: 1px solid gray;
+}
+
+.main .reviews .review_group .reviewer .image:hover {
+  box-shadow: 0 0 10px darkgreen;
+}
+
+.main .reviews .review_group .reviewer .image img{
+  height: 40px;
+  float: left;
+}
+
+.main .reviews .review_group .reviewer .name {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.main .reviews .review_group .review {
+  font-size: 18px;
+  line-height: 20px;
+  width: 600px;
+  float: left;
+}
+
+.main .reviews .review_group .rating img{
+  width: 80px;
+  float: right;
+  margin-right: 20px;
+}
+
+
+
+/*aside box*/
+aside {
+  width: 320px;
+  float: right;
+  margin-right: 0px;
+}

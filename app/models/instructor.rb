@@ -9,4 +9,8 @@ class Instructor < ActiveRecord::Base
   has_attached_file :profile_photo, :styles => { :medium => "300x300>", square: '200x200>', :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
 
+  def last_name_initial
+    last_name[0]
+  end
+
 end

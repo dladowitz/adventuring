@@ -14,12 +14,6 @@ $(document).ready(function() {
     });
   });
 
-//slides up and down over course images on home page
-  $('.course').hover(
-    function(){$(this).find('.index_page_overlay').slideDown()},
-    function(){$(this).find('.index_page_overlay').slideUp()}
-  );
-
 //cycles though images on course show page
   $('.main_image_section').cycle({
     fx:      'scrollRight',

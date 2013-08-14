@@ -68,13 +68,14 @@
                 <%= image_tag @course.instructor.profile_photo.url %>
               </div>
             </a>
-            <div class="name">Cameron S.</div>
+            <div class="instructor_name"><%= @course.instructor.first_name %> <%= @course.instructor.last_name_initial %></div>
             <hr>
             <div class="other_courses">
-              <p>Other Courses</p>
+              <p>Courses Taught</p>
               <ul>
-                <a href="#"><li>Self Rescue</li></a>
-                <a href="#"><li>Big Wall Climing</li></a>
+                <% @course.instructor.courses.each do |course| %>
+                  <a href="/organizations/<%=course.organization.id %>/courses/<%= course.id %>"><li><%= course.name %></li></a>
+                <% end %>
               </ul>
             </div>
           </div>
@@ -82,12 +83,12 @@
 
         <div class="company">
           <p>Company Profile</p>
-          <a href="company_profile.html">
+          <a href="/organizations/<%= @course.organization.id %>">
             <div class="image">
               <%= image_tag @course.organization.logo.url %>
             </div>
           </a>
-          <div class="name"><%= @course.organization.name %></div>
+          <div class="company_name"><%= @course.organization.name %></div>
           <hr>
           <div class="other_courses">
             <p>All Courses</p>
