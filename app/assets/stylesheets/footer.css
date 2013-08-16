@@ -33,6 +33,9 @@
   list-style-type: none;
   font-size: 15px;
   font-weight: 100;
+  /*background-color: yellow;*/
+  position: relative;
+  right: 38px;
 }
 
 .footer_column ul li a {

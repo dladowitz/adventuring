@@ -65,7 +65,7 @@ aside .courses_offered {
   background-color: rgba(114, 138, 66, .05);
   box-shadow: 1px 2px 10px rgba(0, 0, 0, .5);
   overflow: hidden;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 aside .courses_offered p {
