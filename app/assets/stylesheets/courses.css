@@ -180,12 +180,12 @@ They will automatically be included in application.css. */
 }
 
 .main .course_content .description_group .description {
-  font-size: 20px;
-  margin: 15px;
+  margin: 30px;
+/*  font-size: 30px;
   line-height: 24px;
   color: black;
   font-weight: 100;
-}
+*/}
 
 
 

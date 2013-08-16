@@ -38,6 +38,8 @@ GEM
     bootstrap-sass (2.3.1.2)
       sass (~> 3.2)
     builder (3.0.4)
+    ckeditor_rails (4.2)
+      railties (>= 3.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -155,6 +157,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk
   bootstrap-sass
+  ckeditor_rails
   coffee-rails (~> 3.2.1)
   debugger
   devise

@@ -1,9 +1,13 @@
+/*Currently not using reset as it screws up the CKEditor*/
+
 /**
  * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
  * Richard Clark (http://richclarkdesign.com)
  * http://cssreset.com
  */
-html, body, div, span, object, iframe,
+
+
+/*html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
@@ -47,15 +51,15 @@ a {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
-}
+}*/
 /* change colours to suit your needs */
-ins {
+/*ins {
     background-color:#ff9;
     color:#000;
     text-decoration:none;
-}
+}*/
 /* change colours to suit your needs */
-mark {
+/*mark {
     background-color:#ff9;
     color:#000;
     font-style:italic;
@@ -71,9 +75,10 @@ abbr[title], dfn[title] {
 table {
     border-collapse:collapse;
     border-spacing:0;
-}
+}*/
+
 /* change border colour to suit your needs */
-hr {
+/*hr {
     display:block;
     height:1px;
     border:0;
@@ -83,4 +88,4 @@ hr {
 }
 input, select {
     vertical-align:middle;
-}
+}*/
