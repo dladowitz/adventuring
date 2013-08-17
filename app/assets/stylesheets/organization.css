@@ -71,6 +71,7 @@ aside .courses_offered {
 
 aside .courses_offered p {
   font-size: 30px;
+  text-align: center;
 }
 
 /*Watch out. There is another class called 'course' on the course.css file*/
@@ -83,10 +84,12 @@ aside .courses_offered .course {
   background-color: rgba(114, 138, 66, .15);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
   position: relative;
+
 }
 
 aside .courses_offered .course .course_name {
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
+  color: black;
 }
 
 aside .courses_offered .course:hover {
