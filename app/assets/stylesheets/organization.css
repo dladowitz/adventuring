@@ -72,8 +72,8 @@ aside .courses_offered {
 aside .courses_offered p {
   font-size: 30px;
   margin-bottom: 0px;  /*Reset.css is fucking this up too*/
+  margin-top: 10px;
   /*text-align: center;*/
-
 }
 
 /*Watch out. There is another class called 'course' on the course.css file.*/
@@ -92,6 +92,10 @@ aside .courses_offered .course {
 aside .courses_offered .course .course_name {
   padding: 5px 5px 5px 10px;
   color: black;
+}
+
+aside .courses_offered .course img {
+  width: 100%;
 }
 
 aside .courses_offered .course:hover {
@@ -135,6 +139,7 @@ aside .instructors {
 
 aside .instructors p {
   text-align: center;
+  margin-top: 0px;
 }
 
 aside .instructor .image {

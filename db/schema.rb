@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814033507) do
+ActiveRecord::Schema.define(:version => 20130817204817) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130814033507) do
     t.float    "price"
     t.boolean  "active"
     t.integer  "instructor_id"
+    t.string   "location"
   end
 
   create_table "instructors", :force => true do |t|

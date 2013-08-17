@@ -52,7 +52,7 @@
               <div class="course">
                 <a href="/organizations/<%= course.organization.id %>/courses/<%= course.id %>">
                   <div class="course_name"><%= course.name %></div>
-                  <%= image_tag course.photos.first.image.url %>
+                  <%= image_tag course.photos.first.image.url if course.photos.any? %>
                   <div class="course_overlay">
                     <div class="next_class">
                       Next Class

@@ -23,6 +23,13 @@
   </div>
 
   <div class="control-group">
+    <%= f.label :location, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :location %>
+    </div>
+  </div>
+
+  <div class="control-group">
     <%= f.label :active, :class => "control-label" %>
     <div class="controls">
       <%= radio_button_tag(:active, true) %>
@@ -38,9 +45,6 @@
       <%= f.submit %>
     </div>
   </div>
-
-
-
 <% end %>
 
 
