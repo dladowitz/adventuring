@@ -1,0 +1,43 @@
+/*Place all the styles related to the Profile controller here.
+They will automatically be included in application.css
+*/
+
+.main .main_content .info .personal_info  {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .05);
+  margin-bottom: 20px;
+}
+
+.main .main_content .info .personal_info img {
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-top: 10px;
+}
+
+.main .main_content .info .user_name  {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.main .main_content .info .user_email  {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.main .main_content .info .organization_info  {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .15);
+}
+.main .main_content .info .organization_info a:hover {
+  text-decoration: underline;
+}
+.main .main_content .info .organization_info th {
+  text-align: left;
+  padding-right: 20px;
+}

@@ -21,4 +21,5 @@ class Course < ActiveRecord::Base
     sections = sections.sort_by{|section| section.start_date}
     sections = sections[0..4]
   end
+
 end

@@ -1,29 +1,82 @@
-<h1>My Account</h1>
-<table>
-  <tr>
-    <th>Name: </th>
-    <td><%= current_user.name %></td>
-  </tr>
-  <tr>
-    <th>Email: </th>
-    <td><%= current_user.email %></td>
-  </tr>
-</table>
-<%= button_to 'Change or Cancel Account', edit_user_registration_path, :method => :get %>
-<br>
-<% if current_user.profile_photo_file_name %>
-  <%=  image_tag current_user.profile_photo.url(:square) %>
-  <br>
-  <br>
-<% end %>
-<table>
-  <tr>
-    <th>Organizations: </th>
-  </tr>
-  <% current_user.roles.each do |role| %>
-  <tr>
-    <th><strong><%= link_to role.organization.name, role.organization %>: </strong></th>
-    <td><%= role.permission %></td>
-  <% end %>
-  </tr>
-</table>
+<div class="container">
+  <div class="main">
+    <div class="main_content">
+      <div class="title">Profile</div>
+      <div class="info">
+        <div class="personal_info">
+          <div class="user_name">Name: <%= current_user.name %></div></td>
+          <div class="user_email">Email: <%= current_user.email %></div></td>
+
+          <% if current_user.profile_photo_file_name %>
+            <%=  image_tag current_user.profile_photo.url(:square) %>
+            <br>
+            <br>
+          <% end %>
+
+          <%= button_to 'Change or Cancel Account', edit_user_registration_path, :method => :get %>
+        </div>
+
+        <div class="organization_info">
+          <table>
+            <tr>
+              <th>Organizations </th>
+              <th>Role </th>
+            </tr>
+            <% current_user.roles.each do |role| %>
+            <tr>
+              <th><strong><%= link_to role.organization.name, role.organization %>: </strong></th>
+              <td><%= role.permission %></td>
+            <% end %>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="secondary_content">
+        <div class="review_group">
+          <div class="reviewer">
+            <div class="image">
+              reviewer image
+            </div>
+            <div class="name"></div>
+          </div>
+          <div class='review'>
+            Review Content
+          </div>
+          <div class="rating">
+            Rating
+          </div>
+        </div>
+    </div>
+  </div>
+  <aside>
+    <div class="section_1">
+      <p>Section 1</p>
+    </div>
+    <div class="section_2">
+      <p>Section 2</p>
+    </div>
+      <div class="section_3">
+        <p>Section 3</p>
+      </div>
+    <div class="section_4">
+      <p>Section 4</p>
+    </div>
+  </aside>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

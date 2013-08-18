@@ -10,6 +10,7 @@
       <% end %>
       <% if user_signed_in? %>
         <li> <%= link_to 'log out', '/users/sign_out', :method => :delete %> </li>
+        <li> <%= link_to 'post a class', '/organizations/new_user_session_path', :method => :get%> </li>
       <% else %>
         <li> <%= link_to('login', new_user_session_path) %> </li>
       <% end %>

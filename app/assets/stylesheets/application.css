@@ -12,12 +12,15 @@
  *= require_tree .
  */
 
+/***Shared Across Site***/
 body {
     font-family: 'Pathway Gothic One', sans-serif;
     color: rgb(75, 75, 75)
 }
 
-/*Shared loyout for Course && Organization*/
+
+/*Used for layout template. If the divs names are changed in the html file,
+create a new css file and add in only selectors that are changed. */
 
 .container {
   padding-right: 5px;
@@ -30,15 +33,37 @@ body {
   padding: 0 0px 0px 0;
 }
 
+.main .main_content {
+  border: 1px solid gray;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-right: 5px;
+  position: relative;
+  z-index: 1;
+}
 
-/*review*/
-.main .reviews {
+.main .main_content .title  {
+  font-size: 50px;
+  margin-bottom: 20px;
+  margin: 15px;
+}
+
+.main .main_content .info {
+  margin: 20px 20px 20px 20px;
+  font-family: helvetica;
+  line-height: 20px;
+}
+
+
+/*secondary content*/
+.main .secondary_content {
   overflow: hidden;
   padding-bottom: 10px;
   padding-right: 5px; /*to make shadow with course_content match*/
 }
 
-.main .reviews .review_group {
+.main .secondary_content .review_group {
   border: 1px solid gray;
   border-radius: 5px;
   background-color: rgba(200, 200, 200, .15);
@@ -48,11 +73,11 @@ body {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   margin-right: 0px;
 }
-.main .reviews .review_group .reviewer {
+.main .secondary_content .review_group .reviewer {
   float: left;
   margin-right: 15px;
 }
-.main .reviews .review_group .reviewer .image {
+.main .secondary_content .review_group .reviewer .image {
   border-radius: 10px;
   overflow: hidden;
   height: 40px;
@@ -62,33 +87,32 @@ body {
   margin: auto;
 }
 
-.main .reviews .review_group .reviewer .image:hover {
+.main .secondary_content .review_group .reviewer .image:hover {
   box-shadow: 0 0 10px darkgreen;
 }
 
-.main .reviews .review_group .reviewer .image img{
+.main .secondary_content .review_group .reviewer .image img{
   height: 40px;
   float: left;
 }
 
-.main .reviews .review_group .reviewer .name {
+.main .secondary_content .review_group .reviewer .name {
   margin-top: 5px;
   text-align: center;
 }
 
-.main .reviews .review_group .review {
+.main .secondary_content .review_group .review {
   font-size: 18px;
   line-height: 20px;
   width: 600px;
   float: left;
 }
 
-.main .reviews .review_group .rating img{
+.main .secondary_content .review_group .rating img{
   width: 80px;
   float: right;
   margin-right: 20px;
 }
-
 
 
 /*aside box*/
@@ -98,6 +122,58 @@ aside {
   margin-right: 0px;
 }
 
+aside .section_1 {
+  font-size: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgba(114, 138, 66, .05);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
+aside .section_1 p {
+  margin: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+aside .section_2 {
+  font-size: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgba(114, 138, 66, .15);
+  margin-top: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
+aside .section_3 {
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .25);
+  font-size: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 3px;
+}
+
+aside .section_3 p {
+  text-align: center;
+}
+
+aside .section_4 {
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .35);
+  font-size: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 3px;
+}
+
+aside .section_4 p {
+  text-align: center;
+}
 
 
 /*reset.css styles*/
