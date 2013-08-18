@@ -32,10 +32,20 @@ ____________________________________
       <%= f.submit %>
     </div>
   </div>
-
-
-
 <% end %>
+
+
+____________________________________
+<br>
+<strong>Scheduled Sections</strong>
+<br>
+<% @course.next_dates.each do |section| %>
+  <div><%= "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}" %></div>
+<% end %>
+
+<%= button_to 'Add A Section', new_organization_course_section_path(@org, @course), :method => :get %>
+
+
 
 <% if current_user == @org.owner || current_user.site_admin? %>
   ____________________________________

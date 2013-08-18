@@ -35,4 +35,9 @@ $(document).ready(function() {
 
   $('.company .image').css({height: logoHeight, width: logoWidth})
 
+//datepicker for start and end dates
+$('#course_start_date').datepicker();
+$('#course_end_date').timepicker();
+
+
 });

@@ -34,7 +34,13 @@
                 <div class="course_name">
                   <%= course.name %>
                 </div>
-                <div class="location"><%=course.location %></div>
+                <div class="location_group">
+                  <% if course.sections.any? %>
+                    <% course.unique_locations.each do |section|%>
+                      <div class="location"><%= section.location %></div>
+                    <% end %>
+                  <% end %>
+                </div>
                 <div class="price">
                   <%= number_to_currency(course.price) %>
                 </div>

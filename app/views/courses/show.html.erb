@@ -48,10 +48,10 @@
         <div class="dates">
           <p>Next Dates:</p>
           <form>
-            <input type="radio" name="date" value="July 20th">July 20th<br>
-            <input type="radio" name="date" value="Aug 1st">Aug 1st<br>
-            <input type="radio" name="date" value="Aug 21st">Aug 21st<br>
-            <!-- <input type="submit" value="Submit"> -->
+            <% @course.next_dates.each do |section| %>
+              <input type="radio" name="date" value="#"><%= "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}" %><br>
+              <!-- <input type="submit" value="Submit"> -->
+            <% end %>
           </form>
         </div>
         <div class="price">
@@ -60,26 +60,33 @@
           <!-- <button>Buy Now</button> -->
         </div>
 
-        <% if @course.instructor %>
           <div class="profile">
-            <p>Instructor or Guide</p>
-            <a href="#">
-              <div class="image">
-                <%= image_tag @course.instructor.profile_photo.url %>
-              </div>
-            </a>
-            <div class="instructor_name"><%= @course.instructor.first_name %> <%= @course.instructor.last_name_initial %></div>
-            <hr>
-            <div class="other_courses">
-              <p>Courses Taught</p>
-              <ul>
-                <% @course.instructor.courses.each do |course| %>
-                  <a href="/organizations/<%=course.organization.id %>/courses/<%= course.id %>"><li><%= course.name %></li></a>
-                <% end %>
-              </ul>
-            </div>
+            <p>Instructors & Guides</p>
+            <% @course.instructors.uniq.each do |instructor| %>
+              <hr>
+              <a href="#">
+                <div class="instructor">
+                  <a href="#">
+                    <div class="image">
+                      <%= image_tag instructor.profile_photo.url %>
+                    </div>
+                  </a>
+                  <div class="name"><%= instructor.first_name %> <%= instructor.last_name_initial %></div>
+                </div>
+              </a>
+
+
+      <!--    <div class="other_courses">
+                <p>Courses Taught</p>
+                <ul>
+                  <% instructor.courses.each do |course| %>
+                    <a href="/organizations/<%=course.organization.id %>/courses/<%= course.id %>"><li><%= course.name %></li></a>
+                  <% end %>
+                </ul>
+              </div> -->
+            <% end %>
           </div>
-        <% end %>
+
 
         <div class="company">
           <p>Company Profile</p>

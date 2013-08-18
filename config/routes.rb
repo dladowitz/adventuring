@@ -12,8 +12,13 @@ Adventuring::Application.routes.draw do
   resources :courses
   resources :instructors
 
+
+
+
   resources :organizations do
-    resources :courses
+    resources :courses do
+      resources :sections
+    end
   end
 
 

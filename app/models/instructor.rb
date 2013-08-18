@@ -2,7 +2,8 @@ class Instructor < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :organization_id, :profile_photo
 
   belongs_to :organization
-  has_many :courses
+  has_many :sections
+  has_many :courses, :through => :sections
 
   validates_presence_of :organization_id
 

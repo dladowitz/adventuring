@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course_id: 1
+  start_date: 2013-08-17 19:51:09
+  end_date: 2013-08-17 19:51:09
+  start_time: 2013-08-17 19:51:09
+  end_time: 2013-08-17 19:51:09
+  location: MyString
+  instructor_id: 
+
+two:
+  course_id: 1
+  start_date: 2013-08-17 19:51:09
+  end_date: 2013-08-17 19:51:09
+  start_time: 2013-08-17 19:51:09
+  end_time: 2013-08-17 19:51:09
+  location: MyString
+  instructor_id: 

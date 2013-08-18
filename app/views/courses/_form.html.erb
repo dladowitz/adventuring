@@ -1,37 +1,32 @@
 <%= form_for [@org, @course], :html => { :class => "form-horizontal"} do |f| %>
 
   <%= f.error_messages %>
-  <div class="control-group">
-    <%= f.label :name, :class => "control-label" %>
-    <div class="controls">
+  <div>
+    <%= f.label :name %>
+    <div>
       <%= f.text_field :name %>
     </div>
   </div>
 
-  <div class="control-group">
-    <%= f.label :description, :class => "control-label" %>
-    <div class="controls">
+  <div>
+    <%= f.label :description %>
+    <div>
       <%= f.text_area :description, :rows => 4, :class => 'ckeditor' %>
     </div>
   </div>
 
-  <div class="control-group">
-    <%= f.label :price, :class => "control-label" %>
-    <div class="controls">
+  <div>
+    <%= f.label :price %>
+    <div>
       <%= f.text_field :price %>
     </div>
   </div>
 
-  <div class="control-group">
-    <%= f.label :location, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_field :location %>
-    </div>
-  </div>
 
-  <div class="control-group">
-    <%= f.label :active, :class => "control-label" %>
-    <div class="controls">
+
+  <div>
+    <%= f.label :active %>
+    <div>
       <%= radio_button_tag(:active, true) %>
       <%= label_tag(:active_true, "yes") %>
       <%= radio_button_tag(:active, false) %>
@@ -40,8 +35,8 @@
   </div>
     <%= f.hidden_field :organization_id, value: params[:organization_id] %>
 
-  <div class="control-group">
-    <div class="controls">
+  <div>
+    <div>
       <%= f.submit %>
     </div>
   </div>
