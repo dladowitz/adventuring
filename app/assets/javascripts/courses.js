@@ -6,9 +6,6 @@ $(document).ready(function() {
 
 //Autocomplete for search box on homepage. TODO: Hook up some kind of search with results
   $(function() {
-    var availableSports = ["Rock Climbing", "Sailing", "Scuba Diving", "Canyoneering", "Mountianeering", "Skydiving", "Paragliging", "Mountain Biking", "White Water Rafting", "Hang Gliding",
-      "Base Jumping", "Kayaking", "Motorcyle Racing", "Auto Racing", "Cave Diving", "Bull Riding", "Motocross"];
-
     $( ".search_box" ).autocomplete({
       source: availableSports
     });
@@ -39,5 +36,24 @@ $(document).ready(function() {
 $('#course_start_date').datepicker();
 $('#course_end_date').timepicker();
 
-
+//Sports for search bar
+var availableSports = [
+  "Auto Racing",
+  "Base Jumping",
+  "Bull Riding",
+  "Canyoneering",
+  "Cave Diving",
+  "Cliff Diving",
+  "Hang Gliding",
+  "Kayaking",
+  "Motocross"];
+  "Mountain Biking",
+  "Mountaineering",
+  "Motorcyle Racing",
+  "Paragliging",
+  "Rock Climbing",
+  "Sailing",
+  "Scuba Diving",
+  "Skydiving",
+  "White Water Rafting",
 });
