@@ -10,7 +10,6 @@ class SectionsController < ApplicationController
     @course = Course.find(params[:course_id])
     @section = Section.new(params[:section])
     if @section.save
-      puts "save********************************************************"
       redirect_to edit_organization_course_path(@org, @course)
     else
       render new

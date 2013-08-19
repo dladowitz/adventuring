@@ -1,53 +1,51 @@
-<h2>Change Course Details</h2>
+<% if current_user && (current_user == @org.owner || current_user.site_admin?) %>
+  <h2>Change Course Details</h2>
 
-<%= render 'form' %>
-____________________________________
-<% if @course.photos.any? %>
+  <%= render 'form' %>
+  ____________________________________
+  <% if @course.photos.any? %>
+    <br>
+    <strong>Course Photos</strong>
+    <br>
+  <% end %>
+
+  <% @course.photos.each do |photo| %>
+    <%= image_tag photo.image.url(:thumb) %>
+    <%= button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"%>
+    <br>
+  <% end %>
   <br>
-  <strong>Course Photos</strong>
-  <br>
-<% end %>
 
-<% @course.photos.each do |photo| %>
-  <%= image_tag photo.image.url(:thumb) %>
-  <%= button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"%>
-  <br>
-<% end %>
-<br>
+  <strong>Add a photo</strong>
+  <%= form_for @photo, :html => { :class => "form-horizontal" } do |f| %>
 
-<strong>Add a photo</strong>
-<%= form_for @photo, :html => { :class => "form-horizontal" } do |f| %>
-
-  <%= f.error_messages %>
-  <div class="control-group">
-    <%= f.label :image, :class => "control-label"  %>
-    <div class="controls">
-      <%= f.file_field :image %>
+    <%= f.error_messages %>
+    <div class="control-group">
+      <%= f.label :image, :class => "control-label"  %>
+      <div class="controls">
+        <%= f.file_field :image %>
+      </div>
     </div>
-  </div>
 
-      <%= f.hidden_field :course_id, value: params[:id] %>
-  <div class="control-group">
-    <div class="controls">
-      <%= f.submit %>
+        <%= f.hidden_field :course_id, value: params[:id] %>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
 
-____________________________________
-<br>
-<strong>Scheduled Sections</strong>
-<br>
-<% @course.next_dates.each do |section| %>
-  <div><%= "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}" %></div>
-<% end %>
+  ____________________________________
+  <br>
+  <strong>Scheduled Sections</strong>
+  <br>
+  <% @course.next_dates.each do |section| %>
+    <div><%= "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}" %></div>
+  <% end %>
 
-<%= button_to 'Add A Section', new_organization_course_section_path(@org, @course), :method => :get %>
+  <%= button_to 'Add A Section', new_organization_course_section_path(@org, @course), :method => :get %>
 
-
-
-<% if current_user == @org.owner || current_user.site_admin? %>
   ____________________________________
   <br>
   <div class="row">
@@ -62,7 +60,8 @@ ____________________________________
       <%= button_to 'Delete course now', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
     </div>
   </div>
+<% else %>
+  <div class="dont" style='font-size: 50px; margin: 30px; text-align: center'>DON'T EVEN TRY IT! </div>
 <% end %>
-
 
 

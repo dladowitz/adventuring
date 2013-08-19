@@ -4,23 +4,44 @@
       <div class="title">Profile</div>
       <div class="info">
         <div class="personal_info">
-          <div class="user_name">Name: <%= current_user.name %></div></td>
-          <div class="user_email">Email: <%= current_user.email %></div></td>
+          <%= form_for(current_user, :as => :user, :url => registration_path(current_user), :html => { :class => "form-horizontal", :method => :put }) do |f| %>
+            <!-- < % devise_error_messages! % >  Not sure why, but this is breaking the world-->
+            <table>
+              <tr>
+                <th class='first_cell'>Name:</th>
+                <td id='second_name' class="second_cell"><%= current_user.name %><span id='edit_icon'><img height='15' src="/assets/profiles/edit-11.png">edit</span></td>
+                <td id='third_name' class="third_cell"><%= f.text_field :name, :autofocus => true %><button class='update_button', type='button'>update</button></td>
+              </tr>
 
-          <% if current_user.profile_photo_file_name %>
-            <%=  image_tag current_user.profile_photo.url(:square) %>
-            <br>
-            <br>
+              <tr>
+                <th class='first_cell'>Email:</th>
+                <td id='second_email' class="second_cell"><%= current_user.email %><span id='edit_icon'><img height='15' src="/assets/profiles/edit-11.png">edit</span></td>
+                <td id='third_email' class="third_cell"><%= f.email_field :email, :autofocus => true %><button class='update_button', type='button'>update</button></td>
+              </tr>
+            </table>
+
+            <div class="profile_photo">
+              <% if current_user.profile_photo_file_name %>
+                <%=  image_tag current_user.profile_photo.url(:square) %>
+              <% end %>
+            </div>
+
+            <div class='update_profile_photo'>
+              <%= f.file_field :profile_photo, :value => "Change Profile Photo" %>
+            </div>
+
+            <div class='form_submit'>
+              <%= f.submit "Save" %>
+            </div>
           <% end %>
 
-          <%= button_to 'Change or Cancel Account', edit_user_registration_path, :method => :get %>
         </div>
 
         <div class="organization_info">
           <table>
             <tr>
               <th>Organizations </th>
-              <th>Role </th>
+              <th>Permissions Level </th>
             </tr>
             <% current_user.roles.each do |role| %>
             <tr>
@@ -30,23 +51,13 @@
             </tr>
           </table>
         </div>
+        <div class="password_and_cancelation">
+          <%= button_to 'Change Password or Cancel Account', edit_user_registration_path, :method => :get %>
+        </div>
       </div>
     </div>
     <div class="secondary_content">
-        <div class="review_group">
-          <div class="reviewer">
-            <div class="image">
-              reviewer image
-            </div>
-            <div class="name"></div>
-          </div>
-          <div class='review'>
-            Review Content
-          </div>
-          <div class="rating">
-            Rating
-          </div>
-        </div>
+      <%= link_to "Back", :back %>
     </div>
   </div>
   <aside>

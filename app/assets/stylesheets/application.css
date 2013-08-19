@@ -18,6 +18,33 @@ body {
     color: rgb(75, 75, 75)
 }
 
+/*alert messages*/
+.alert {
+  width: 1128px;
+  margin: 0px auto 5px auto;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  right: 2px;
+  overflow: hidden;
+}
+.alert-success {
+  color: green;
+  border: 1px solid green;
+}
+
+.alert-error {
+  color: red;
+  border: 1px solid red;
+}
+
+.close {
+  float: left;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+
 
 /*Used for layout template. If the divs names are changed in the html file,
 create a new css file and add in only selectors that are changed. */
@@ -58,21 +85,25 @@ create a new css file and add in only selectors that are changed. */
 
 /*secondary content*/
 .main .secondary_content {
+  border: 1px solid gray;
+  border-radius: 5px;
   overflow: hidden;
-  padding-bottom: 10px;
-  padding-right: 5px; /*to make shadow with course_content match*/
+  padding: 10px;
+  margin: 20px 5px 10px 0; /*to make shadow with main_content match*/
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(200, 200, 200, .15);
 }
 
 .main .secondary_content .review_group {
   border: 1px solid gray;
-  border-radius: 5px;
-  background-color: rgba(200, 200, 200, .15);
-  margin-top: 20px;
-  padding: 10px;
   overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
-  margin-right: 0px;
+  background-color: rgba(200, 200, 200, .25);
 }
+
 .main .secondary_content .review_group .reviewer {
   float: left;
   margin-right: 15px;

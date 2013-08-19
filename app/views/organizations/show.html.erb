@@ -88,37 +88,40 @@
 
 <br>
 <br>
+<% if current_user %>
+  _____________________________________________________________________
+  <br>
+  Admin Stuffs
 
-_____________________________________________________________________
-<br>
-Admin Stuffs
 
-<% if current_user.site_admin? %>
-  (owner: <%= @org.owner.name ? @org.owner.name : @org.owner.email %>)
-<% end %>
-<br>
-<br>
-<% if current_user == @org.owner || current_user.site_admin? %>
-  <span>
-    <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
-   </span>
-<% end %>
-______________________________________________
-<br>
-<strong>Courses Offered</strong>
-<br>
-<br>
-<% @org.courses.each do |course| %>
-  <strong>Course Name:</strong>
-  <%= link_to course.name, organization_course_path(@org.id, course) %>
-<br>
-<br>
-<% end %>
+  <% if current_user.site_admin? %>
+    (owner: <%= @org.owner.name ? @org.owner.name : @org.owner.email %>)
+  <% end %>
+  <br>
+  <br>
+  <% if current_user == @org.owner || current_user.site_admin? %>
+    <span>
+      <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
+     </span>
+  <% end %>
 
-<% if current_user == @org.owner || current_user.site_admin? %>
-  <span>
-    <%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
-   </span>
+  ______________________________________________
+  <br>
+  <strong>Courses Offered</strong>
+  <br>
+  <br>
+  <% @org.courses.each do |course| %>
+    <strong>Course Name:</strong>
+    <%= link_to course.name, organization_course_path(@org.id, course) %>
+  <br>
+  <br>
+  <% end %>
+
+  <% if current_user == @org.owner || current_user.site_admin? %>
+    <span>
+      <%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
+     </span>
+  <% end %>
 <% end %>
 ______________________________________________
 <br>

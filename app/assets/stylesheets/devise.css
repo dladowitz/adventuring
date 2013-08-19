@@ -1,3 +1,50 @@
+/*registrations/edit.html.erb*/
+
+.main .main_content .info .password_change {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .05);
+  margin-bottom: 20px;
+}
+
+.main .main_content .info .password_change th {
+  text-align: left;
+  padding-right: 10px;
+}
+
+
+.main .main_content .info .password_change #current_password {
+  padding-top: 40px;
+}
+
+.main .main_content .info .password_change #password_note{
+  color: blue;
+  font-size: 15px
+}
+
+.main .main_content .info .password_change #change_password_submit {
+  margin-top: 10px;
+}
+.main .main_content .info .account_cancelation {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .05);
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
 .sign_in_group {
   width: 400px;
   border: 1px solid gray;

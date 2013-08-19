@@ -2,7 +2,8 @@ Adventuring::Application.routes.draw do
 
   root to: 'courses#index'
   get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
-  devise_for :users
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :photos
   resources :reviews
@@ -11,9 +12,6 @@ Adventuring::Application.routes.draw do
   resources :profiles
   resources :courses
   resources :instructors
-
-
-
 
   resources :organizations do
     resources :courses do

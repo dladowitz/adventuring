@@ -1,91 +1,74 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <div class="main">
+    <div class="main_content">
+      <div class="title">Profile</div>
+      <div class="info">
+        <div class="password_change">
+          <p>Change Password</p>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+            <%= devise_error_messages! %>
+            <table>
+              <tr>
+                <th><%= f.label :password, 'New password' %></th>
+                <td><%= f.password_field :password, :autocomplete => "off" %> </td><!-- <i> (leave blank if you don't want to change)</i> -->
+              </tr>
+              <tr>
+                <th><%= f.label :password_confirmation, 'Confirm new password' %></th>
+                <td><%= f.password_field :password_confirmation, :autocomplete => "off" %> </td><!-- <i> (leave blank if you don't want to change)</i> -->
+              </tr>
+              <tr>
+                <th id='current_password'><%= f.label :current_password, 'Enter your current password' %></th>
+                <td><%= f.password_field :current_password %></td>
+              </tr>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-horizontal", :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+            </table>
 
-  <div class="control-group">
-    <%= f.label :email, :class => "control-label"  %>
-    <div class="controls">
-      <%= f.email_field :email, :autofocus => true %>
+            <div id="password_note">(So your coworkers can't hack your account during lunch)</div>
+
+            <div id='change_password_submit'><%= f.submit "Update" %> </div>
+
+          <% end %>
+        </div>
+
+        <div class="account_cancelation">
+          <p>Account Cancelation</p>
+          <% if current_user.org_owner? %>
+            You currently are listed as the <strong>Owner</strong> of the following organizations. <br>
+            Please delete the organizations or transfer ownership before deleting your account. <br><br>
+            <table>
+              <% current_user.roles.each do |role| %>
+              <tr>
+                <td><%= link_to role.organization.name, role.organization %></td>
+              <% end %>
+              </tr>
+            </table>
+          <% elsif %>
+            <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+          <% end %>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="secondary_content">
+      <%= link_to "Back", :back %>
     </div>
   </div>
-
-  <div class="control-group">
-    <%= f.label :name, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_field :name %>
+  <aside>
+    <div class="section_1">
+      <p>Section 1</p>
     </div>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :password, :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password, :autocomplete => "off" %> <br> <i> (leave blank if you don't want to change)</i>
+    <div class="section_2">
+      <p>Section 2</p>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :password_confirmation, :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password_confirmation %>
+      <div class="section_3">
+        <p>Section 3</p>
+      </div>
+    <div class="section_4">
+      <p>Section 4</p>
     </div>
-  </div>
-
-   <div class="control-group">
-    <div class="control-label">
-      <%=  "Current Photo" if current_user.profile_photo_file_name %>
-    </div>
-    <div class="controls">
-      <%=  image_tag current_user.profile_photo.url(:thumb) if current_user.profile_photo_file_name %>
-    </div>
-  <div>
-  <div class="control-group">
-    <%= f.label :profile_photo, :class => "control-label" %></br>
-    <div class="controls">
-      <%= f.file_field :profile_photo %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :current_password, :class => "control-label" %> <br />
-    <div class="controls">
-      <%= f.password_field :current_password %><br>
-    <i>(we need your current password to confirm your changes)</i>
-  </div>
+  </aside>
 </div>
 
 
-  <div class="control-group">
-    <div class="controls">
-      <%= f.submit "Update" %>
-    </div>
-  </div>
-<% end %>
 
-<h3>Cancel my account</h3>
-Unhappy? Feel the need to split this place?</p>
-<% if current_user.org_owner? %>
-  You currently are listed as the <strong>Owner</strong> of the following organizations.
-  <br>
-  Please delete the organizations or transfer ownership before deleting your account.
-  <br>
-  <br>
-<table class="controls">
-  <tr>
-    <th>Organizations</th>
-  <tr>
-  <% current_user.roles.each do |role| %>
-  <tr>
-    <td><%= link_to role.organization.name, role.organization %></td>
-  <% end %>
-  </tr>
-</table>
-<% elsif %>
-<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>
-<% end %>
-
-<br>
-
-<%= link_to "Back", :back %>
