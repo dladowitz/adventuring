@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
   # before_filter :authenticate_user!
 
+  def your_orgs
+    @orgs = current_user.orgs_owned if current_user
+  end
+
   def index
     @orgs = Organization.all
   end
@@ -54,4 +58,5 @@ class OrganizationsController < ApplicationController
     @org = Organization.find(params[:id])
     @review = Review.new
   end
+
 end

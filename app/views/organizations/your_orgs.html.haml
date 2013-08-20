@@ -1,0 +1,41 @@
+.container
+  .main
+    .main_content
+      .title Your Organizations
+      .info
+        - if @orgs.empty?
+          .permissions_notice You are not part of any organizations, companies or tour operators. Ceate one now to start selling.
+          = button_to 'Create new Organization', new_organization_path, :method => :get
+        - else
+          .permissions_notice You have permissions to create and post classes in the following organizations.
+          %table
+            - @orgs.each do |org|
+              %tr
+                %th= org.name
+                %td= button_to "create class", org, :method => :get
+
+    .secondary_content
+      .review_group
+        .reviewer
+          .image reviewer image
+
+          .name john smith
+
+        .review Review Content
+
+        .rating Rating
+
+  %aside
+    .section_1
+      %p Section 1
+
+    .section_2
+      %p Section 2
+
+    .section_3
+      %p Section 3
+
+    .section_4
+      %p Section 4
+
+

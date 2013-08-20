@@ -11,6 +11,7 @@ gem 'ckeditor_rails'  # for editing course and organization descriptions
 gem 'devise'
 gem 'dynamic_form'
 gem 'figaro'
+gem 'haml'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'pg'
