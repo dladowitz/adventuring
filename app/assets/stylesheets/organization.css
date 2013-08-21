@@ -2,7 +2,7 @@
  They will automatically be included in application.css.*/
 
 
-
+/*organizations/show.html.haml*/
 .main .company_content {
   border: 1px solid gray;
   border-radius: 5px;
@@ -171,4 +171,8 @@ aside .instructor .name {
 }
 
 
+/*organizations/your_orgs.html.haml*/
 
+.create_org {
+  margin-top: 10px;
+}
