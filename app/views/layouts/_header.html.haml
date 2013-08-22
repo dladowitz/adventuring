@@ -1,0 +1,18 @@
+.header_bar
+  .logo
+    = link_to "Adventuring", root_path, :class => 'brand'
+
+  .nav_bar
+    %ul
+      - if @org
+        %li= link_to @org.name, organization_path(@org)
+
+      - if user_signed_in?
+        %li= link_to 'log out', '/users/sign_out', :method => :delete
+        %li= link_to('profile', profile_path(current_user))
+        %li= link_to 'post a class', '/organizations/your_orgs', :method => :get
+      - else
+        %li= link_to('login/sign up', new_user_session_path)
+
+      %li= link_to('cities', '#')
+      %li= link_to('categories', '#')
