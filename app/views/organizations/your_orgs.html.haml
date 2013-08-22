@@ -3,13 +3,13 @@
     .main_content
       .title Your Organizations
       .info
-        - if @orgs.empty?
+        - if @organizations.empty?
           .permissions_notice You are not part of any organizations, companies or tour operators. Ceate one now to start selling.
           .create_org= button_to 'Create new Organization', new_organization_path, :method => :get
         - else
           .permissions_notice You have permissions to create and post classes in the following organizations.
           %table
-            - @orgs.each do |org|
+            - @organizations.each do |org|
               %tr
                 %th= org.name
                 %td= button_to "create class", org, :method => :get

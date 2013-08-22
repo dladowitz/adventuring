@@ -1,4 +1,4 @@
-<h1>Add a User to <%= @org.name %></h1>
+<h1>Add a User to <%= @organization.name %></h1>
 
 
 <%= form_for @role do |f| %>
@@ -14,7 +14,7 @@
       <td><%= f.select :permission, [['owner','owner'],['admin','owner']]%></td>
     </tr>
     <tr>
-      <td><%= f.hidden_field :organization_id, value: @org.id %></td>
+      <td><%= f.hidden_field :organization_id, value: @organization.id %></td>
     </tr>
     <tr>
       <td><%= f.submit %></td>

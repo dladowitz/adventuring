@@ -112,6 +112,6 @@
 
 ----------Admin Section----------
 <br><br>
-<% if current_user && (current_user == @org.owner || current_user.site_admin?) %>
+<% if current_user && (current_user == @organization.owner || current_user.site_admin?) %>
   <%= button_to 'edit course', edit_organization_course_path(@org, @course), :method => :get %>
 <% end %>

@@ -1,29 +1,27 @@
 = form_for @organization do |f|
-  %table
   = f.error_messages
-  %tr
-    %td= f.label :name, 'Organization Name'
-    %td= f.text_field :name, :placeholder => "#{@organization.name}"
+  .org_form
+    %table
+      %tr
+        %td= f.text_field :name, :autofocus => true, :placeholder => 'Organization Name'
+
+      %tr
+        %td= f.text_field :website, :placeholder => 'Website'
+
+      %tr
+        %td= f.text_field :phone_num, :placeholder => 'Phone Number'
+
+    = f.label :logo, :class => 'logo'
+    = f.file_field :logo, :class => 'logo_button'
 
     %div
-      = f.label :description
+      = f.label :description, :class => 'description_label'
+      .description_note
+        (copy and paste works from most sources)
       = f.text_area :description, :rows => 4, :class => 'ckeditor'
 
-  %table
-    %tr
-      %td= f.label :website
-      %td= f.text_field :website
 
-    %tr
-      %td= f.label :phone_num
-      %td= f.text_field :phone_num
-
-    %tr
-      %td= f.label :logo
-      %td= f.file_field :logo
-
-    %tr
-      %td= f.submit
+    = f.submit :class => "form_submit"
 
 
 

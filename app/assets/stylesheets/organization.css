@@ -176,3 +176,65 @@ aside .instructor .name {
 .create_org {
   margin-top: 10px;
 }
+
+
+/*organizations/_form.html.haml*/
+
+.main .main_content .info .org_form td {
+  padding: 0 20px 20px 0;
+}
+
+.main .main_content .info .org_form .logo {
+  font-size: 20px;
+  margin-left: 10px;
+  position: relative;
+  bottom: 10px;
+}
+
+.main .main_content .info .org_form .logo_button {
+  position: relative;
+  bottom: 14px;
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  width: 243px;
+}
+
+.main .main_content .info .org_form .description_label {
+  margin: 0 0 5px 10px;
+  font-size: 20px;
+}
+
+.main .main_content .info .org_form .description_note {
+  color: blue;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.main .main_content .info input {
+  height: 20px;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.main .main_content .info .org_form .form_submit {
+  margin-top: 20px;
+  height: 45px;
+  /*width: 100px;*/
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 20px;
+  /*display: block;*/
+}
+
+.main .main_content .info .org_form .form_submit:hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+}

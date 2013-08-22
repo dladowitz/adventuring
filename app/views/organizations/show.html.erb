@@ -1,13 +1,13 @@
 <div class="container">
       <div class="main">
         <div class="company_content">
-          <div class="title"><%= @org.name %></div>
+          <div class="title"><%= @organization.name %></div>
           <!-- only show next arrow if there is more than one photo -->
-          <% if @org.photos.count > 1 %>
+          <% if @organization.photos.count > 1 %>
             <img class='arrow' src="/assets/courses/arrow-next.png" height='100px'>
           <% end %>
           <div class="main_image_section">
-            <% @org.photos.each do |photo| %>
+            <% @organization.photos.each do |photo| %>
               <div class="slide">
                 <%= image_tag photo.image.url %>
               </div>
@@ -16,13 +16,13 @@
           <div class="description_group">
             <h1>Company Info</h1>
             <div class="description">
-              <%= @org.description.html_safe %>
+              <%= @organization.description.html_safe %>
             </div>
           </div>
         </div>
 
         <div class="secondary_content">
-        <% @org.reviews.each do |review| %>
+        <% @organization.reviews.each do |review| %>
             <div class="review_group">
               <div class="reviewer">
                 <a href="#">
@@ -46,7 +46,7 @@
       <aside>
         <div class="courses_offered">
           <p>Courses Offered</p>
-            <% @org.courses.each do |course| %>
+            <% @organization.courses.each do |course| %>
 
             <!-- Watch out. There is another class called 'course' on the homepage -->
               <div class="course">
@@ -72,7 +72,7 @@
 
         <div class="instructors">
           <p>Instructors</p>
-          <% @org.instructors.each do |instructor| %>
+          <% @organization.instructors.each do |instructor| %>
             <div class="instructor">
               <a href="#">
                 <div class="image">
@@ -99,13 +99,13 @@
 
 
   <% if current_user.site_admin? %>
-    (owner: <%= @org.owner.name ? @org.owner.name : @org.owner.email %>)
+    (owner: <%= @organization.owner.name ? @organization.owner.name : @organization.owner.email %>)
   <% end %>
   <br>
   <br>
-  <% if current_user == @org.owner || current_user.site_admin? %>
+  <% if current_user == @organization.owner || current_user.site_admin? %>
     <span>
-      <%= button_to 'Edit Organization', edit_organization_path(@org.id), :method => :get%>
+      <%= button_to 'Edit Organization', edit_organization_path(@organization.id), :method => :get%>
      </span>
   <% end %>
 
@@ -114,16 +114,16 @@
   <strong>Courses Offered</strong>
   <br>
   <br>
-  <% @org.courses.each do |course| %>
+  <% @organization.courses.each do |course| %>
     <strong>Course Name:</strong>
-    <%= link_to course.name, organization_course_path(@org.id, course) %>
+    <%= link_to course.name, organization_course_path(@organization.id, course) %>
   <br>
   <br>
   <% end %>
 
-  <% if current_user == @org.owner || current_user.site_admin? %>
+  <% if current_user == @organization.owner || current_user.site_admin? %>
     <span>
-      <%= button_to 'Add a course', new_organization_course_path(@org.id), :method => :get%>
+      <%= button_to 'Add a course', new_organization_course_path(@organization.id), :method => :get%>
      </span>
   <% end %>
 <% end %>

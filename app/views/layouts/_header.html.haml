@@ -5,7 +5,7 @@
   .nav_bar
     %ul
       - if @org
-        %li= link_to @org.name, organization_path(@org)
+        %li= link_to @organization.name, organization_path(@org)
 
       - if user_signed_in?
         %li= link_to 'log out', '/users/sign_out', :method => :delete

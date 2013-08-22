@@ -1,16 +1,16 @@
 class RolesController < ApplicationController
   def new
-    @org = Organization.find(params[:organization_id])
+    @organization = Organization.find(params[:organization_id])
     @role = Role.new
   end
 
   def create
-    @org = Organization.find(params[:role][:organization_id])
+    @organization = Organization.find(params[:role][:organization_id])
 
     @user = User.find_by_email(params[:role][:user_id])
     unless @user
       # render :text => 'Something went wrong'
-      # redirect_to edit_organization_path(@org) #not sure why this won't work
+      # redirect_to edit_organization_path(@organization) #not sure why this won't work
       raise "No user by that email address found"
     end
     @role = Role.new
@@ -18,7 +18,7 @@ class RolesController < ApplicationController
     @role.permission = params[:role][:permission]
     @role.organization_id = params[:role][:organization_id]
     if @role.save
-      redirect_to edit_organization_path(@org)
+      redirect_to edit_organization_path(@organization)
     else
       render :text => 'Something went wrong'
     end

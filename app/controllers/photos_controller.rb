@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @org = Organization.find(params[:photo][:organization_id]) if params[:photo][:organization_id]
+    @organization = Organization.find(params[:photo][:organization_id]) if params[:photo][:organization_id]
     @course = Course.find(params[:photo][:course_id]) if params[:photo][:course_id]
     @photo = Photo.new(params[:photo])
     if @photo.save

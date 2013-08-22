@@ -1,10 +1,10 @@
 <h2>Update Organization</h2>
-<%= form_for @org do |f| %>
+<%= form_for @organization do |f| %>
   <table>
   <%= f.error_messages %>
     <tr>
       <td><%= f.label :name %>:</td>
-      <td><%= f.text_field :name, :placeholder => "#{@org.name}" %></td>
+      <td><%= f.text_field :name, :placeholder => "#{@organization.name}" %></td>
     </tr>
     <tr>
       <td><%= f.label :description %>:</td>
@@ -19,8 +19,8 @@
       <td><%= f.text_field :phone_num %></td>
     </tr>
     <tr>
-      <td><%=  "Current Logo:" if @org.logo_file_name %></td>
-      <td><%=  image_tag @org.logo.url(:thumb) if @org.logo_file_name %> </td>
+      <td><%=  "Current Logo:" if @organization.logo_file_name %></td>
+      <td><%=  image_tag @organization.logo.url(:thumb) if @organization.logo_file_name %> </td>
     </tr>
     <tr>
       <td><%= f.label :logo %></td>
@@ -35,13 +35,13 @@
 <br>
 __________________________________
 
-<% if @org.photos.any? %>
+<% if @organization.photos.any? %>
   <br>
   <strong>Current Photos</strong>
   <br>
 <% end %>
 
-<% @org.photos.each do |photo| %>
+<% @organization.photos.each do |photo| %>
   <%= image_tag photo.image.url(:thumb) %>
   <%= button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"%>
   <br>
@@ -66,7 +66,7 @@ __________________________________
   </table>
 <% end %>
 
-<% if current_user == @org.owner || current_user.site_admin? %>
+<% if current_user == @organization.owner || current_user.site_admin? %>
 __________________________________
 <br>
 <strong>User Permissions for Organization</strong>
@@ -77,25 +77,25 @@ __________________________________
     <th>User</th>
     <th>Permission</th>
   </tr>
-  <% @org.roles.each do |role| %>
+  <% @organization.roles.each do |role| %>
   <tr>
     <td><%= role.user.email %></td>
     <td><%= role.permission %></td>
-    <% if role.user.other_org_owners?(@org) or role.permission != 'owner' %>
+    <% if role.user.other_org_owners?(@organization) or role.permission != 'owner' %>
       <td><%= link_to 'Delete Role', role_path(role), :method => :delete %></td>
     <% end %>
   </tr>
   <% end %>
 </table>
 <br>
-<%= link_to 'Add User to Organization', {:controller => "roles", :action => "new", :organization_id => @org.id }, :method => :get %>
+<%= link_to 'Add User to Organization', {:controller => "roles", :action => "new", :organization_id => @organization.id }, :method => :get %>
 <br>
 __________________________________
 <br>
 <strong>Delete Organization</strong>
 <br>
 <br>
-    <%= button_to 'Delete Organization Now', pre_destroy_organization_path(@org.id), :method => :get, :confirm => "Are you sure?"%>
+    <%= button_to 'Delete Organization Now', pre_destroy_organization_path(@organization.id), :method => :get, :confirm => "Are you sure?"%>
 <% end %>
 
 
