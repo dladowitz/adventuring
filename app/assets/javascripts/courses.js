@@ -4,14 +4,14 @@
 $(document).ready(function() {
   // alert('yes')
 
-//Autocomplete for search box on homepage. TODO: Hook up some kind of search with results
+  //Autocomplete for search box on homepage. TODO: Hook up some kind of search with results
   $(function() {
     $( ".search_box" ).autocomplete({
       source: availableSports
     });
   });
 
-//cycles though images on course show page
+  //cycles though images on course show page
   $('.main_image_section').cycle({
     fx:      'scrollRight',
     next:   '.arrow',
@@ -20,40 +20,41 @@ $(document).ready(function() {
     easing:  'easeInOutBack',
   });
 
-//set main image sizes
+  //set main image sizes
   // console.log($('.main .main_image img').width())
   // if( $('.main .main_image img').width() > 400 ){
   //   $('.main .course_content .main_image img').css('width', '100% ')
   // }
 
-//sets company logo size
+  //sets company logo size
   var logoHeight = $('.company img').height()
   var logoWidth = $('.company img').width()
 
   $('.company .image').css({height: logoHeight, width: logoWidth})
 
-//datepicker for start and end dates
-$('#course_start_date').datepicker();
-$('#course_end_date').timepicker();
+  //datepicker for start and end dates
+  $('#course_start_date').datepicker();
+  $('#course_end_date').timepicker();
 
-//Sports for search bar
-var availableSports = [
-  "Auto Racing",
-  "Base Jumping",
-  "Bull Riding",
-  "Canyoneering",
-  "Cave Diving",
-  "Cliff Diving",
-  "Hang Gliding",
-  "Kayaking",
-  "Motocross"];
-  "Mountain Biking",
-  "Mountaineering",
-  "Motorcyle Racing",
-  "Paragliging",
-  "Rock Climbing",
-  "Sailing",
-  "Scuba Diving",
-  "Skydiving",
-  "White Water Rafting"
+  //Sports for search bar
+  var availableSports = [
+    "Auto Racing",
+    "Base Jumping",
+    "Bull Riding",
+    "Canyoneering",
+    "Cave Diving",
+    "Cliff Diving",
+    "Hang Gliding",
+    "Kayaking",
+    "Motocross"];
+    "Mountain Biking",
+    "Mountaineering",
+    "Motorcyle Racing",
+    "Paragliging",
+    "Rock Climbing",
+    "Sailing",
+    "Scuba Diving",
+    "Skydiving",
+    "White Water Rafting"
+  ]
 });
