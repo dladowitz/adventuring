@@ -27,7 +27,11 @@
                   Next Class
                 </div>
                 <div class="class_date">
-                  Aug 17th
+                  <% if course.next_dates.any? %>
+                    <%= "#{course.next_dates.first.start_date.strftime('%b %d')} " %>
+                  <% else %>
+                    Request a date
+                  <% end %>
                 </div>
               </div>
               <div class="course_info">
