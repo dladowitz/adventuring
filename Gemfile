@@ -15,7 +15,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'pg'
-gem 'thin'
+# gem 'thin'
 
 
 # Gems used only for assets and not required
