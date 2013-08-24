@@ -44,7 +44,7 @@
     <div><%= "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}" %></div>
   <% end %>
 
-  <%= button_to 'Add A Section', new_organization_course_section_path(@org, @course), :method => :get %>
+  <%= button_to 'Add A Section', new_organization_course_section_path(@organization, @course), :method => :get %>
 
   ____________________________________
   <br>
@@ -57,7 +57,7 @@
   <div class="row">
     <div class="span2"></div>
     <div class="span4 offet2">
-      <%= button_to 'Delete course now', organization_course_path(@org, @course), :method => :delete, :confirm => "Are you sure?"%>
+      <%= button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Are you sure?"%>
     </div>
   </div>
 <% else %>

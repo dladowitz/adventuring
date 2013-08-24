@@ -37,7 +37,7 @@ group :development do
   gem 'debugger'
   gem 'quiet_assets'
   gem 'pry'
-  # gem 'pry-debugger'
+  gem 'pry-debugger'
 
 end
 

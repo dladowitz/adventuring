@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818025109) do
+ActiveRecord::Schema.define(:version => 20130824051224) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130818025109) do
     t.datetime "updated_at",      :null => false
     t.float    "price"
     t.boolean  "active"
+    t.string   "vendor_link"
   end
 
   create_table "instructors", :force => true do |t|

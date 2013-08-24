@@ -173,8 +173,38 @@ aside .instructor .name {
 
 /*organizations/your_orgs.html.haml*/
 
-.create_org {
+.main .main_content .info .create_org {
   margin-top: 10px;
+}
+
+.main .main_content .info .create_class {
+ margin-top: 10px;
+}
+
+.main .main_content .info .create_class th {
+  font-size: 20px;
+  text-align: left;
+  position: relative;
+  top: 5px;
+
+}
+
+.main .main_content .info .create_class th a:hover {
+  text-decoration: underline;
+}
+
+.main .main_content .info .create_class input {
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  width: 150px;
+  height: 30px;
+  line-height: 8px;
+}
+.main .main_content .info .create_class input:hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
 }
 
 
