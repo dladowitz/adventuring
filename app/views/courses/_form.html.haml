@@ -17,6 +17,7 @@
     = f.label :price
     = f.text_field :price
 
+
   %div
     = f.label :active
 
@@ -24,6 +25,11 @@
     = label_tag(:active_true, "yes")
     = radio_button_tag(:active, false)
     = label_tag(:active_false, "no")
+
+  - if current_user.site_admin?
+    %div
+      = f.label :rank
+      = f.number_field :rank
 
     = f.hidden_field :organization_id, value: params[:organization_id]
 

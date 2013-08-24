@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :active, :description, :end_date, :end_time, :name, :instructor_id, :organization_id, :price, :start_date, :start_time, :external_link
+  attr_accessible :active, :description, :end_date, :end_time, :name, :instructor_id, :organization_id, :price, :rank, :start_date, :start_time, :external_link
 
   belongs_to :organization
 
@@ -8,6 +8,8 @@ class Course < ActiveRecord::Base
   has_many :sections
 
   validates_presence_of :organization_id, :name
+
+
 
   def next_dates
     # Gets the next five sections being offered

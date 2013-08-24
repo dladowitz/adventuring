@@ -12,8 +12,9 @@
     <div class="container">
       <div class="main_content">
         <h1>Courses</h1>
+        <% ordered_courses = order_by_rank(@courses) %>
 
-        <% @courses.each do |course| %>
+        <% ordered_courses.each do |course| %>
           <a href="organizations/<%= course.organization.id %>/courses/<%= course.id %>">
             <div class="course">
               <div class="course_photo">

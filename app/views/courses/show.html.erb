@@ -57,6 +57,7 @@
         <div class="price">
           <%= number_to_currency(@course.price) %>
           <% if @course.external_link %>
+          <!-- this link on works in production. It adds an extra http://. Need to just styling the input or button -->
             <a href="<%= @course.external_link %>", target="_blank"> <input class="buy_now" type="submit" value="Buy Now"> </a>
           <% else %>
             <input class="buy_now" type="submit" value="Buy Now">
