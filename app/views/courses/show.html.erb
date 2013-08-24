@@ -57,7 +57,7 @@
         <div class="price">
           <%= number_to_currency(@course.price) %>
           <% if @course.external_link %>
-            <a href="http://<%= @course.external_link %>", target="_blank"> <input class="buy_now" type="submit" value="Buy Now"> </a>
+            <a href="<%= @course.external_link %>", target="_blank"> <input class="buy_now" type="submit" value="Buy Now"> </a>
           <% else %>
             <input class="buy_now" type="submit" value="Buy Now">
           <% end %>
