@@ -10,7 +10,6 @@ class Course < ActiveRecord::Base
   validates_presence_of :organization_id, :name
 
 
-
   def next_dates
     # Gets the next five sections being offered
     sections = self.sections.reject{|section| section.start_date < DateTime.now }
@@ -24,6 +23,5 @@ class Course < ActiveRecord::Base
     sections = self.sections.all.uniq{|section| section.location}
     sections = sections[0..3]
   end
-
 
 end

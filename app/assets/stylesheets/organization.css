@@ -241,9 +241,10 @@ aside .instructor .name {
   color: blue;
   font-size: 15px;
   margin-left: 10px;
+  bor
 }
 
-.main .main_content .info input {
+.main .main_content .info .org_form input {
   height: 20px;
   width: 300px;
   margin: 10px;

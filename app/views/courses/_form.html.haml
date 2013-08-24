@@ -1,37 +1,37 @@
 = form_for [@organization, @course], :html => { :class => "form-horizontal"} do |f|
-
   = f.error_messages
-  %div
-    = f.label :name
-    = f.text_field :name
-  %div
-    = f.label :external_link
-    = f.text_field :external_link
+  .class_creation_form
+    %table
+      %tr
+        %td= f.text_field :name, :autofocus => true, :placeholder => 'Class Name'
 
-  %div
-    = f.label :description
+      %tr
+        %td= f.text_field :external_link, :placeholder => 'External Link'
+
+      %tr
+        %td= f.text_field :price, :placeholder => 'Price'
+
     %div
+      = f.label :description, :class => 'description_label'
+      .description_note
+        (copy and paste works from most sources)
       = f.text_area :description, :rows => 4, :class => 'ckeditor'
 
-  %div
-    = f.label :price
-    = f.text_field :price
+    .active
+      = f.label :active
 
+      = radio_button_tag(:active, true)
+      = label_tag(:active_true, "yes")
+      = radio_button_tag(:active, false)
+      = label_tag(:active_false, "no")
 
-  %div
-    = f.label :active
+    - if current_user.site_admin?
+      %hr
+      .course_rank.admin
+        = f.label :rank
+        = f.text_field :rank, :placeholder => 'Rank'
 
-    = radio_button_tag(:active, true)
-    = label_tag(:active_true, "yes")
-    = radio_button_tag(:active, false)
-    = label_tag(:active_false, "no")
+      = f.hidden_field :organization_id, value: params[:organization_id]
 
-  - if current_user.site_admin?
     %div
-      = f.label :rank
-      = f.number_field :rank
-
-    = f.hidden_field :organization_id, value: params[:organization_id]
-
-  %div
-    = f.submit
+      = f.submit :class => "form_submit"

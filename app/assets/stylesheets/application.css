@@ -18,6 +18,11 @@ body {
     color: rgb(75, 75, 75)
 }
 
+.admin {
+  /*color: blue;*/
+  background-color: skyblue;
+}
+
 /*alert messages*/
 .alert {
   width: 1128px;
