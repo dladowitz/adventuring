@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :active, :description, :end_date, :end_time, :name, :instructor_id, :organization_id, :price, :start_date, :start_time, :vendor_link
+  attr_accessible :active, :description, :end_date, :end_time, :name, :instructor_id, :organization_id, :price, :start_date, :start_time, :external_link
 
   belongs_to :organization
 
