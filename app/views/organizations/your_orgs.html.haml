@@ -12,7 +12,7 @@
             - @organizations.each do |org|
               %tr
                 %th= link_to org.name, org
-                %td= button_to "Create a Class", org, :method => :get
+                %td= button_to "Create a Class", "/organizations/#{org.id}/courses/new", :method => :get
 
     .secondary_content
 
