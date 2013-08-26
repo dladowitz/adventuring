@@ -40,6 +40,7 @@ $(document).ready(function() {
     "Canyoneering",
     "Cave Diving",
     "Cliff Diving",
+    "Free Base Jumping",
     "Hang Gliding",
     "Kayaking",
     "Kiteboarding",
