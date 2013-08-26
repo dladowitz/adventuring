@@ -42,7 +42,7 @@ $(document).ready(function() {
     "Cliff Diving",
     "Hang Gliding",
     "Kayaking",
-    "kiteboarding",
+    "Kiteboarding",
     "Motocross",
     "Mountain Biking",
     "Mountaineering",
@@ -53,5 +53,6 @@ $(document).ready(function() {
     "Scuba Diving",
     "Skydiving",
     "White Water Rafting",
+    "Wind Surfing",
   ]
 });
