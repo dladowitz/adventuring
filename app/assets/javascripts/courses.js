@@ -54,5 +54,6 @@ $(document).ready(function() {
     "Skydiving",
     "White Water Rafting",
     "Wind Surfing",
+    "Wing Suit",
   ]
 });
