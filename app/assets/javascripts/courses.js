@@ -52,6 +52,7 @@ $(document).ready(function() {
     "Rock Climbing",
     "Sailing",
     "Scuba Diving",
+    "Snowboarding",
     "Skydiving",
     "White Water Rafting",
     "Wind Surfing",
