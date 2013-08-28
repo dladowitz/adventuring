@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
   end
 
   def create
+    binding.pry
     @organization = Organization.find(params[:organization_id])
     @course = Course.new(params[:course])
     if @course.save
