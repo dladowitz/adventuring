@@ -31,7 +31,7 @@
         = f.label :rank
         = f.text_field :rank, :placeholder => 'Rank'
 
-      = f.hidden_field :organization_id, value: params[:organization_id]
+    = f.hidden_field :organization_id, value: params[:organization_id]
 
     %div
       = f.submit :class => "form_submit"
