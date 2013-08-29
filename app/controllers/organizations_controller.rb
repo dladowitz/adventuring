@@ -35,7 +35,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
 
     if @organization.update_attributes(params[:organization])
-      redirect_to @organization
+      redirect_to edit_organization_path(@organization)
     else
       render :new
     end
