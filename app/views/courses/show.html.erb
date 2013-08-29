@@ -94,11 +94,11 @@
 
         <div class="company">
           <p>Company Profile</p>
-          <a href="/organizations/<%= @course.organization.id %>">
-            <div class="image">
+          <div class="logo">
+            <a href="/organizations/<%= @course.organization.id %>">
               <%= image_tag @course.organization.logo.url %>
-            </div>
-          </a>
+            </a>
+          </div>
           <div class="company_name"><%= @course.organization.name %></div>
           <hr>
           <div class="other_courses">

@@ -1,0 +1,89 @@
+.container
+  .main
+    .main_content
+      .title Profile
+      .info
+        .personal_info
+          = form_for(current_user, :as => :user, :url => registration_path(current_user), :html => { :class => "form-horizontal", :method => :put }) do |f|
+            // - devise_error_messages!  Not sure why, but this is breaking the world
+            %table
+              %tr
+                %th.first_cell Name:
+                %td#second_name.second_cell
+                  = current_user.name
+                  %span#edit_icon
+                    = image_tag "/assets/profiles/edit-11.png"
+                    edit
+                %td#third_name.third_cell
+                  = f.text_field :name, :autofocus => true
+                  = button_to 'update', :class => 'update_button'
+
+              %tr
+                %th.first_cell Email:
+                %td#second_email.second_cell
+                  = current_user.email
+                  %span#edit_icon
+                    = image_tag "/assets/profiles/edit-11.png"
+                    edit
+                %td#third_email.third_cell
+                  = f.email_field :email, :autofocus => true
+                  = button_to 'update', :class => 'update_button'
+
+            .profile_photo
+              - if current_user.profile_photo_file_name
+                =  image_tag current_user.profile_photo.url(:square)
+
+            .update_profile_photo
+              = f.file_field :profile_photo, :value => "Change Profile Photo"
+
+            .form_submit
+              = f.submit "Save"
+
+        .organization_info
+          %table
+            %tr
+              %th Organizations
+              %th Permissions Level
+            - current_user.roles.each do |role|
+              %tr
+                %th
+                  %strong
+                    = link_to "#{role.organization.name}:", role.organization
+
+                %td= role.permission
+
+        .password_and_cancelation
+          = button_to 'Change Password or Cancel Account', edit_user_registration_path, :method => :get
+
+    .secondary_content
+      = link_to "Back", :back
+
+  %aside
+    .section_1
+      %p Organization
+
+    .section_2
+      %p Courses
+
+    .section_3
+      %p Profile
+
+    .section_4
+      %p Section 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

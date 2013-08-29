@@ -1,0 +1,191 @@
+.container
+  .main
+    .main_content
+      .title Organization
+      .info
+        .personal_info
+          = form_for @organization do |f|
+            // - devise_error_messages!  Not sure why, but this is breaking the world
+            %table
+              %tr
+                %th.first_cell Name:
+                %td#second_name.second_cell
+                  = @organization.name
+                  %span#edit_icon
+                    = image_tag "/assets/profiles/edit-11.png"
+                    edit
+                %td#third_name.third_cell
+                  = f.text_field :name, :autofocus => true
+                  = button_to 'update', :class => 'update_button'
+
+              %tr
+                %th.first_cell Website:
+                %td#second_email.second_cell
+                  = @organization.website
+                  %span#edit_icon
+                    = image_tag "/assets/profiles/edit-11.png"
+                    edit
+                %td#third_email.third_cell
+                  = f.text_field :website, :autofocus => true
+                  = button_to 'update', :class => 'update_button'
+
+              %tr
+                %th.first_cell Phone:
+                %td#second_email.second_cell
+                  = @organization.phone_num
+                  %span#edit_icon
+                    = image_tag "/assets/profiles/edit-11.png"
+                    edit
+                %td#third_email.third_cell
+                  = f.text_field :phone_num, :autofocus => true
+                  = button_to 'update', :class => 'update_button'
+
+            .profile_photo
+              - if @organization.logo_file_name
+                =  image_tag @organization.logo.url(:square)
+
+            .update_profile_photo
+              = f.file_field :logo, :value => "Change Logo"
+
+            .form_submit
+              = f.submit "Save"
+
+        .organization_info
+          %table
+            %tr
+              %th Organizations
+              %th Permissions Level
+            - current_user.roles.each do |role|
+              %tr
+                %th
+                  %strong
+                    = link_to "#{role.organization.name}:", role.organization
+
+                %td= role.permission
+
+        .password_and_cancelation
+          = button_to 'Change Password or Cancel Account', edit_user_registration_path, :method => :get
+
+    .secondary_content
+      = link_to "Back", :back
+
+  %aside
+    .section_1
+      %p Organization
+
+    .section_2
+      %p Courses
+
+    .section_3
+      %p Profile
+
+    .section_4
+      %p Section 4
+
+
+
+
+
+
+//<h2>Update Organization</h2>
+//<%= form_for @organization do |f| %>
+//  <table>
+//  <%= f.error_messages %>
+//    <tr>
+//      <td><%= f.label :name %>:</td>
+//      <td><%= f.text_field :name, :placeholder => "#{@organization.name}" %></td>
+//    </tr>
+//    <tr>
+//      <td><%= f.label :description %>:</td>
+//      <td><%= f.text_area :description, :rows => 4, :class => 'ckeditor' %></td>
+//    </tr>
+//    <tr>
+//      <td><%= f.label :website %>:</td>
+//      <td><%= f.text_field :website %></td>
+//    </tr>
+//    <tr>
+//      <td><%= f.label :phone_num %>:</td>
+//      <td><%= f.text_field :phone_num %></td>
+//    </tr>
+//    <tr>
+//      <td><%=  "Current Logo:" if @organization.logo_file_name %></td>
+//      <td><%=  image_tag @organization.logo.url(:thumb) if @organization.logo_file_name %> </td>
+//    </tr>
+//    <tr>
+//      <td><%= f.label :logo %></td>
+//      <td><%= f.file_field :logo %></td>
+//    </tr>
+//    <tr>
+//      <td><%= f.submit %></td>
+//    </tr>
+//
+//  </table>
+//<% end %>
+//<br>
+//__________________________________
+//
+//<% if @organization.photos.any? %>
+//  <br>
+//  <strong>Current Photos</strong>
+//  <br>
+//<% end %>
+//
+//<% @organization.photos.each do |photo| %>
+//  <%= image_tag photo.image.url(:thumb) %>
+//  <%= button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"%>
+//  <br>
+//<% end %>
+//<br>
+//
+//<strong>Add a photo</strong>
+//<%= form_for @photo do |f| %>
+//  <table>
+//  <%= f.error_messages %>
+//  <tr>
+//    <td><%= f.label :image %></td>
+//    <td><%= f.file_field :image %></td>
+//  </tr>
+//  <tr>
+//    <td><%= f.hidden_field :organization_id, value: params[:id] %></td>
+//  </tr>
+//  <tr>
+//    <td><%= f.submit %></td>
+//  </tr>
+//
+//  </table>
+//<% end %>
+//
+//<% if current_user == @organization.owner || current_user.site_admin? %>
+//__________________________________
+//<br>
+//<strong>User Permissions for Organization</strong>
+//<br>
+//<br>
+//<table>
+//  <tr>
+//    <th>User</th>
+//    <th>Permission</th>
+//  </tr>
+//  <% @organization.roles.each do |role| %>
+//  <tr>
+//    <td><%= role.user.email %></td>
+//    <td><%= role.permission %></td>
+//    <% if role.user.other_org_owners?(@organization) or role.permission != 'owner' %>
+//      <td><%= link_to 'Delete Role', role_path(role), :method => :delete %></td>
+//    <% end %>
+//  </tr>
+//  <% end %>
+//</table>
+//<br>
+//<%= link_to 'Add User to Organization', {:controller => "roles", :action => "new", :organization_id => @organization.id }, :method => :get %>
+//<br>
+//__________________________________
+//<br>
+//<strong>Delete Organization</strong>
+//<br>
+//<br>
+//    <%= button_to 'Delete Organization Now', pre_destroy_organization_path(@organization.id), :method => :get, :confirm => "Are you sure?"%>
+//<% end %>
+//
+//
+//

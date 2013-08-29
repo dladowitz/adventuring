@@ -37,8 +37,8 @@
 }
 
 
-/*sessions/new.html.erb*/
-.sign_in_group {
+/********** sessions/new.html.haml and registrations/new.html.haml **********/
+.sign_in_and_sign_up_group {
   width: 400px;
   border: 1px solid gray;
   border-radius: 5px;
@@ -47,12 +47,12 @@
   text-align: center;
   margin: 100px auto;
 }
-.sign_in_group h1 {
+.sign_in_and_sign_up_group h1 {
   font-size: 30px;
   margin: 15px;
 }
 
-.sign_in_group a {
+.sign_in_and_sign_up_group a {
   text-decoration: none;
 }
 
@@ -94,13 +94,13 @@
   border-top: 1px solid gray;
 }
 
-.sign_up {
+.already_have {
   background-color: rgba(114, 138, 66, .3);
   padding: 15px;
   border-top: 1px solid gray;
 }
 
-.sign_up p {
+.already_have p {
   display: inline;
   margin-right: 5px;
 }

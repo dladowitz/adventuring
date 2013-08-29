@@ -332,9 +332,17 @@ aside .company {
   font-size: 30px;
   border: 1px solid gray;
   border-radius: 5px;
-  /*padding: 20px;*/
   margin-top: 20px;
   margin-bottom: 3px;
+  padding: 0 20px 0 20px;
+}
+
+aside .company hr {
+  border-color: darkgray;
+}
+
+aside .company p {
+  text-align: center;
 }
 
 aside .company .company_name {
@@ -354,21 +362,20 @@ aside .company .other_courses {
   text-align: center;
 }
 
-aside .company .image {
-  overflow: hidden;
+aside .company .logo {
+  margin: 10px auto;
+  text-align: center;
+}
+
+aside .company .logo img {
   border-radius: 5px;
   border: 1px solid darkgray;
   box-shadow: 0 0 10px black;
-  margin: 30px;
-  /*margin-top: 20px;*/
-}
-
-aside .company .image img {
   max-height: 100%;
   max-width: 100%;
 }
 
-aside .company .image:hover {
+aside .company .logo img:hover {
   box-shadow: 0 0 10px darkgreen;
   border: 1px solid gray;
 }
@@ -378,9 +385,6 @@ aside .company a:hover {
   color: rgb(255, 255, 255)
 }
 
-aside .company p {
-  text-align: center;
-}
 
 /*************** courses/new.html.haml ***************/
 

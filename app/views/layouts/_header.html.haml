@@ -9,7 +9,7 @@
 
       - if user_signed_in?
         %li= link_to 'log out', '/users/sign_out', :method => :delete
-        %li= link_to('profile', profile_path(current_user))
+        %li= link_to('account', profile_path(current_user))
         %li= link_to 'post a class', '/organizations/your_orgs', :method => :get
       - else
         %li= link_to('login/sign up', new_user_session_path)
