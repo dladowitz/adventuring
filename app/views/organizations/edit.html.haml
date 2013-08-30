@@ -3,42 +3,54 @@
     .main_content
       .title Organization
       .info
-        .personal_info
+        .organization_info
           = form_for @organization do |f|
             // - devise_error_messages!  Not sure why, but this is breaking the world
             %table
               %tr
                 %th.first_cell Name:
-                %td#second_name.second_cell
+                %td#second_cell_name.second_cell
                   = @organization.name
                   %span#edit_icon
                     = image_tag "/assets/profiles/edit-11.png"
                     edit
-                %td#third_name.third_cell
+                %td#third_cell_name.third_cell
                   = f.text_field :name, :autofocus => true
                   = button_to 'update', :class => 'update_button'
 
               %tr
                 %th.first_cell Website:
-                %td#second_email.second_cell
+                %td#second_cell_website.second_cell
                   = @organization.website
                   %span#edit_icon
                     = image_tag "/assets/profiles/edit-11.png"
                     edit
-                %td#third_email.third_cell
-                  = f.text_field :website, :autofocus => true
+                %td#third_cell_website.third_cell
+                  = f.text_field :website
                   = button_to 'update', :class => 'update_button'
 
               %tr
                 %th.first_cell Phone:
-                %td#second_email.second_cell
+                %td#second_cell_phone.second_cell
                   = @organization.phone_num
                   %span#edit_icon
                     = image_tag "/assets/profiles/edit-11.png"
                     edit
-                %td#third_email.third_cell
-                  = f.text_field :phone_num, :autofocus => true
+                %td#third_cell_phone.third_cell
+                  = f.text_field :phone_num
                   = button_to 'update', :class => 'update_button'
+
+
+            #description_label Description:
+            #description_content
+              = @organization.description.html_safe
+              %span#edit_icon
+                = image_tag "/assets/profiles/edit-11.png"
+                edit
+            #description_edit
+              = f.text_area :description, :rows => 4, :class => 'ckeditor'
+              = button_to 'update', :class => 'update_button'
+
 
             .profile_photo
               - if @organization.logo_file_name
@@ -50,7 +62,7 @@
             .form_submit
               = f.submit "Save"
 
-        .organization_info
+        .other_info
           %table
             %tr
               %th Organizations

@@ -268,3 +268,106 @@ aside .instructor .name {
 .main .main_content .info .org_form .form_submit:hover {
   background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
 }
+
+
+/********** organizations/edit.html.haml **********/
+
+.main .main_content .info p {
+  font-size: 20px;
+  margin-top: 0px;
+}
+
+.main .main_content .info .current_password  {
+  margin-top: 20px;
+}
+
+.main .main_content .info .current_password i {
+  font-size: 15px;
+  color: blue;
+}
+
+
+/*Personal Info Box*/
+.main .main_content .info .organization_info  {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .05);
+  margin-bottom: 20px;
+}
+
+.main .main_content .info .organization_info th.first_cell {
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.main .main_content .info .organization_info #edit_icon {
+  margin-left: 10px;
+  display: none;
+  font-size: 15px;
+}
+
+.main .main_content .info .organization_info #edit_icon img {
+  height: 15px;
+  margin-right: 5px;
+}
+
+.main .main_content .info .organization_info table {
+  margin-bottom: 20px;
+}
+
+.main .main_content .info .organization_info td.third_cell {
+  display: none;
+}
+
+.main .main_content .info .organization_info #description_content {
+  height: 400px;
+  overflow: hidden;
+}
+
+.main .main_content .info .organization_info .profile_photo {
+  clear: both;
+}
+.main .main_content .info .organization_info .profile_photo img {
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-top: 10px;
+}
+
+.main .main_content .info .organization_info .current_photo  {
+  margin-top: 20px;
+}
+
+.main .main_content .info .organization_info .form_submit {
+  margin-top: 20px;
+}
+
+/*Other Info Box*/
+.main .main_content .info .other_info  {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .15);
+  margin-bottom: 20px;
+}
+
+.main .main_content .info .other_info a:hover {
+  text-decoration: underline;
+}
+.main .main_content .info .other_info th {
+  text-align: left;
+  padding-right: 20px;
+}
+
+
+/*Password Change Box*/
+.main .main_content .info .password_and_cancelation  {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  background-color: rgba(114, 138, 66, .25);
+  margin-bottom: 20px;
+}
