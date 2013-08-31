@@ -158,57 +158,30 @@ aside {
   margin-right: 0px;
 }
 
-aside .section_1 {
-  font-size: 20px;
+aside .section {
+  font-size: 30px;
   border: 1px solid gray;
   border-radius: 5px;
-  padding: 10px;
+  text-align: center;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-top: 20px;
+}
+
+aside .first_section {
   background-color: rgba(114, 138, 66, .05);
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-top: 0px;
 }
 
-aside .section_1 p {
-  margin: 10px;
-  font-size: 30px;
-  text-align: center;
-}
-
-aside .section_2 {
-  font-size: 30px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  text-align: center;
+aside .second_section {
   background-color: rgba(114, 138, 66, .15);
-  margin-top: 20px;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
 }
 
-aside .section_3 {
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+aside .third_section {
   background-color: rgba(114, 138, 66, .25);
-  font-size: 30px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-bottom: 3px;
 }
 
-aside .section_3 p {
-  text-align: center;
-}
-
-aside .section_4 {
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+aside .fourth_section {
   background-color: rgba(114, 138, 66, .35);
-  font-size: 30px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-bottom: 3px;
-}
-
-aside .section_4 p {
-  text-align: center;
 }
 
 

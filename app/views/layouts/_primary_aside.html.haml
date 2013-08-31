@@ -1,0 +1,17 @@
+%aside
+  %a{:href => organization_path(current_user.roles.first.organization)}
+    .section.first_section
+      %p Organization
+
+  %a{:href => '#'}
+    .section.second_section
+      %p Courses
+
+  %a{:href => profile_path(current_user)}
+    .section.third_section
+      %p Profile
+
+
+  %a{:href => '#'}
+    .section.fourth_section
+      %p Other
