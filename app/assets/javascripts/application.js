@@ -19,23 +19,38 @@
 //= require_tree .
 
 
-//'course' class could have conflicts as its name is used on both Course Index and Company Show
+// 'course' class could have conflicts as its name is used on both Course Index and Company Show
 
-//slides up and down over course images on Course index page.
+// slides up and down over course images on Course index page.
   $('.course').hover(
     function(){$(this).find('.index_page_overlay').slideDown()},
     function(){$(this).find('.index_page_overlay').slideUp()}
   );
 
 
-//slides up and down over course images on company show page.
+// slides up and down over course images on company show page.
   $('.course').hover(
     function(){$(this).find('.course_overlay').slideDown()},
     function(){$(this).find('.course_overlay').slideUp()}
   );
 
-//highlights aside section
+// Probably don't need this. Used :hover instead.
+// highlights aside section
   // $('.section').mouseover(function(){
   //     $('.section').addClass("")
   //   }
   // );
+
+// adds background highlight to show where user is in aisde bar
+  $(function(){
+    var str=location.href; // location.href is the current page link
+    // console.log(str)
+
+    $('aside a').each(function() {
+      // console.log(this.href)
+      if(str === this.href) {
+        // console.log ("matched!!")
+        $(this).find('div').addClass('active_section')  // finds first decendent div
+      }
+    });
+  })

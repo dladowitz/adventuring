@@ -172,10 +172,10 @@ aside .section p {
 }
 
 aside .section:hover {
-  color: white;
   background-color: rgba(114, 138, 66, .65);
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 1);
+  /*box-shadow: 0px 1px 10px rgba(0, 0, 0, 1);*/
 }
+
 
 aside .first_section {
   background-color: rgba(114, 138, 66, .05);
@@ -195,6 +195,10 @@ aside .fourth_section {
   margin-bottom: 10px;
 }
 
+aside .active_section {
+  background-color: rgba(114, 138, 66, .65);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 1);
+}
 
 /*reset.css styles*/
 
