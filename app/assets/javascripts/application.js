@@ -33,3 +33,9 @@
     function(){$(this).find('.course_overlay').slideDown()},
     function(){$(this).find('.course_overlay').slideUp()}
   );
+
+//highlights aside section
+  // $('.section').mouseover(function(){
+  //     $('.section').addClass("")
+  //   }
+  // );
