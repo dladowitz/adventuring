@@ -3,7 +3,7 @@
     .main_content
       .title Organization
       .info
-        .organization_info
+        .editable_organization_info
           = form_for @organization do |f|
             // - devise_error_messages!  Not sure why, but this is breaking the world
             %table
@@ -26,7 +26,7 @@
                     = image_tag "/assets/profiles/edit-11.png"
                     edit
                 %td#third_cell_website.third_cell
-                  = f.text_field :website
+                  = f.text_field :website, :autofocus => true
                   = button_to 'update', :class => 'update_button'
 
               %tr
@@ -37,46 +37,40 @@
                     = image_tag "/assets/profiles/edit-11.png"
                     edit
                 %td#third_cell_phone.third_cell
-                  = f.text_field :phone_num
+                  = f.text_field :phone_num, :autofocus => true
+                  = button_to 'update', :class => 'update_button'
+
+            .description_label Description
+            %table
+              %tr
+                // Intentionally removing first cell
+                %td#second_cell_phone.second_cell
+                  .description_content
+                    %span#edit_icon
+                      = image_tag "/assets/profiles/edit-11.png"
+                      edit
+                    = @organization.description.html_safe
+                %td#third_cell_website.third_cell
+                  = f.text_area :description, :rows => 1, :class => 'ckeditor', :autofocus => true
                   = button_to 'update', :class => 'update_button'
 
 
-            #description_label Description:
-            #description_content
-              = @organization.description.html_safe
-              %span#edit_icon
-                = image_tag "/assets/profiles/edit-11.png"
-                edit
-            #description_edit
-              = f.text_area :description, :rows => 4, :class => 'ckeditor'
-              = button_to 'update', :class => 'update_button'
-
-
-            .profile_photo
+            .logo_label Current Logo
+            .logo
               - if @organization.logo_file_name
                 =  image_tag @organization.logo.url(:square)
 
-            .update_profile_photo
+            .update_logo
               = f.file_field :logo, :value => "Change Logo"
 
-            .form_submit
-              = f.submit "Save"
+            = f.submit "Save", :class => 'form_submit'
 
+        // old section
         .other_info
-          %table
-            %tr
-              %th Organizations
-              %th Permissions Level
-            - current_user.roles.each do |role|
-              %tr
-                %th
-                  %strong
-                    = link_to "#{role.organization.name}:", role.organization
+          = button_to 'View Public Page', '#', :method => :get
 
-                %td= role.permission
-
-        .password_and_cancelation
-          = button_to 'Change Password or Cancel Account', edit_user_registration_path, :method => :get
+        // old section
+        .other_info
 
     .secondary_content
       = link_to "Back", :back

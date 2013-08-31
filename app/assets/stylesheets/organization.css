@@ -208,7 +208,8 @@ aside .instructor .name {
 }
 
 
-/*organizations/_form.html.haml*/
+/********** organizations/_form.html.haml **********/
+/*used by organizations/new.html.haml*/
 
 .main .main_content .info .org_form td {
   padding: 0 20px 20px 0;
@@ -272,23 +273,19 @@ aside .instructor .name {
 
 /********** organizations/edit.html.haml **********/
 
-.main .main_content .info p {
-  font-size: 20px;
-  margin-top: 0px;
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
 }
-
-.main .main_content .info .current_password  {
-  margin-top: 20px;
-}
-
-.main .main_content .info .current_password i {
-  font-size: 15px;
-  color: blue;
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
 
-/*Personal Info Box*/
-.main .main_content .info .organization_info  {
+/*Organization Info Box*/
+.main .main_content .info .editable_organization_info  {
   border: 1px solid gray;
   border-radius: 5px;
   padding: 20px;
@@ -297,50 +294,89 @@ aside .instructor .name {
   margin-bottom: 20px;
 }
 
-.main .main_content .info .organization_info th.first_cell {
+.main .main_content .info .editable_organization_info th {
+  text-align: left;
+}
+
+.main .main_content .info .editable_organization_info th.first_cell {
   padding-right: 10px;
   padding-top: 5px;
 }
 
-.main .main_content .info .organization_info #edit_icon {
+.main .main_content .info .editable_organization_info #edit_icon {
   margin-left: 10px;
   display: none;
   font-size: 15px;
 }
 
-.main .main_content .info .organization_info #edit_icon img {
+.main .main_content .info .editable_organization_info #edit_icon img {
   height: 15px;
   margin-right: 5px;
 }
 
-.main .main_content .info .organization_info table {
+.main .main_content .info .editable_organization_info table {
   margin-bottom: 20px;
 }
 
-.main .main_content .info .organization_info td.third_cell {
+.main .main_content .info .editable_organization_info td.third_cell {
   display: none;
 }
 
-.main .main_content .info .organization_info #description_content {
-  height: 400px;
-  overflow: hidden;
+.main .main_content .info .editable_organization_info .description_label {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.main .main_content .info .organization_info .profile_photo {
+.main .main_content .info .editable_organization_info .description_content {
+  background-color: white;
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 1px solid gray;
+  padding: 10px 0px 0 15px;
+  border-radius: 5px;
+  /*make the div look inset*/
+  box-shadow: 0 0 10px inset;
+}
+
+.main .main_content .info .editable_organization_info .logo_label {
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: -5px;
+}
+.main .main_content .info .editable_organization_info .logo {
   clear: both;
 }
-.main .main_content .info .organization_info .profile_photo img {
+.main .main_content .info .editable_organization_info .logo img {
   border-radius: 5px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   margin-top: 10px;
 }
 
-.main .main_content .info .organization_info .current_photo  {
-  margin-top: 20px;
+/*.main .main_content .info .editable_organization_info .update_logo {
+  position: relative;
+  bottom: 14px;
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  width: 243px;
+}*/
+
+.main .main_content .info .editable_organization_info .form_submit {
+  margin-top: 40px;
+  height: 45px;
+  width: 200px;
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 20px;
 }
 
-.main .main_content .info .organization_info .form_submit {
-  margin-top: 20px;
+.main .main_content .info .editable_organization_info .form_submit:hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
 }
 
 /*Other Info Box*/
@@ -353,21 +389,3 @@ aside .instructor .name {
   margin-bottom: 20px;
 }
 
-.main .main_content .info .other_info a:hover {
-  text-decoration: underline;
-}
-.main .main_content .info .other_info th {
-  text-align: left;
-  padding-right: 20px;
-}
-
-
-/*Password Change Box*/
-.main .main_content .info .password_and_cancelation  {
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
-  background-color: rgba(114, 138, 66, .25);
-  margin-bottom: 20px;
-}

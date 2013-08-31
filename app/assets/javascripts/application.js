@@ -54,3 +54,8 @@
       }
     });
   })
+
+// configs for ckeditor_rails gem
+  // $('.ckeditor').ckeditor({
+    // optional config
+  // });
