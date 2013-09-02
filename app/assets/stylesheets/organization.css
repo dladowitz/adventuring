@@ -405,3 +405,67 @@ aside .instructor .name {
   margin-bottom: 20px;
 }
 
+
+/********** organizations/offered_courses.html.haml **********/
+
+.main .main_content .info .course_status {
+  font-size: 25px;
+}
+
+.main .main_content .info .course_status.second {
+  margin-top: 50px;
+}
+
+.main .main_content .info .course_status .active_note {
+  font-size: 15px;
+}
+
+.main .main_content .info .course_list {
+  margin: 10px 0 10px 5px;
+  font-size: 20px;
+}
+
+.main .main_content .info .course_list a{
+  position: relative;
+  bottom: 12px;
+  color: #718B3D;
+
+}
+
+.main .main_content .info .course_list a:hover {
+  /*text-decoration: underline;*/
+  background-color: rgba(114, 138, 66, .10);
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  right: 5px;
+}
+
+.main .main_content .info .course_list img {
+  max-width: 60px;
+  border-radius: 5px;
+}
+
+.main .main_content .info .create_course_button {
+  margin-top: 10px;
+  /*height: 45px;*/
+  /*width: 200px;*/
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.main .main_content .info .create_course_button:hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+}
+
+
+
+
+
+
+

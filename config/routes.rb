@@ -2,7 +2,6 @@ Adventuring::Application.routes.draw do
 
   root to: 'courses#index'
   get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
-  get 'organizations/your_orgs'
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
@@ -19,6 +18,10 @@ Adventuring::Application.routes.draw do
       resources :sections
     end
   end
+  get 'organizations/your_orgs' => 'organizations#your_orgs', :as => :your_orgs_organization
+  get 'organizations/:id/offered_courses' => 'organizations#offered_courses', :as => :offered_courses_organization
+
+end
 
 
   # The priority is based upon order of creation:
@@ -77,4 +80,3 @@ Adventuring::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-end

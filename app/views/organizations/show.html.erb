@@ -98,21 +98,7 @@
   <br>
   Admin Stuffs
   <br>
-  <strong>Courses Offered</strong>
-  <br>
-  <br>
-  <% @organization.courses.each do |course| %>
-    <strong>Course Name:</strong>
-    <%= link_to course.name, organization_course_path(@organization.id, course) %>
-  <br>
-  <br>
-  <% end %>
 
-  <% if current_user == @organization.owner || current_user.site_admin? %>
-    <span>
-      <%= button_to 'Add a course', new_organization_course_path(@organization.id), :method => :get%>
-     </span>
-  <% end %>
 <% end %>
 ______________________________________________
 <br>

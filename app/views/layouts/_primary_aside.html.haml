@@ -1,11 +1,13 @@
+// The path's in the first two sections are based on a user only being part of one organization.
+// They only show the first of a users orgs. Gonna need to find a way to handle users with multiple orgs.
 %aside
-  %a{:href => edit_organization_path(current_user.roles.first.organization)}
+  %a{:href => offered_courses_organization_path(current_user.roles.first.organization)}
     .section.first_section
-      %p Organization
-
-  %a{:href => '#'}
-    .section.second_section
       %p Courses
+
+  %a{:href => edit_organization_path(current_user.roles.first.organization)}
+    .section.second_section
+      %p Organization
 
   %a{:href => profile_path(current_user)}
     .section.third_section
