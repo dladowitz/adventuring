@@ -9,7 +9,7 @@ $('.main .main_content .info .editable_organization_info td.second_cell').click(
 });
 
 // Updates values from input box to default view. Saves to database.
-$('.main .main_content .info .editable_organization_info td.third_cell button').click(function(){
+$('.main .main_content .info .editable_organization_info td.third_cell .update_button').click(function(){
   var updatedText = $(this).parent().parent().find('input').val();
 
   $(this).parent().parent().find('.third_cell').hide();

@@ -16,7 +16,9 @@
                     edit
                 %td#third_cell_name.third_cell
                   = f.text_field :name, :autofocus => true
-                  = button_to 'update', :class => 'update_button'
+                  %span.update_button
+                    update
+
 
               %tr
                 %th.first_cell Website:
@@ -27,7 +29,8 @@
                     edit
                 %td#third_cell_website.third_cell
                   = f.text_field :website, :autofocus => true
-                  = button_to 'update', :class => 'update_button'
+                  %span.update_button
+                    update
 
               %tr
                 %th.first_cell Phone:
@@ -38,7 +41,8 @@
                     edit
                 %td#third_cell_phone.third_cell
                   = f.text_field :phone_num, :autofocus => true
-                  = button_to 'update', :class => 'update_button'
+                  %span.update_button
+                    update
 
             .description_label Description
             %table

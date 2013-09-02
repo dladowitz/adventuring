@@ -16,7 +16,8 @@
                     edit
                 %td#third_name.third_cell
                   = f.text_field :name, :autofocus => true
-                  = button_to 'update', :class => 'update_button'
+                  %span.update_button
+                    update
 
               // Looks like the first update button acts like a submit button and turns the others into Posts.
               %tr
@@ -28,7 +29,8 @@
                     edit
                 %td#third_email.third_cell
                   = f.email_field :email, :autofocus => true
-                  = button_to 'update', :class => 'update_button'
+                  %span.update_button
+                    update
 
             .profile_photo
               - if current_user.profile_photo_file_name
@@ -37,8 +39,8 @@
             .update_profile_photo
               = f.file_field :profile_photo, :value => "Change Profile Photo"
 
-            .form_submit
-              = f.submit "Save"
+              %div
+                = f.submit "Save", :class => 'form_submit'
 
         .organization_info
           %table

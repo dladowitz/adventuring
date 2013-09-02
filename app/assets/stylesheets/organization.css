@@ -322,6 +322,22 @@ aside .instructor .name {
   display: none;
 }
 
+.main .main_content .info .editable_organization_info td.third_cell .update_button {
+  width: 70px;
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 15px;
+  text-align: center;
+  padding: 2px 7px 2px 7px;
+}
+
+.main .main_content .info .editable_organization_info td.third_cell .update_button:hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+}
+
 .main .main_content .info .editable_organization_info .description_label {
   font-weight: bold;
   margin-bottom: 5px;
