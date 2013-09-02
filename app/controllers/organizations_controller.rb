@@ -29,6 +29,10 @@ class OrganizationsController < ApplicationController
   def edit
     @organization = Organization.find(params[:id])
     @photo = Photo.new
+
+    # Protects unauthorized user from editing organization.
+    # Probably need to look at this across many areas and use before filters or find a gem to handle
+    render :file => 'public/422.html' unless @organization.permission_levels_for(current_user).include?('owner')
   end
 
   def update

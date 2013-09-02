@@ -95,21 +95,8 @@
 <% if current_user %>
   _____________________________________________________________________
   <br>
+  <br>
   Admin Stuffs
-
-
-  <% if current_user.site_admin? %>
-    (owner: <%= @organization.owner.name ? @organization.owner.name : @organization.owner.email %>)
-  <% end %>
-  <br>
-  <br>
-  <% if current_user == @organization.owner || current_user.site_admin? %>
-    <span>
-      <%= button_to 'Edit Organization', edit_organization_path(@organization.id), :method => :get%>
-     </span>
-  <% end %>
-
-  ______________________________________________
   <br>
   <strong>Courses Offered</strong>
   <br>

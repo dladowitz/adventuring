@@ -20,6 +20,17 @@ class Organization < ActiveRecord::Base
     end
   end
 
+  # returns an array of permission levels for a user
+  def permission_levels_for(user)
+    permission_levels = []
+    roles.each do |role|
+      if User.find(role.user_id) == user
+        permission_levels << role.permission
+      end
+    end
+
+    permission_levels
+  end
 
   # only turn on if organizations can have multiple owners
   # def owner=(user)
