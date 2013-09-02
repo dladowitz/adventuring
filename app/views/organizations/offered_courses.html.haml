@@ -1,0 +1,39 @@
+.container
+  .main
+    .main_content
+      .title Courses and Tours
+      .info
+        .course_status
+          Active Courses
+          %span.active_note (courses with sections scheduled)
+
+        .course_list
+          - @organization.courses.each do |course|
+            - unless course.next_dates.empty?
+              %div
+                = image_tag course.photos.first.image.url(:thumb)
+                = link_to course.name, organization_course_path(@organization.id, course)
+              / %div _______________________________________
+
+
+        .course_status.second
+          Inactive Courses
+          %span.active_note (no upcoming scheduled sections)
+
+          .course_list
+            - @organization.courses.each do |course|
+              - if course.next_dates.empty?
+                %div
+                  = image_tag course.photos.first.image.url(:thumb)
+                  = link_to course.name, organization_course_path(@organization.id, course)
+
+        %hr
+
+        = button_to 'Create a New Course', new_organization_course_path(@organization.id), :method => :get, :class => 'create_course_button'
+
+    .secondary_content
+      = link_to "Back", :back
+
+
+  =render 'layouts/primary_aside'
+
