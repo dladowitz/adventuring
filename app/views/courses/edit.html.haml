@@ -1,0 +1,81 @@
+// This locks down access to owners of the courses. Probably needs to be done in the controller instead.
+- if current_user && (current_user == @organization.owner || current_user.site_admin?)
+
+
+
+  .container
+    .main
+      .main_content
+        .title Edit Course or Tour
+        .info
+          = render 'form'
+
+      .secondary_content
+        .course_images
+          - if @course.photos.any?
+            .title
+              Edit Photos
+
+            - @course.photos.each do |photo|
+              = image_tag photo.image.url(:thumb)
+              = button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"
+
+              = form_for photo do |f|
+
+                = f.error_messages
+                %div
+                  %div
+                    = f.file_field :image
+
+                    = f.hidden_field :course_id, value: params[:id]
+                %div
+                  %div
+                    = f.submit
+
+          - else
+            .title
+              Add photos
+            (courses with photos sell 76.28% better than those without)
+    =render 'layouts/primary_aside'
+
+
+
+
+
+  %strong Add a photo
+  = form_for @photo, :html => { :class => "form-horizontal" } do |f|
+
+    = f.error_messages
+    .control-group
+      = f.label :image, :class => "control-label"
+      .controls
+        = f.file_field :image
+
+        = f.hidden_field :course_id, value: params[:id]
+    .control-group
+      .controls
+        = f.submit
+
+  %strong Scheduled Sections
+
+  - @course.next_dates.each do |section|
+    = "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}"
+
+
+  = button_to 'Add A Section', new_organization_course_section_path(@organization, @course), :method => :get
+
+  .row
+    .span12
+      %strong Delete Course
+
+  .row
+    .span2
+    .span4
+      offet2
+      = button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Are you sure?"
+
+- else
+  .dont{ :style => 'font-size: 50px; margin: 200px; text-align: center' }
+    DON'T EVEN TRY IT!
+
+
