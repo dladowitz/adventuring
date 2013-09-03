@@ -425,16 +425,22 @@ aside .instructor .name {
   font-size: 20px;
 }
 
-.main .main_content .info .course_list a{
-  position: relative;
-  bottom: 12px;
-  color: #718B3D;
-
+.main .main_content .info .course_list table th {
+  padding: 0  10px 10px 0;
+  /*border: 1px solid black;*/
+  width: 100px;
 }
 
-.main .main_content .info .course_list a:hover {
-  /*text-decoration: underline;*/
-  background-color: rgba(114, 138, 66, .10);
+.main .main_content .info .course_list table td {
+  vertical-align: middle;
+}
+
+.main .main_content .info .course_list table a{
+  color: #718B3D;
+}
+
+.main .main_content .info .course_list table a:hover {
+  background-color: rgba(114, 138, 66, .20);
   border-radius: 5px;
   padding: 5px;
   position: relative;
@@ -442,14 +448,22 @@ aside .instructor .name {
 }
 
 .main .main_content .info .course_list img {
-  max-width: 60px;
   border-radius: 5px;
 }
 
+.main .main_content .info .course_list table td.edit_icon {
+  display: none;
+  font-size: 15px;
+}
+
+.main .main_content .info .course_list table td.edit_icon img {
+  margin-left: 15px;
+  height: 20px;
+}
+
+
 .main .main_content .info .create_course_button {
   margin-top: 10px;
-  /*height: 45px;*/
-  /*width: 200px;*/
   background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
   color: #EDEFEE;
   border-radius: 5px;

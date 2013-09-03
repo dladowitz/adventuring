@@ -22,6 +22,14 @@ class PhotosController < ApplicationController
   end
 
   def update
+    @course = Course.find(params[:photo][:course_id]) if params[:photo][:course_id]
+    @photo = Photo.find(params[:id])
+
+    if @photo.update_attributes(params[:photo])
+      redirect_to :back
+    else
+      render :new
+    end
   end
 
   def destroy

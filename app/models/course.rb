@@ -8,6 +8,7 @@ class Course < ActiveRecord::Base
   has_many :sections
 
   validates_presence_of :organization_id, :name
+  validates_numericality_of :price
 
 
   def next_dates

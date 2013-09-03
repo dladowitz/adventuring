@@ -55,12 +55,17 @@
           </form>
         </div>
         <div class="price">
-          <%= number_to_currency(@course.price) %>
+          <% if @course.price %>
+            <%= @course.price <= 0 ? "free" : number_to_currency(@course.price) %>
+          <% else %>
+            free
+          <% end %>
+
           <% if @course.external_link %>
           <!-- this link on works in production. It adds an extra http://. Need to just styling the input or button -->
-            <a href="<%= @course.external_link %>", target="_blank"> <input class="buy_now" type="submit" value="Buy Now"> </a>
+            <a href="<%= @course.external_link %>", target="_blank"> <input class="buy_now" type="submit" value="Sign Up Now"> </a>
           <% else %>
-            <input class="buy_now" type="submit" value="Buy Now">
+            <input class="buy_now" type="submit" value="Sign Up Now">
           <% end %>
         </div>
 
@@ -112,10 +117,3 @@
         </div>
       </aside>
     </div>
-
-
-----------Admin Section----------
-<br><br>
-<% if current_user && (current_user == @organization.owner || current_user.site_admin?) %>
-  <%= button_to 'edit course', edit_organization_course_path(@organization, @course), :method => :get %>
-<% end %>

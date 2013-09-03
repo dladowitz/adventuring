@@ -17,13 +17,14 @@
         (copy and paste works from most sources)
       = f.text_area :description, :rows => 4, :class => 'ckeditor'
 
-    .active
-      = f.label :active
+    / Currently not using active attribute.
+    / .active
+    /   = f.label :active
 
-      = radio_button_tag(:active, true)
-      = label_tag(:active_true, "yes")
-      = radio_button_tag(:active, false)
-      = label_tag(:active_false, "no")
+    /   = radio_button_tag(:active, true)
+    /   = label_tag(:active_true, "yes")
+    /   = radio_button_tag(:active, false)
+    /   = label_tag(:active_false, "no")
 
     - if current_user.site_admin?
       %hr

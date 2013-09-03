@@ -1,7 +1,7 @@
 /* Place all the styles related to the Courses controller here.
 They will automatically be included in application.css. */
 
-/*************** courses/index ***************/
+/*************** courses/index.html ***************/
 .hero_bar {
   height: 300px;
   overflow: hidden;
@@ -139,26 +139,10 @@ They will automatically be included in application.css. */
   float: left;
 }
 
+
+
+
 /*************** couse/show.html.erb ***************/
-
-
-
-.main .course_content {
-  border: 1px solid gray;
-  border-radius: 5px;
-  /*background-color: rgba(200, 200, 200, .1);*/
-  overflow: hidden;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
-  margin-right: 5px;
-  position: relative;
-  z-index: 1;
-}
-
-.main .course_content .title  {
-  font-size: 50px;
-  margin-bottom: 20px;
-  margin: 15px;
-}
 
 .main .course_content .main_image_section {
   max-height: 500px;
@@ -192,13 +176,7 @@ They will automatically be included in application.css. */
   margin: 15px;
   font-family: helvetica;
   line-height: 20px;
-/*  font-size: 30px;
-  color: black;
-  font-weight: 100;
-*/
 }
-
-
 
 aside .dates {
   font-size: 20px;
@@ -221,8 +199,8 @@ aside .dates input {
 }
 
 
-
 /*price box*/
+
 aside .price {
   font-size: 30px;
   border: 1px solid gray;
@@ -252,8 +230,8 @@ aside .price .buy_now:hover {
 }
 
 
-
 /*instructor profile box*/
+
 aside .profile {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   background-color: rgba(114, 138, 66, .25);
@@ -326,7 +304,9 @@ aside .other_courses li {
   font-size: 18px;
 }
 
+
 /*company box*/
+
 aside .company {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   background-color: rgba(114, 138, 66, .35);
@@ -387,12 +367,12 @@ aside .company a:hover {
 }
 
 
+
 /*************** courses/new.html.haml ***************/
 
 .main .main_content .info .class_creation_form td {
   padding: 0 20px 20px 0;
 }
-
 
 .main .main_content .info .class_creation_form .description_label {
   margin: 0 0 5px 10px;
@@ -406,8 +386,6 @@ aside .company a:hover {
 }
 
 .main .main_content .info .class_creation_form input {
-  /*height: 20px;*/
-  /*width: 300px;*/
   margin: 10px;
   padding: 10px;
   font-style: italic;
@@ -441,5 +419,13 @@ aside .company a:hover {
 
 .main .main_content .info .class_creation_form .form_submit:hover {
   background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+}
+
+
+
+/*************** courses/edit.html.haml ***************/
+
+.main .secondary_content .course_images img {
+  border-radius: 5px;
 }
 

@@ -93,10 +93,15 @@ create a new css file and add in only selectors that are changed. */
   border: 1px solid gray;
   border-radius: 5px;
   overflow: hidden;
-  padding: 10px;
+  padding: 20px;
   margin: 20px 5px 10px 0; /*to make shadow with main_content match*/
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   background-color: rgba(200, 200, 200, .15);
+}
+
+.main .secondary_content .title {
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
 .main .secondary_content .review_group {

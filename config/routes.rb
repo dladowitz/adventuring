@@ -1,9 +1,13 @@
 Adventuring::Application.routes.draw do
 
   root to: 'courses#index'
-  get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
 
   devise_for :users, :controllers => { :registrations => "registrations" }
+
+  # Custom routes need to be above rest routes so they are routed to first.
+  get 'organizations/your_orgs' => 'organizations#your_orgs', :as => :your_orgs_organization
+  get 'organizations/:id/offered_courses' => 'organizations#offered_courses', :as => :offered_courses_organization
+  get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
 
   resources :photos
   resources :reviews
@@ -18,8 +22,6 @@ Adventuring::Application.routes.draw do
       resources :sections
     end
   end
-  get 'organizations/your_orgs' => 'organizations#your_orgs', :as => :your_orgs_organization
-  get 'organizations/:id/offered_courses' => 'organizations#offered_courses', :as => :offered_courses_organization
 
 end
 

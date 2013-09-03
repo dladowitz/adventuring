@@ -15,6 +15,10 @@
         <% ordered_courses = order_by_rank(@courses) %>
 
         <% ordered_courses.each do |course| %>
+
+          <!-- Makes sure courses without photos never end up on the home page -->
+          <% next if course.photos.empty? %>
+
           <a href="organizations/<%= course.organization.id %>/courses/<%= course.id %>">
             <div class="course">
               <div class="course_photo">
@@ -47,7 +51,11 @@
                   <% end %>
                 </div>
                 <div class="price">
-                  <%= number_to_currency(course.price) %>
+                  <% if course.price %>
+                    <%= course.price <= 0 ? "free" : number_to_currency(course.price) %>
+                  <% else %>
+                    free
+                  <% end %>
                 </div>
                 <div class="location">
                   <!-- <%= course.name %> TODO: add location to course model-->

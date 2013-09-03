@@ -8,12 +8,19 @@
           %span.active_note (courses with sections scheduled)
 
         .course_list
-          - @organization.courses.each do |course|
-            - unless course.next_dates.empty?
-              %div
-                = image_tag course.photos.first.image.url(:thumb)
-                = link_to course.name, organization_course_path(@organization.id, course)
-              / %div _______________________________________
+          %table
+            - @organization.courses.each do |course|
+              - unless course.next_dates.empty?
+                %tr
+                  %th
+                    = image_tag course.photos.first.image.url(:thumb) unless course.photos.empty?
+                  %td
+                    = link_to course.name, edit_organization_course_path(@organization.id, course)
+                  // Currently hidden. Add Javascript to show when hovering
+                  %td.edit_icon
+                    = image_tag "/assets/profiles/edit-11.png"
+                    edit
+
 
 
         .course_status.second
@@ -21,12 +28,18 @@
           %span.active_note (no upcoming scheduled sections)
 
           .course_list
-            - @organization.courses.each do |course|
-              - if course.next_dates.empty?
-                %div
-                  = image_tag course.photos.first.image.url(:thumb)
-                  = link_to course.name, organization_course_path(@organization.id, course)
-
+            %table
+              - @organization.courses.each do |course|
+                - if course.next_dates.empty?
+                  %tr
+                    %th
+                      = image_tag course.photos.first.image.url(:thumb) unless course.photos.empty?
+                    %td
+                      = link_to course.name, edit_organization_course_path(@organization.id, course)
+                    // Currently hidden. Add Javascript to show when hovering
+                    %td.edit_icon
+                      = image_tag "/assets/profiles/edit-11.png"
+                      edit
         %hr
 
         = button_to 'Create a New Course', new_organization_course_path(@organization.id), :method => :get, :class => 'create_course_button'
