@@ -1,6 +1,10 @@
 /* Place all the styles related to the Courses controller here.
 They will automatically be included in application.css. */
 
+
+/* There seems to be something funny with this file.
+The reset.css code in application.css seems to override these styles */
+
 /*************** courses/index.html ***************/
 .hero_bar {
   height: 300px;
@@ -143,6 +147,25 @@ They will automatically be included in application.css. */
 
 
 /*************** couse/show.html.erb ***************/
+
+/* Not sure why, but show.html won't read the next two styles from application.css.
+So they are included here, otherwise everyone dies */
+
+.main .course_content {
+  border: 1px solid gray;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-right: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.main .course_content .title  {
+  font-size: 50px;
+  margin-bottom: 20px;
+  margin: 15px;
+}
 
 .main .course_content .main_image_section {
   max-height: 500px;
@@ -425,7 +448,44 @@ aside .company a:hover {
 
 /*************** courses/edit.html.haml ***************/
 
+.main .secondary_content .course_images .edit_photos {
+  border-bottom: 1px solid darkgray;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.main .secondary_content .course_images .edit_photos .image_group .update_photo{
+  margin-top: 10px;
+}
+
+.main .secondary_content .course_images .edit_photos .image_group .delete_photo{
+
+}
+
+.main .secondary_content .course_images .image_group {
+  background-color: rgba(114, 138, 66, .35);
+  border-radius: 5px;
+  margin: 0 20px 20px 0;
+  width: 200px;
+  float: left;
+  padding: 10px;
+  /*text-align: center;*/
+}
+
+
+.main .secondary_content .course_images .image_group hr {
+ border-color: gray;
+}
+
 .main .secondary_content .course_images img {
   border-radius: 5px;
+  margin: 10px auto;
 }
+
+.main .secondary_content .course_images .add_photos {
+  clear: both;
+  margin-top: 20px;
+}
+
+
 
