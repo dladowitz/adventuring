@@ -37,6 +37,7 @@ $(document).ready(function() {
     "Auto Racing",
     "Base Jumping",
     "Bull Riding",
+    "Car Racing",
     "Canyoneering",
     "Cave Diving",
     "Cliff Diving",
