@@ -14,7 +14,9 @@ class PhotosController < ApplicationController
     if @photo.save
       redirect_to :back
     else
-      render :new
+      # really need to show error on page
+      redirect_to :back
+
     end
   end
 

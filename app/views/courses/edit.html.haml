@@ -9,48 +9,7 @@
           = render 'form'
 
       .secondary_content
-        .course_images
-          - if @course.photos.any?
-            .title
-              Edit Photos
-
-            .edit_photos
-              - @course.photos.each do |photo|
-                .image_group
-                  = image_tag photo.image.url(:square)
-
-                  = form_for photo do |f|
-                    = f.error_messages
-
-                    .update_photo
-                      %div
-                        %div
-                          = f.file_field :image
-
-                          / Don't think this id doing anything, but keeping for now. Came from create form
-                          / = f.hidden_field :course_id, value: params[:id]
-                      = f.submit "Save"
-
-                  %hr
-
-                  .delete_photo
-                    = button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"
-
-          .add_photos
-            .title
-              Add photos
-            (courses with photos sell 76.28% better than those without)
-            = form_for @photo, :html => { :class => "form-horizontal" } do |f|
-
-              = f.error_messages
-              .control-group
-                .controls
-                  = f.file_field :image
-
-                  = f.hidden_field :course_id, value: params[:id]
-              .control-group
-                .controls
-                  = f.submit
+        = render 'add_photos'
 
       .secondary_content
         %strong Scheduled Sections
@@ -61,6 +20,8 @@
 
         = button_to 'Add A Section', new_organization_course_section_path(@organization, @course), :method => :get
 
+      .secondary_content
+        = button_to 'View Public Page',  organization_course_path(@organization, @course), :method => :get
       .secondary_content
         %strong Delete Course
         = button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Are you sure?"

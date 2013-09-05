@@ -13,6 +13,7 @@
  */
 
 /***Shared Across Site***/
+
 body {
     font-family: 'Pathway Gothic One', sans-serif;
     color: rgb(75, 75, 75)
@@ -68,8 +69,8 @@ create a new css file and add in only selectors that are changed. */
 .main .main_content {
   border: 1px solid gray;
   border-radius: 5px;
-  overflow: hidden;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  overflow: hidden;
   margin-right: 5px;
   position: relative;
   z-index: 1;

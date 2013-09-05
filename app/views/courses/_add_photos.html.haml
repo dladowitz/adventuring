@@ -1,0 +1,43 @@
+.course_images
+  - if @course.photos.any?
+    .title
+      Edit Photos
+    / %span Primary photo will be
+    .edit_photos
+      - @course.photos.sort.each do |photo|
+        .image_group
+          .primary_image
+          = image_tag photo.image.url(:square)
+
+          = form_for photo do |f|
+            = f.error_messages
+
+            .update_photo
+              %div
+                %div
+                  = f.file_field :image
+
+                  / Don't think this id doing anything, but keeping for now. Came from create form
+                  / = f.hidden_field :course_id, value: params[:id]
+              = f.submit "Save"
+
+          %hr
+
+          .delete_photo
+            = button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"
+
+  .add_photos
+    %a{ :name => "photos" }
+    .title
+      Add photos
+    = form_for @photo do |f|
+
+      = f.error_messages
+      .control-group
+        .controls
+          = f.file_field :image
+
+          = f.hidden_field :course_id, value: params[:id]
+      .control-group
+        .controls
+          = f.submit 'Upload Photo'

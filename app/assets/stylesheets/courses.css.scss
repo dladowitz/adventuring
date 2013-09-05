@@ -5,6 +5,18 @@ They will automatically be included in application.css. */
 /* There seems to be something funny with this file.
 The reset.css code in application.css seems to override these styles */
 
+
+/* variables - for some reason these don't work when placed in application.scss */
+$large_button_background: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+$large_button_background_hover: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+$site_green: rgba(114, 138, 66, .15);
+
+@mixin site_shadow {
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
+
 /*************** courses/index.html ***************/
 .hero_bar {
   height: 300px;
@@ -446,7 +458,7 @@ aside .company a:hover {
 
 
 
-/*************** courses/edit.html.haml ***************/
+/*************** courses/edit.html.haml *************** some overlap with add_photos.html.haml */
 
 .main .secondary_content .course_images .edit_photos {
   border-bottom: 1px solid darkgray;
@@ -467,14 +479,25 @@ aside .company a:hover {
   border-radius: 5px;
   margin: 0 20px 20px 0;
   width: 200px;
+  height: 350px;
   float: left;
   padding: 10px;
-  /*text-align: center;*/
+  @include site_shadow
 }
 
 
 .main .secondary_content .course_images .image_group hr {
  border-color: gray;
+}
+
+.main .secondary_content .course_images .primary_image {
+  font-size: 30px;
+}
+
+.main .secondary_content .course_images .primary_image_group {
+  color: darkgreen;
+  background-color: rgba(114, 138, 66, .65);
+  @include site_shadow
 }
 
 .main .secondary_content .course_images img {
@@ -488,4 +511,25 @@ aside .company a:hover {
 }
 
 
+/*************** courses/add_photos.html.haml *************** some overlap with edit.html.haml */
 
+.secondary_content.add_photos_page {
+  margin-top: 0px;
+}
+
+.main .secondary_content.add_photos_page #done_button {
+  width: 100px;
+  background-image: $large_button_background;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 25px;
+  text-align: center;
+  padding: 2px 7px 2px 7px;
+
+}
+
+.main .secondary_content.add_photos_page #done_button:hover {
+  background-image: $large_button_background_hover;
+}

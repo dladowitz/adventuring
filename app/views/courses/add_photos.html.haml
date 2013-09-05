@@ -1,0 +1,9 @@
+.container
+  .main
+    .secondary_content.add_photos_page
+      = render 'add_photos'
+
+      %hr
+
+      = button_to 'Done', organization_course_path(@organization, @course), :id => 'done_button', :method  => :get
+  =render 'layouts/primary_aside'

@@ -4,17 +4,24 @@ Adventuring::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
-  # Custom routes need to be above rest routes so they are routed to first.
+  ### Custom routes need to be above rest routes so they are routed to first.
+
+  #organization
   get 'organizations/your_orgs' => 'organizations#your_orgs', :as => :your_orgs_organization
   get 'organizations/:id/offered_courses' => 'organizations#offered_courses', :as => :offered_courses_organization
   get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
+
+  #course
+  get 'organizations/:organization_id/courses/:id/add_photos' => 'courses#add_photos', :as => :add_photos
+
+  # Only need this if we access courses direct.
+  # resources :courses
 
   resources :photos
   resources :reviews
   resources :home
   resources :roles
   resources :profiles
-  resources :courses
   resources :instructors
 
   resources :organizations do

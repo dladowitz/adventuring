@@ -4,5 +4,7 @@ class Photo < ActiveRecord::Base
   belongs_to :organization
   belongs_to :course
 
+  validates_presence_of :image
+
   has_attached_file :image, :styles => { :medium => "300x300>", square: '200x200>', :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 end

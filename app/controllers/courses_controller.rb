@@ -1,4 +1,10 @@
 class CoursesController < ApplicationController
+  def add_photos
+    @organization = Organization.find(params[:organization_id])
+    @course = Course.find(params[:id])
+    @photo = Photo.new
+  end
+
   def index
     @courses = Course.all
   end
@@ -12,7 +18,7 @@ class CoursesController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @course = Course.new(params[:course])
     if @course.save
-      redirect_to organization_course_path(@organization, @course)
+      redirect_to edit_organization_course_path(@organization, @course)
     else
       render :new
     end
@@ -39,7 +45,7 @@ class CoursesController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @course = Course.find(params[:id])
     if @course.destroy
-      redirect_to organization_path(@organization)
+      redirect_to offered_courses_organization_path(@organization)
     else
       render :text => "Could not delete course"
     end

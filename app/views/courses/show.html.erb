@@ -7,7 +7,7 @@
             <img class='arrow' src="/assets/courses/arrow-next.png" height='100px'>
           <% end %>
           <div class="main_image_section">
-              <% @course.photos.each do |photo| %>
+              <% @course.photos.sort.each do |photo| %>
                 <div class="slide">
                   <%= image_tag photo.image.url %>
                 </div>
@@ -21,27 +21,34 @@
           </div>
         </div>
 
-        <div class="secondary_content">
-          <% @course.organization.reviews.each do |review| %>
-            <div class="review_group">
-              <div class="reviewer">
-                <a href="#">
-                  <div class="image">
-                    <%= image_tag review.user.profile_photo.url %>
-                  </div>
-                </a>
-                <div class="name"><%= review.user.name %></div>
+        <% if @course.organization.reviews.any?  %>
+          <div class="secondary_content">
+            <% @course.organization.reviews.each do |review| %>
+              <div class="review_group">
+                <div class="reviewer">
+                  <a href="#">
+                    <div class="image">
+                      <%= image_tag review.user.profile_photo.url %>
+                    </div>
+                  </a>
+                  <div class="name"><%= review.user.name %></div>
+                </div>
+                <div class='review'>
+                  <%= review.content %>
+                </div>
+                <div class="rating">
+                  <img src="/assets/courses/yelp_<%= review.rating.to_i %>_stars_transparent.png">
+                </div>
               </div>
-              <div class='review'>
-                <%= review.content %>
-              </div>
-              <div class="rating">
-                <img src="/assets/courses/yelp_<%= review.rating.to_i %>_stars_transparent.png">
-              </div>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+        <% end %>
 
+        <% if current_user.orgs_owned.include?(@organization) %>
+          <div class="secondary_content admin" style="background-color:skyblue">
+            <%= button_to 'Edit Course', edit_organization_course_path(@organization, @course), :method  => :get %>
+          </div>
+        <% end %>
       </div>
 
       <aside>

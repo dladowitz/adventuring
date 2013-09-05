@@ -32,6 +32,10 @@ $(document).ready(function() {
 
   $('.company .image').css({height: logoHeight, width: logoWidth})
 
+  // Marks first image is primary
+  $('.image_group .primary_image:first').html("Primary Image")
+  $('.image_group:first').addClass("primary_image_group")
+
   //Sports for search bar
   var availableSports = [
     "Auto Racing",
