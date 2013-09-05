@@ -1,3 +1,77 @@
 // Place all the styles related to the sections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Variables
+$large_button_background: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+$large_button_background_hover: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+$site_green: rgba(114, 138, 66, .15);
+
+
+.main .main_content .section_note {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.main .main_content .section_note .section_note_title {
+  color: green;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.main .secondary_content .scheduled_sections {
+  font-size: 30px;
+}
+
+
+.main .secondary_content .scheduled_sections table {
+  border-collapse: collapse;
+}
+
+.main .secondary_content .scheduled_sections tr {
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+}
+
+.main .secondary_content .scheduled_sections a{
+  color: rgb(75, 75, 75)
+}
+.main .secondary_content .scheduled_sections .section:hover {
+  background-color: $site_green;
+  border-radius: 5px;
+  // padding: 0 10px 0px 10px;
+}
+
+.main .secondary_content .scheduled_sections td {
+  padding-top: 20px;
+}
+
+.main .secondary_content .scheduled_sections th {
+  padding: 0 20px 10px 0;
+  color: green;
+  font-size: 35px;
+  text-align: left;
+  // position: relative;
+  // left: 5px;
+}
+
+.main .secondary_content .scheduled_sections th a {
+  color: green;
+}
+
+.main .secondary_content #finished_button {
+  background-image: $large_button_background;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 25px;
+  text-align: center;
+  padding: 2px 7px 2px 7px;
+}
+
+.main .secondary_content #finished_button:hover {
+  background-image: $large_button_background_hover;
+}

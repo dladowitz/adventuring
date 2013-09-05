@@ -1,0 +1,10 @@
+.title Currently Scheduled Sections
+
+.scheduled_sections
+  %table
+    - @course.next_dates.each do |section|
+      %tr
+        %th= link_to "#{section.location}:", edit_organization_course_section_path(@organization, @course, section)
+        %td
+          .section
+            = link_to "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}", edit_organization_course_section_path(@organization, @course, section)

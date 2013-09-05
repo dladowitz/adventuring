@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @course = Course.new(params[:course])
     if @course.save
-      redirect_to edit_organization_course_path(@organization, @course)
+      redirect_to add_photos_organization_course_path(@organization, @course)
     else
       render :new
     end

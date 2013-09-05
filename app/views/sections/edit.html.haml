@@ -1,0 +1,12 @@
+.container
+  .main
+    .main_content
+      .title Make Chanegs to Section
+      .info
+        %div
+          = render 'form'
+
+    .secondary_content
+      = button_to "Back", :back, :method => :get
+
+  =render 'layouts/primary_aside'

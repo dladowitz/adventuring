@@ -1,0 +1,22 @@
+.container
+  .main
+    .main_content
+      .title Add a Section
+      .info
+        .section_note
+          .section_note_title
+            What is a section? <br>
+          Remember way back in college courses had sections? <br>
+          A section represents each time a course is offered. <br>
+          So if you offer a course twice this month create two sections each with unique dates. <br>
+          (soon we'll be adding auto-repeat for sections you hold regularly)
+
+        = render 'form'
+
+    .secondary_content
+      = render 'scheduled_sections'
+
+    .secondary_content
+      = button_to 'Finished', edit_organization_course_path(@organization, @course), :id => 'finished_button', :method  => :get
+
+  =render 'layouts/primary_aside'

@@ -12,7 +12,7 @@ Adventuring::Application.routes.draw do
   get 'organization/:id/pre_destroy' => 'organizations#pre_destroy', :as => :pre_destroy_organization
 
   #course
-  get 'organizations/:organization_id/courses/:id/add_photos' => 'courses#add_photos', :as => :add_photos
+  get 'organizations/:organization_id/courses/:id/add_photos' => 'courses#add_photos', :as => :add_photos_organization_course
 
   # Only need this if we access courses direct.
   # resources :courses

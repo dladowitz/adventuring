@@ -12,16 +12,13 @@
         = render 'add_photos'
 
       .secondary_content
-        %strong Scheduled Sections
+        = render '/sections/scheduled_sections'
 
-        - @course.next_dates.each do |section|
-          = "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}"
-
-
-        = button_to 'Add A Section', new_organization_course_section_path(@organization, @course), :method => :get
+        = button_to 'Add A Section', organization_course_sections_path(@organization, @course), :method => :get, :class => 'add_section_button'
 
       .secondary_content
         = button_to 'View Public Page',  organization_course_path(@organization, @course), :method => :get
+
       .secondary_content
         %strong Delete Course
         = button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Are you sure?"

@@ -479,7 +479,7 @@ aside .company a:hover {
   border-radius: 5px;
   margin: 0 20px 20px 0;
   width: 200px;
-  height: 350px;
+  height: 315px;
   float: left;
   padding: 10px;
   @include site_shadow
@@ -510,6 +510,17 @@ aside .company a:hover {
   margin-top: 20px;
 }
 
+.main .secondary_content .course_images .add_photos span{
+  font-size: 25px;
+  color: green;
+}
+
+.main .secondary_content .add_section_button {
+  margin-top: 20px;
+}
+
+
+
 
 /*************** courses/add_photos.html.haml *************** some overlap with edit.html.haml */
 
@@ -527,7 +538,6 @@ aside .company a:hover {
   font-size: 25px;
   text-align: center;
   padding: 2px 7px 2px 7px;
-
 }
 
 .main .secondary_content.add_photos_page #done_button:hover {

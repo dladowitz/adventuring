@@ -27,9 +27,10 @@
             = button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"
 
   .add_photos
-    %a{ :name => "photos" }
     .title
       Add photos
+      %span.photo_note
+        Large Images are recommend (700 x 400 or larger)
     = form_for @photo do |f|
 
       = f.error_messages
