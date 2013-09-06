@@ -59,6 +59,7 @@ $(document).ready(function() {
     "Scuba Diving",
     "Snowboarding",
     "Skydiving",
+    "Surfing",
     "White Water Rafting",
     "Wind Surfing",
     "Wing Suit",
