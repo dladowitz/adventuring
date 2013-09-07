@@ -16,6 +16,7 @@
 //= require jquery-ui
 //= require bootstrap
 //= require ckeditor/ckeditor
+//= require timepicker
 //= require_tree .
 
 

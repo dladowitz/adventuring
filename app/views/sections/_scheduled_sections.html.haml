@@ -1,6 +1,9 @@
 .title Currently Scheduled Sections
 
 .scheduled_sections
+  - if @course.sections.empty?
+    You don't have any sections scheduled.
+
   %table
     - @course.next_dates.each do |section|
       %tr

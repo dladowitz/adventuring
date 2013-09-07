@@ -7,7 +7,21 @@ $large_button_background: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 
 $large_button_background_hover: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
 $site_green: rgba(114, 138, 66, .15);
 
+// Mixins
+  @mixin green_button {
+    background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+    color: #EDEFEE;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px grey;
+    border: 1px solid #738C42;
+    padding: 10px;
+  }
 
+  @mixin green_button_hover {
+    background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+  }
+
+// SASS
 .main .main_content .section_note {
   border: 1px solid gray;
   border-radius: 5px;
@@ -62,16 +76,29 @@ $site_green: rgba(114, 138, 66, .15);
 }
 
 .main .secondary_content #finished_button {
-  background-image: $large_button_background;
-  color: #EDEFEE;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px grey;
-  border: 1px solid #738C42;
-  font-size: 25px;
-  text-align: center;
-  padding: 2px 7px 2px 7px;
+  @include green_button;
+  font-size: 20px;
 }
 
 .main .secondary_content #finished_button:hover {
-  background-image: $large_button_background_hover;
+  @include green_button_hover
+}
+
+
+/********** sections/index.html.haml **********/
+
+.main .main_content .info .section_creation_form input {
+  margin: 10px;
+  padding: 10px;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.main .main_content .info .section_creation_form .create_section_button {
+  @include green_button;
+  font-size: 10px;
+}
+
+.main .main_content .info .section_creation_form .create_section_button:hover {
+  @include green_button_hover
 }
