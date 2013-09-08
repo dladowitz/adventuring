@@ -11,10 +11,27 @@ $large_button_background: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 
 $large_button_background_hover: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
 $site_green: rgba(114, 138, 66, .15);
 
+// Mixins
+
+// These are currently in application.cscc. Need to delete here when verified they are working correctly
+// @mixin green_button {
+//   background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+//   color: #EDEFEE;
+//   border-radius: 5px;
+//   box-shadow: 0 1px 1px grey;
+//   border: 1px solid #738C42;
+//   padding: 10px;
+// }
+
+// @mixin green_button_hover {
+//   background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+// }
+
 @mixin site_shadow {
   border-radius: 5px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
 }
+
 
 
 /*************** courses/index.html ***************/
@@ -460,6 +477,7 @@ aside .company a:hover {
 
 /*************** courses/edit.html.haml *************** some overlap with add_photos.html.haml */
 
+
 .main .secondary_content .course_images .edit_photos {
   border-bottom: 1px solid darkgray;
   overflow: hidden;
@@ -515,10 +533,9 @@ aside .company a:hover {
   color: green;
 }
 
-.main .secondary_content .add_section_button {
+.main .secondary_content #add_section_button {
   margin-top: 20px;
 }
-
 
 
 

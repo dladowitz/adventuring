@@ -14,14 +14,15 @@
       .secondary_content
         = render '/sections/scheduled_sections'
 
-        = button_to 'Add A Section', organization_course_sections_path(@organization, @course), :method => :get, :class => 'add_section_button'
+        = button_to 'Add A Section', organization_course_sections_path(@organization, @course), :method => :get, :id => 'add_section_button', :class => 'green_button'
 
       .secondary_content
-        = button_to 'View Public Page',  organization_course_path(@organization, @course), :method => :get
+        .title Public Facing Page
+        = button_to 'Go to Public Page',  organization_course_path(@organization, @course), :method => :get, :class => 'green_button'
 
       .secondary_content
-        %strong Delete Course
-        = button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Are you sure?"
+        .title Delete Course
+        = button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Are you sure?", :class => 'green_button'
 
     =render 'layouts/primary_aside'
 

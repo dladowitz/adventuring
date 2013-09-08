@@ -8,12 +8,40 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ * Not sure why I can't add in Mixins and Variable here to be included in other .scss pages.
+ *
  *= require_self
  *= require_tree .
  */
 
 /***Shared Across Site***/
 
+// variables - for some reason these don't totally work when placed in application.scss
+$large_button_background: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+$large_button_background_hover: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+$site_green: rgba(114, 138, 66, .15);
+
+// Mixins
+@mixin green_button {
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  padding: 10px;
+}
+
+@mixin green_button_hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+}
+
+@mixin site_shadow {
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
+
+// SASS
 body {
     font-family: 'Pathway Gothic One', sans-serif;
     color: rgb(75, 75, 75)
@@ -22,6 +50,14 @@ body {
 .admin {
   /*color: blue;*/
   background-color: skyblue;
+}
+
+.green_button {
+  @include green_button
+}
+
+.green_button:hover {
+  @include green_button_hover
 }
 
 /*alert messages*/
