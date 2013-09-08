@@ -10,7 +10,7 @@
         .course_list
           %table
             - @organization.courses.each do |course|
-              - unless course.next_dates.empty?
+              - unless course.next_five_dates.empty?
                 %tr
                   %th
                     = image_tag course.photos.first.image.url(:thumb) unless course.photos.empty?
@@ -30,7 +30,7 @@
           .course_list
             %table
               - @organization.courses.each do |course|
-                - if course.next_dates.empty?
+                - if course.next_five_dates.empty?
                   %tr
                     %th
                       = image_tag course.photos.first.image.url(:thumb) unless course.photos.empty?

@@ -32,8 +32,8 @@
                   Next Class
                 </div>
                 <div class="class_date">
-                  <% if course.next_dates.any? %>
-                    <%= "#{course.next_dates.first.start_date.strftime('%b %d')} " %>
+                  <% if course.next_five_dates.any? %>
+                    <%= "#{course.next_five_dates.first.start_date.strftime('%b %d')} " %>
                   <% else %>
                     Request a date
                   <% end %>

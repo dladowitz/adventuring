@@ -85,8 +85,11 @@ $site_green: rgba(114, 138, 66, .15);
 }
 
 
-/********** sections/index.html.haml **********/
+/********** sections/_form.html.haml **********/
 
+.main .main_content .info .section_creation_form table th {
+  text-align: left;
+}
 .main .main_content .info .section_creation_form input {
   margin: 10px;
   padding: 10px;
@@ -96,9 +99,21 @@ $site_green: rgba(114, 138, 66, .15);
 
 .main .main_content .info .section_creation_form .create_section_button {
   @include green_button;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .main .main_content .info .section_creation_form .create_section_button:hover {
   @include green_button_hover
+}
+
+
+/********** sections/edit.html.haml **********/
+
+.main .secondary_content .delete_section_button {
+  @include green_button;
+  font-size: 10px;
+}
+
+.main .secondary_content .delete_section_button:hover {
+  @include green_button_hover;
 }

@@ -5,7 +5,7 @@
     You don't have any sections scheduled.
 
   %table
-    - @course.next_dates.each do |section|
+    - @course.next_five_dates.each do |section|
       %tr
         %th= link_to "#{section.location}:", edit_organization_course_section_path(@organization, @course, section)
         %td

@@ -1,10 +1,14 @@
 .container
   .main
     .main_content
-      .title Make Chanegs to Section
+      .title Make Changes to Section
       .info
         %div
           = render 'form'
+
+    .secondary_content
+      .title Delete Section
+      = button_to 'Delete section', organization_course_section_path(@organization, @course, @section), :method => :delete, :confirm => "Are you sure?", :class => "delete_section_button"
 
     .secondary_content
       = button_to "Back", :back, :method => :get

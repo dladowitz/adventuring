@@ -2,9 +2,15 @@
 // All this logic will automatically be available in application.js.
 
 $('.start_date').datetimepicker({
-  altField: '.start_time'
+  timeFormat: "hh:mm tt",
+
+  // Currently rolling everything into start_date
+  // altField: '.start_time'
 });
 
 $('.end_date').datetimepicker({
-  altField: '.end_time'
+  timeFormat: "hh:mm tt",
+
+  // Currently rolling everything into end_date
+  // altField: '.end_time'
 });

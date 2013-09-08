@@ -1,30 +1,36 @@
-= form_for [@organization, @course, @section] do |f|
-  %div
-    %div= f.label :location
-    %div= f.text_field :location, :autofocus => true, :placeholder => 'Ex: San Francsico, CA'
-  / Instructors are not enabled properly right now
-  / Fix the creation flow and renable.
-  / %div
-  /   = f.label :instructor_id, 'Instrutor Id'
-  /   %div
-  /     = f.number_field :instructor_id
+.section_creation_form
+  = form_for [@organization, @course, @section] do |f|
+    = f.error_messages
+    %table
+      %tr
+        %th= f.label :location
+        %td= f.text_field :location, :autofocus => true, :placeholder => 'Ex: San Francsico, CA', :required => true
 
-  %div
-    %div= f.label :start_date, "Start Date and Time"
-    %div
-      = f.text_field :start_date, :class => 'start_date'
-      %span
-        = f.text_field :start_time, :class => 'start_time'
-    %div
+      / Instructors are not enabled properly right now
+      / Fix the creation flow and renable.
+      / %div
+      /   = f.label :instructor_id, 'Instrutor Id'
+      /   %div
+      /     = f.number_field :instructor_id
 
-  %div
-    %div= f.label :end_date, "End Date and Time"
-    %div
-      = f.text_field :end_date, :class => 'end_date'
-      %span
-        = f.text_field :end_time, :class => 'end_time'
-    %div
+      %tr
+        %th= f.label :start_date, "Start Date & Time"
+        %td
+          = f.text_field :start_date, :class => 'start_date', :required => true, :placeholder => 'Click for Calendar Selector'
+          / Currently rolling everything into start_date
+          / %span
+          /   = f.text_field :start_time, :class => 'start_time'
 
 
-  = f.hidden_field :course_id, value: params[:course_id]
-  = f.submit :class => "create_section_button"
+      %tr
+        %th= f.label :end_date, "End Date & Time"
+        %td
+          = f.text_field :end_date, :class => 'end_date', :placeholder => 'Click for Calendar Selector'
+          / Currently rolling everything into end_date
+          / %span
+          /   = f.text_field :end_time, :class => 'end_time'
+
+
+
+    = f.hidden_field :course_id, value: params[:course_id]
+    = f.submit :class => "create_section_button"
