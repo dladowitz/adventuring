@@ -1,0 +1,80 @@
+.container
+  .main
+    .company_content
+      .title= @organization.name
+      /  only show next arrow if there is more than one photo
+      - if @organization.photos.count > 1
+        = image_tag "/assets/courses/arrow-next.png", :class =>'arrow', :height => '100px'
+
+      .main_image_section
+        - @organization.photos.each do |photo|
+          .slide
+            = image_tag photo.image.url
+
+      .description_group
+        / %h1 Company Info
+        .description
+          = @organization.description.html_safe
+
+    .secondary_content
+      .title Courses Offered
+      .courses_offered
+        - @organization.courses.each do |course|
+          - next if course.photos.empty?
+          / Watch out. There is another class called 'course' on the homepage
+          .course
+            %a{ :href => "/organizations/#{course.organization.id}/courses/#{course.id}" }
+              .course_name
+                = course.name
+              = image_tag course.photos.first.image.url if course.photos.any?
+              .course_overlay
+                .next_class
+                  Next Class
+                .class_date
+                  - if course.next_five_dates.any?
+                    = "#{course.next_five_dates.first.start_date.strftime('%b %d')} "
+                  - else
+                    Request a date
+
+    - if @organization.reviews.any?
+      .secondary_content
+        .title Reviews
+        - @organization.reviews.each do |review|
+          .review_group
+            .reviewer
+              %a{ :href => "#" }
+                .image
+                  = image_tag review.user.profile_photo.url
+              .name
+                = review.user.name
+
+            .review
+              = review.content
+
+            .rating
+              = image_tag "/assets/courses/yelp_#{review.rating.to_i}_stars_transparent.png"
+
+    .secondary_content
+      .title Add a Review
+      - if current_user
+        %strong Add a review to the Organization
+        = render 'reviews/form'
+
+  %aside
+    .company
+      .logo
+        = image_tag @organization.logo.url
+
+    - if @organization.instructors.any?
+      .instructors
+        %p Instructors
+        - @organization.instructors.each do |instructor|
+          .instructor
+            %a{:href => "#"}
+              .image
+                = image_tag instructor.profile_photo.url
+
+            .name= "#{instructor.first_name} #{instructor.last_name_initial}"
+            <hr>
+
+

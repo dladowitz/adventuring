@@ -237,6 +237,7 @@ aside .dates {
   padding: 10px;
   background-color: rgba(114, 138, 66, .05);
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+  margin-bottom: 20px;
 }
 
 aside .dates p {
@@ -260,7 +261,7 @@ aside .price {
   padding: 20px;
   text-align: center;
   background-color: rgba(114, 138, 66, .15);
-  margin-top: 20px;
+  margin-bottom: 20px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   min-height: 30px;
 }
@@ -291,8 +292,8 @@ aside .profile {
   border: 1px solid gray;
   border-radius: 5px;
   padding-bottom: 20px;
-  margin-top: 20px;
-  margin-bottom: 3px;
+  // margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 aside .profile .image {
@@ -365,7 +366,7 @@ aside .company {
   font-size: 30px;
   border: 1px solid gray;
   border-radius: 5px;
-  margin-top: 20px;
+  // margin-top: 20px;
   margin-bottom: 3px;
   padding: 0 20px 0 20px;
 }
