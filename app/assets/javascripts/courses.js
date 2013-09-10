@@ -64,4 +64,10 @@ $(document).ready(function() {
     "Wind Surfing",
     "Wing Suit",
   ]
+
+  $('.empty_photos_box').click(function(){
+    // alert('doingt a thing')
+    $('.empty_photos_box').hide();
+    $('.photos_box').slideDown();
+  });
 });

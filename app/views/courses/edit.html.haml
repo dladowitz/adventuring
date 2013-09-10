@@ -8,10 +8,13 @@
         .info
           = render 'form'
 
-      .secondary_content
+      .secondary_content.empty_photos_box
+        .title Edit Photos
+
+      .secondary_content.photos_box
         = render 'add_photos'
 
-      .secondary_content
+      .secondary_content.sections_box
         = render '/sections/scheduled_sections'
 
         = button_to 'Add A Section', organization_course_sections_path(@organization, @course), :method => :get, :id => 'add_section_button', :class => 'green_button'
