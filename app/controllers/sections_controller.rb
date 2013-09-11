@@ -3,10 +3,22 @@ class SectionsController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @course = Course.find(params[:course_id])
     @section = Section.new(params[:section])
-    if @section.save
-      redirect_to :back
-    else
-      redirect_to :back # not sure why I can't get this to render new or index properly
+    # if @section.save
+    #   redirect_to :back
+    # else
+    #   redirect_to :back # not sure why I can't get this to render new or index properly
+    # end
+
+    respond_to do |format|
+      if @section.save!
+        format.html { redirect_to :back, notice: 'section was successfully created.' }
+        format.js { }
+        # format.json { render action: 'show', status: :created, location: @post }
+      else
+        format.html { redirect_to :back, notice: 'error creating section.' }
+        format.js { }
+        # format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 

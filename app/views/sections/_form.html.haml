@@ -1,5 +1,5 @@
 .section_creation_form
-  = form_for [@organization, @course, @section] do |f|
+  = form_for [@organization, @course, @section], :remote => true do |f|
     = f.error_messages
     %table
       %tr
