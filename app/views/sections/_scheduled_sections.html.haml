@@ -4,10 +4,29 @@
   - if @course.sections.empty?
     You don't have any sections scheduled.
 
-  %table
-    - @course.next_five_dates.each do |section|
+  // need to extract this out to a method in course
+  - future_sections = []
+  - past_sections =[]
+  - @course.sections.each do |section|
+    - if section.start_date > Date.today
+      - future_sections << section
+    - else
+      - past_sections << section
+
+  // need to extract out to not reapeat the same code twice
+  - future_sections.each do |section|
+    %table
       %tr
         %th= link_to "#{section.location}:", edit_organization_course_section_path(@organization, @course, section)
         %td
           .section
-            = link_to "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}", edit_organization_course_section_path(@organization, @course, section)
+            = link_to "#{section.start_date.strftime('%b %d')}, 20#{section.start_date.strftime('%y')} - #{section.start_date.strftime('%l')}:#{section.start_date.strftime('%M %P')}", edit_organization_course_section_path(@organization, @course, section)
+
+  / Past Sections
+  / - past_sections.each do |section|
+  /   %table
+  /     %tr
+  /       %th= link_to "#{section.location}:", edit_organization_course_section_path(@organization, @course, section)
+  /       %td
+  /         .section
+  /           = link_to "#{section.start_date.strftime('%b %d')}, 20#{section.start_date.strftime('%y')} - #{section.start_date.strftime('%l')}:#{section.start_date.strftime('%M %P')}", edit_organization_course_section_path(@organization, @course, section)

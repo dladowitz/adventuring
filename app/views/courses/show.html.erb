@@ -55,7 +55,7 @@
         <div class="dates">
           <p>Next Dates:</p>
           <form>
-            <% @course.next_five_dates.each do |section| %>
+            <% @course.next_dates(5).each do |section| %>
               <input type="radio" name="date" value="#"><%= "#{section.start_date.strftime('%b %d')} 20#{section.start_date.strftime('%y')}. . . #{section.location}" %><br>
               <!-- <input type="submit" value="Submit"> -->
             <% end %>

@@ -12,11 +12,11 @@ class SectionsController < ApplicationController
     respond_to do |format|
       if @section.save!
         format.html { redirect_to :back, notice: 'section was successfully created.' }
-        format.js { }
+        # format.js { }
         # format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { redirect_to :back, notice: 'error creating section.' }
-        format.js { }
+        # format.js { }
         # format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

@@ -3,29 +3,35 @@
 
   .container
     .main
-      .main_content
+      .course_nav_bar
+        %ul
+          %li
+            %span#nav_link_info.active_nav Info
+          %li
+            %span#nav_link_images Images
+          %li
+            %span#nav_link_sections Sections
+
+      .main_content#info_box
         .title Edit Course or Tour
         .info
           = render 'form'
 
-      .secondary_content.empty_photos_box
-        .title Edit Photos
-
-      .secondary_content.photos_box
+      .secondary_content#images_box
         = render 'add_photos'
 
-      .secondary_content.sections_box
+      .secondary_content#sections_box
         = render '/sections/scheduled_sections'
 
         = button_to 'Add A Section', organization_course_sections_path(@organization, @course), :method => :get, :id => 'add_section_button', :class => 'green_button'
 
-      .secondary_content
+      .secondary_content#public_box
         .title Public Facing Page
         = button_to 'Go to Public Page',  organization_course_path(@organization, @course), :method => :get, :class => 'green_button'
 
-      .secondary_content
+      .secondary_content#delete_box
         .title Delete Course
-        = button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Are you sure?", :class => 'green_button'
+        = button_to 'Delete course now', organization_course_path(@organization, @course), :method => :delete, :confirm => "Really?! Really?! Ain't no going back from this one.", :class => 'green_button'
 
     =render 'layouts/primary_aside'
 

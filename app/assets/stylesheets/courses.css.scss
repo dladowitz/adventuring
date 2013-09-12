@@ -478,6 +478,34 @@ aside .company a:hover {
 
 /*************** courses/edit.html.haml *************** some overlap with add_photos.html.haml */
 
+.main .course_nav_bar  {
+  @include site_shadow;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  height: 91px;
+  width: 798px;
+}
+
+.main .course_nav_bar ul {
+  vertical-align: bottom;
+  margin: 23px 0 23px 0;
+}
+
+.main .course_nav_bar ul li {
+  display: inline;
+  font-size: 45px;
+  margin-right: 20px;
+}
+
+.main .course_nav_bar ul .active_nav {
+  color: green;
+}
+
+.main .course_nav_bar ul li:hover {
+  color: green;
+  cursor: pointer;
+  text-shadow: 0 0 1px green;
+}
 
 .main .secondary_content .course_images .edit_photos {
   border-bottom: 1px solid darkgray;
@@ -538,10 +566,14 @@ aside .company a:hover {
   margin-top: 20px;
 }
 
-.main .photos_box {
+.main #images_box, #sections_box {
   display: none
 }
 
+.main .secondary_content#public_box, .main .secondary_content#delete_box {
+  width: 355px;
+  float: left;
+}
 
 
 /*************** courses/add_photos.html.haml *************** some overlap with edit.html.haml */

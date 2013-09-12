@@ -65,9 +65,35 @@ $(document).ready(function() {
     "Wing Suit",
   ]
 
-  $('.empty_photos_box').click(function(){
-    // alert('doingt a thing')
-    $('.empty_photos_box').hide();
-    $('.photos_box').slideDown();
+// need to extract into a method. Super undry
+  $('#nav_link_info').click(function(){
+    $('span').removeClass('active_nav')
+    $(this).addClass('active_nav')
+    $('#info_box').show();
+    $('#public_box').show();
+    $('#delete_box').show();
+    $('#images_box').hide();
+    $('#sections_box').hide();
   });
+
+  $('#nav_link_images').click(function(){
+    $('span').removeClass('active_nav')
+    $(this).addClass('active_nav')
+    $('#images_box').show();
+    $('#info_box').hide();
+    $('#sections_box').hide();
+    $('#public_box').hide();
+    $('#delete_box').hide();
+  });
+
+  $('#nav_link_sections').click(function(){
+    $('span').removeClass('active_nav')
+    $(this).addClass('active_nav')
+    $('#sections_box').show();
+    $('#info_box').hide();
+    $('#images_box').hide();
+    $('#public_box').hide();
+    $('#delete_box').hide();
+  });
+
 });

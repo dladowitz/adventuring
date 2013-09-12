@@ -11,15 +11,21 @@ class Course < ActiveRecord::Base
   validates_numericality_of :price
 
 
-  def next_five_dates
-    # Gets the next five sections being offered
+  def next_dates(number_of_dates = nil)
+    # Gets a specified number of next sections being offered
     sections = []
     self.sections.each do |section|
       next unless section.start_date
-      sections << section if section.start_date > DateTime.now
+      ### Probably need to go back and look at the time as well as date
+      sections << section if section.start_date > Date.today
     end
     sections = sections.sort_by{|section| section.start_date}
-    sections = sections[0..4]
+
+    if number_of_dates
+      sections = sections[0..number_of_dates]
+    else
+      sections
+    end
   end
 
   def unique_locations

@@ -35,7 +35,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
 
     if @course.update_attributes(params[:course])
-      redirect_to organization_course_path(@organization, @course)
+      redirect_to edit_organization_course_path(@organization, @course)
     else
       render :edit
     end
