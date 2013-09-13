@@ -14,17 +14,20 @@
       - past_sections << section
 
   // need to extract out to not reapeat the same code twice
-  - future_sections.each do |section|
-    %table
+  %table
+    - future_sections.each do |section|
       %tr
         %th= link_to "#{section.location}:", edit_organization_course_section_path(@organization, @course, section)
         %td
           .section
             = link_to "#{section.start_date.strftime('%b %d')}, 20#{section.start_date.strftime('%y')} - #{section.start_date.strftime('%l')}:#{section.start_date.strftime('%M %P')}", edit_organization_course_section_path(@organization, @course, section)
 
+.ajax_scheduled_sections
+  here
+
   / Past Sections
-  / - past_sections.each do |section|
-  /   %table
+  / %table
+  /   - past_sections.each do |section|
   /     %tr
   /       %th= link_to "#{section.location}:", edit_organization_course_section_path(@organization, @course, section)
   /       %td

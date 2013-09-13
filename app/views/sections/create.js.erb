@@ -1,4 +1,4 @@
-$('.scheduled_sections').append("<%= escape_javascript(@section.location)%>: <br> <%= escape_javascript(@section.start_date) %> <br>");
+$('.ajax_scheduled_sections').append("<%= escape_javascript(@section.location)%>: <%= escape_javascript(@section.start_date.strftime('%b %d')) %> <br>");
 
 
 

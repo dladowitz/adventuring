@@ -12,11 +12,11 @@ class SectionsController < ApplicationController
     respond_to do |format|
       if @section.save!
         format.html { redirect_to :back, notice: 'section was successfully created.' }
-        # format.js { }
+        format.js { }
         # format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { redirect_to :back, notice: 'error creating section.' }
-        # format.js { }
+        format.js { }
         # format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +62,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
 
     if @section.update_attributes(params[:section])
-      redirect_to edit_organization_course_path(@organization, @course)
+      redirect_to organization_course_sections_path(@organization, @course, @section)
     else
       render new
     end

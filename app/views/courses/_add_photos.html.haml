@@ -31,7 +31,7 @@
       Add photos
       %span.photo_note
         Large Images are recommend (700 x 400 or larger)
-    = form_for @photo do |f|
+    = form_tag @photo, :remote => true do |f| #:remote=> true is acting like it not used. something funny happens when with this: , :format => 'js'
 
       = f.error_messages
       .control-group

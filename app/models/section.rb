@@ -5,4 +5,5 @@ class Section < ActiveRecord::Base
   belongs_to :instructor
 
   validates_presence_of :course_id, :location
+  # need to validate sections are created in the future.
 end
