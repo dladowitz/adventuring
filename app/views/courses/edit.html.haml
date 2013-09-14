@@ -15,7 +15,64 @@
       .main_content#info_box
         .title Edit Course or Tour
         .info
-          = render 'form'
+          .editable_course_info
+            = form_for [@organization, @course] do |f|
+              // - devise_error_messages!  Not sure why, but this is breaking the world
+              %table
+                %tr
+                  %th.first_cell Name:
+                  %td#second_cell_name.second_cell
+                    = @course.name
+                    %span#edit_icon
+                      = image_tag "/assets/profiles/edit-11.png"
+                      edit
+                  %td#third_cell_name.third_cell
+                    = f.text_field :name, :autofocus => true, :placeholder => 'Course Name'
+                    %span.update_button
+                      update
+
+
+                %tr
+                  %th.first_cell Link:
+                  %td#second_cell_website.second_cell
+                    = @course.external_link
+                    %span#edit_icon
+                      = image_tag "/assets/profiles/edit-11.png"
+                      edit
+                  %td#third_cell_website.third_cell
+                    = f.text_field :external_link, :autofocus => true, :placeholder => 'Course Link'
+                    %span.update_button
+                      update
+
+                %tr
+                  %th.first_cell Price:
+                  %td#second_cell_phone.second_cell
+                    = @course.price <= 0 ? "free" : number_to_currency(@course.price)
+                    %span#edit_icon
+                      = image_tag "/assets/profiles/edit-11.png"
+                      edit
+                  %td#third_cell_phone.third_cell
+                    = f.text_field :price, :autofocus => true, :placeholder => 'Price'
+                    %span.update_button
+                      update
+
+              .description_label Description
+              %table
+                %tr
+                  // Intentionally removing first cell
+                  %td#second_cell_phone.second_cell#description
+                    .description_content
+                      %span#edit_icon
+                        = image_tag "/assets/profiles/edit-11.png"
+                        edit
+                      = @course.description.html_safe
+                  %td#third_cell_website.third_cell
+                    = f.text_area :description, :rows => 1, :class => 'ckeditor', :autofocus => true
+                    = button_to 'update', {:controller => :courses, :action => :update}, :class => 'update_button green_button'
+                    / .update_button.green_button
+                    /   update
+
+              = f.submit "Save", :class => 'course_form_submit green_button'
 
       .secondary_content#images_box
         = render 'add_photos'

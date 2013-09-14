@@ -478,6 +478,17 @@ aside .company a:hover {
 
 /*************** courses/edit.html.haml *************** some overlap with add_photos.html.haml */
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
 .main .course_nav_bar  {
   @include site_shadow;
   border: 1px solid black;
@@ -506,6 +517,98 @@ aside .company a:hover {
   cursor: pointer;
   text-shadow: 0 0 1px green;
 }
+
+/* Course Info Box*/
+
+.main .main_content .info .editable_course_info {
+  font-size: 20px;
+}
+
+.main .main_content .info .editable_course_info input {
+  padding: 10px;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.main .main_content .info .editable_course_info th {
+  text-align: left;
+  height: 45px;
+  vertical-align: middle;
+}
+
+.main .main_content .info .editable_course_info td {
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
+//fixes this from being pushed right
+.main .main_content .info .editable_course_info td#description {
+  padding-left: 0px;
+}
+
+.main .main_content .info .editable_course_info th.first_cell {
+  padding-right: 15px;
+  padding-top: 5px;
+}
+
+.main .main_content .info .editable_course_info #edit_icon {
+  margin-left: 10px;
+  display: none;
+  font-size: 15px;
+  vertical-align: top;
+}
+
+.main .main_content .info .editable_course_info #edit_icon img {
+  height: 15px;
+  margin-right: 5px;
+}
+
+.main .main_content .info .editable_course_info table {
+  margin-bottom: 20px;
+}
+
+.main .main_content .info .editable_course_info td.third_cell {
+  display: none;
+}
+
+.main .main_content .info .editable_course_info td.third_cell .update_button {
+  width: 70px;
+  background-image: linear-gradient(rgb(175, 202, 125) 20%, rgb(153, 187, 89)), none;
+  color: #EDEFEE;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px grey;
+  border: 1px solid #738C42;
+  font-size: 15px;
+  text-align: center;
+  padding: 2px 7px 2px 7px;
+}
+
+.main .main_content .info .editable_course_info td.third_cell .update_button:hover {
+  background-image: linear-gradient(rgb(200, 227, 150) 20%, rgb(172, 200, 104)), none;
+}
+
+.main .main_content .info .editable_course_info .description_label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.main .main_content .info .editable_course_info .description_content {
+  background-color: white;
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 1px solid gray;
+  padding: 10px 0px 0 15px;
+  border-radius: 5px;
+  /*make the div look inset*/
+  box-shadow: 0 0 10px inset;
+}
+
+.main .main_content .info .editable_course_info .course_form_submit {
+  font-size: 20px;
+}
+
+
+/* Photos Box */
 
 .main .secondary_content .course_images .edit_photos {
   border-bottom: 1px solid darkgray;

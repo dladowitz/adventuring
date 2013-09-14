@@ -56,7 +56,7 @@
                     = @organization.description.html_safe
                 %td#third_cell_website.third_cell
                   = f.text_area :description, :rows => 1, :class => 'ckeditor', :autofocus => true
-                  = button_to 'update', :class => 'update_button'
+                  = button_to 'update',{ :controller => :organizations, :action => :update }, :class => 'update_button'
 
 
             .logo_label Current Logo
@@ -71,7 +71,7 @@
 
         // old section
         .other_info
-          = button_to 'View Public Page', organization_path(@organization), :method => :get
+          = button_to 'View Public Page', organization_path(@organization), :method => :get, :class => 'green_button'
 
     .secondary_content
       = link_to "Back", :back

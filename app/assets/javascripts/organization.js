@@ -1,8 +1,8 @@
 //  Place all the behaviors and hooks related to the matching controller here.
 //  All this logic will automatically be available in application.js.
 
-// For editing profile attributes.
-// Shows and Hides profile attributes
+// For editing organization attributes.
+// Shows and Hides organization attributes
 $('.main .main_content .info .editable_organization_info td.second_cell').click(function(){
   $(this).hide();
   $(this).parent().find('td.third_cell').show();

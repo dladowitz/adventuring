@@ -56,7 +56,7 @@
                 %td= role.permission
 
         .password_and_cancelation
-          = button_to 'Change Password or Cancel Account', edit_user_registration_path, :method => :get
+          = button_to 'Change Password or Cancel Account', edit_user_registration_path, :method => :get, :class => 'green_button'
 
     .secondary_content
       = link_to "Back", :back

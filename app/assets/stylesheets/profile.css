@@ -28,6 +28,24 @@ They will automatically be included in application.css
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
   background-color: rgba(114, 138, 66, .05);
   margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.main .main_content .info .personal_info input {
+  padding: 10px;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.main .main_content .info .personal_info th {
+  text-align: left;
+  height: 45px;
+  vertical-align: middle;
+}
+
+.main .main_content .info .personal_info td {
+  vertical-align: middle;
+  padding-left: 10px;
 }
 
 .main .main_content .info .personal_info th.first_cell {
@@ -39,6 +57,7 @@ They will automatically be included in application.css
   margin-left: 10px;
   display: none;
   font-size: 15px;
+  vertical-align: top;
 }
 
 .main .main_content .info .personal_info #edit_icon img {
