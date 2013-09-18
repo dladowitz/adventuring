@@ -30,19 +30,25 @@ class PhotosController < ApplicationController
     @course = Course.find(params[:photo][:course_id]) if params[:photo][:course_id]
     @photo = Photo.find(params[:id])
 
-    if @photo.update_attributes(params[:photo])
-      redirect_to :back
-    else
-      render :new
+    respond_to do |format|
+      if @photo.update_attributes(params[:photo])
+        format.html { redirect_to :back }
+        format.js { }
+      else
+        render :new
+      end
     end
   end
 
   def destroy
     @photo = Photo.find(params[:id])
-    if @photo.destroy
-      redirect_to :back
-    else
-      render :text => 'Could not delete'
+    respond_to do |format|
+      if @photo.destroy
+        format.html { redirect_to :back }
+        format.js { }
+      else
+        render :text => 'Could not delete'
+      end
     end
   end
 

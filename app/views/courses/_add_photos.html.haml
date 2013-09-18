@@ -6,10 +6,10 @@
     .edit_photos
       - @course.photos.sort.each do |photo|
         .image_group
-          .primary_image
           = image_tag photo.image.url(:square)
+          .primary_image
 
-          = form_for photo do |f|
+          = form_for photo, :remote => true do |f|
             = f.error_messages
 
             .update_photo
@@ -24,14 +24,14 @@
           %hr
 
           .delete_photo
-            = button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?"
+            = button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?", :remote => true, :id => 'delete_photo_' + photo.id.to_s
 
   .add_photos
     .title
       Add photos
       %span.photo_note
         Large Images are recommend (700 x 400 or larger)
-    = form_for @photo do |f|
+    = form_for @photo, :remote => true do |f|
       = f.error_messages
       .control-group
         .controls

@@ -1,4 +1,4 @@
-$('.div').append("<%= escape_javascript(@photo.image_file_name)%>");
+$('.edit_photos').append("<div class='image_group'><div class='primary_image'></div><%= escape_javascript(image_tag @photo.image.url(:square))%> <hr> <div class='delete_photo'><%= escape_javascript(button_to 'Delete Photo', photo_path(@photo), :method => :delete, :confirm => 'Fur Real?') %></div></div>");
 
 
 

@@ -1,0 +1,6 @@
+$('#edit_photo_<%= @photo.id %>').parent().find('img').replaceWith("<%= escape_javascript(image_tag @photo.image.url(:square))%>");
+// $('#edit_photo_<%= @photo.id %>').parent().prepend("<%= escape_javascript(image_tag @photo.image.url(:square))%>");
+
+
+
+
