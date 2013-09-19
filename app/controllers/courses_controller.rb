@@ -11,12 +11,13 @@ class CoursesController < ApplicationController
 
   def new
     @organization = Organization.find(params[:organization_id])
-    @course = Course.new
+    @course       = Course.new
   end
 
   def create
     @organization = Organization.find(params[:organization_id])
-    @course = Course.new(params[:course])
+    @course       = Course.new(params[:course])
+
     if @course.save
       redirect_to add_photos_organization_course_path(@organization, @course)
     else
@@ -26,13 +27,13 @@ class CoursesController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:organization_id])
-    @course = Course.find(params[:id])
-    @photo = Photo.new
+    @course       = Course.find(params[:id])
+    @photo        = Photo.new
   end
 
   def update
     @organization = Organization.find(params[:organization_id])
-    @course = Course.find(params[:id])
+    @course       = Course.find(params[:id])
 
     if @course.update_attributes(params[:course])
       redirect_to edit_organization_course_path(@organization, @course)
@@ -43,7 +44,8 @@ class CoursesController < ApplicationController
 
   def destroy
     @organization = Organization.find(params[:organization_id])
-    @course = Course.find(params[:id])
+    @course       = Course.find(params[:id])
+
     if @course.destroy
       redirect_to offered_courses_organization_path(@organization)
     else
@@ -53,6 +55,7 @@ class CoursesController < ApplicationController
 
   def show
     @organization = Organization.find(params[:organization_id])
-    @course = Course.find(params[:id])
+    @course       = Course.find(params[:id])
+    @review       = Review.new
   end
 end

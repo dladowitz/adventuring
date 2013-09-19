@@ -54,16 +54,14 @@
             .rating
               = image_tag "/assets/courses/yelp_#{review.rating.to_i}_stars_transparent.png"
 
-    .secondary_content
-      .title Add a Review
-      - if current_user
-        %strong Add a review to the Organization
-        = render 'reviews/form'
-
   %aside
     .company
       .logo
         = image_tag @organization.logo.url
+
+    .aside_section
+      = render 'reviews/add_review_aside'
+
 
     - if @organization.instructors.any?
       .instructors

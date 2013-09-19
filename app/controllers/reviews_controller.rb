@@ -4,13 +4,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @organization = Organization.find(params[:review][:organization_id])
+    # @organization = Organization.find(params[:review][:organization_id]) if params[:review][:organization_id]
     @review = Review.new(params[:review])
     @review.user_id = current_user.id
     if @review.save
-      redirect_to @organization
+      redirect_to :back
     else
-      render :new
+      redirect_to :back
     end
   end
 

@@ -21,9 +21,9 @@
           </div>
         </div>
 
-        <% if @course.organization.reviews.any?  %>
+        <% if @course.reviews.any?  %>
           <div class="secondary_content">
-            <% @course.organization.reviews.each do |review| %>
+            <% @course.reviews.each do |review| %>
               <div class="review_group">
                 <div class="reviewer">
                   <a href="#">
@@ -122,6 +122,9 @@
               <% end %>
             </ul>
           </div>
+        </div>
+        <div class="aside_section">
+          <%= render 'reviews/add_review_aside' %>
         </div>
       </aside>
     </div>

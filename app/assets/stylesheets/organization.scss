@@ -1,6 +1,12 @@
 /* Place all the styles related to the Organization controller here.
  They will automatically be included in application.css.*/
 
+// Mixins
+@mixin site_shadow {
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
 
 /*organizations/show.html.haml*/
 .main .company_content {
@@ -162,6 +168,31 @@ aside .instructor .name {
   color: black;
 }
 
+aside .add_review {
+  background-color: rgba(114, 138, 66, .35);
+  margin-top: 20px;
+  border: 1px solid gray;
+  @include site_shadow;
+  padding: 20px;
+}
+
+aside .add_review .section_title{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+aside .add_review textarea{
+  font-size: 20px;
+  width: 260px;
+  height: 150px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+aside .add_review .dropdown{
+  height: 35px;
+  font-size: 15px;
+}
 
 /*organizations/your_orgs.html.haml*/
 

@@ -25,6 +25,8 @@
 
           .delete_photo
             = button_to 'Delete Photo', photo_path(photo), :method => :delete, :confirm => "Fur Real?", :remote => true, :id => 'delete_photo_' + photo.id.to_s
+  - else
+    .edit_photos
 
   .add_photos
     .title

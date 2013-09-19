@@ -6,6 +6,7 @@ class Course < ActiveRecord::Base
   has_many :instructors, :through => :sections
   has_many :photos, :dependent => :destroy
   has_many :sections
+  has_many :reviews
 
   validates_presence_of :organization_id, :name
   validates_numericality_of :price

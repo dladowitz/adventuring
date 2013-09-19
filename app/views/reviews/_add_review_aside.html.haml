@@ -1,0 +1,11 @@
+.add_review.second_section
+  .section_title
+    Add a Review
+  - if current_user
+    %div Leave a review of the Organization
+    = render 'reviews/form'
+  - else
+    %p
+      You must be logged in to leave a review
+    %span
+      = button_to 'log in', new_user_session_path, :method => :get, :class => 'green_button'

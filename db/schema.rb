@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130824174004) do
+ActiveRecord::Schema.define(:version => 20130919034339) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20130824174004) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.text     "content"
+    t.integer  "course_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -82,8 +83,8 @@ ActiveRecord::Schema.define(:version => 20130824174004) do
     t.integer  "course_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.time     "start_time" # Currently not using. Time is rolled into start_date. Remove at some point
-    t.time     "end_time"   # Currently not using. Time is rolled into end_date Remove at some point
+    t.time     "start_time"
+    t.time     "end_time"
     t.string   "location"
     t.integer  "instructor_id"
     t.datetime "created_at",    :null => false

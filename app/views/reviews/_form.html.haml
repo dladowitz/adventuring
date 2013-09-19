@@ -1,0 +1,12 @@
+= form_for @review  do |f|
+  / = f.error_messages #breaks shit
+  / = f.label :content
+  = f.text_area :content, :placeholder => "These guys where awesome, no one died on this trip. Way to go, five stars! "
+
+  / = f.label :rating
+  = f.select(:rating, [['Five Stars', 5],['Four Stars', 4],['Three Stars', 3],['Two Stars', 2],['One Star', 1]], {}, { :class => 'green_button dropdown' })
+
+  = f.hidden_field :organization_id, value: @organization.id if @organization
+  = f.hidden_field :course_id, value: @course.id if @course
+
+  = f.submit :class => 'green_button'
