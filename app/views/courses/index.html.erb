@@ -1,16 +1,27 @@
     <div class="hero_bar">
       <img class="hero_image" src="assets/courses/el_cap_hero_bar.jpg">
+
       <div class="search">
         <h1>Find Your Adventure</h1>
-        <form name="search" action="#" method="get">
+        <!-- TODO old form, delete -  -->
+        <!--  <form name="search" action="#" method="get">
           <input class="search_submit_button" type="submit" value="Search">
           <input class="search_box" type="text" name="search" placeholder="rock climbing, sailing, scuba diving....">
-        </form>
+        </form> -->
+
+      <%= form_tag courses_path, :method => :get do %>
+        <p>
+          <%= submit_tag "Search", :name => nil, :class => "search_submit_button" %>
+          <%= text_field_tag :search, params[:search], :class => "search_box", :placeholder => "rock climbing, sailing, scuba diving...." %>
+        </p>
+      <% end %>
+
       </div>
     </div>
 
     <div class="container">
       <div class="main_content">
+
         <h1>Courses</h1>
         <% ordered_courses = order_by_rank(@courses) %>
 

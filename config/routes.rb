@@ -15,7 +15,7 @@ Adventuring::Application.routes.draw do
   get 'organizations/:organization_id/courses/:id/add_photos' => 'courses#add_photos', :as => :add_photos_organization_course
 
   # Only need this if we access courses direct.
-  # resources :courses
+  resources :courses
 
   resources :photos
   resources :reviews
