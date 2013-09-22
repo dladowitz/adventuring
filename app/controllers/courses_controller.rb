@@ -6,11 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @search = Course.search do
-      fulltext params[:search]
-    end
-
-    @courses = @search.results
+    @courses = Course.all
   end
 
   def new

@@ -16,9 +16,8 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'pg'
-gem 'remotipart', '~> 1.0'
-gem 'sunspot_rails'
 gem 'thin'
+gem "remotipart", "~> 1.0"
 
 
 # Gems used only for assets and not required
@@ -40,7 +39,6 @@ group :development do
   gem 'quiet_assets'
   gem 'pry'
   gem 'pry-debugger'
-  gem 'sunspot_solr'
 end
 
 

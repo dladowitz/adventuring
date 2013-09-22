@@ -11,10 +11,6 @@ class Course < ActiveRecord::Base
   validates_presence_of :organization_id, :name
   validates_numericality_of :price
 
-  searchable do
-    text :name
-  end
-
 
   def next_dates(number_of_dates = nil)
     # Gets a specified number of next sections being offered
