@@ -20,6 +20,7 @@
 //= require bootstrap
 //= require ckeditor/ckeditor
 //= require timepicker
+//= require google_analytics
 //= require_tree .
 
 
