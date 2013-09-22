@@ -73,6 +73,7 @@ GEM
     figaro (0.6.4)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    google-analytics-rails (0.0.4)
     haml (3.1.8)
     hike (1.2.2)
     i18n (0.6.4)
@@ -174,6 +175,7 @@ DEPENDENCIES
   devise
   dynamic_form
   figaro
+  google-analytics-rails
   haml
   jquery-rails
   paperclip
