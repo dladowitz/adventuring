@@ -6,7 +6,8 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.paginate(:per_page => 15, :page => params[:page])
+    # @courses = Course.paginate(:per_page => 15, :page => params[:page])
+    @courses = get_courses_nearby(location = 'Saratoga, CA, USA', distance_in_mi = 60)
   end
 
   def new
@@ -58,4 +59,19 @@ class CoursesController < ApplicationController
     @course       = Course.find(params[:id])
     @review       = Review.new
   end
+
+  private
+    def get_courses_nearby(location = nil, distance_in_mi = nil)
+    if location and distance_in_mi
+      sections = Section.near(location, distance_in_mi)
+      courses = []
+      sections.each do |section|
+        courses << section.course
+      end
+      courses
+    else
+      Course.all
+    end
+  end
+
 end

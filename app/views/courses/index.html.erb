@@ -14,7 +14,11 @@
         <h1>Courses</h1>
         <% ordered_courses = order_by_rank(@courses) %>
 
-        <% ordered_courses.each do |course| %>
+        <% courses = WillPaginate::Collection.create(2, 2, 2) do |pager| %>
+          <% pager.replace ordered_courses %>
+        <% end %>
+
+        <% courses.each do |course| %>
 
           <!-- Makes sure courses without photos never end up on the home page -->
           <% next if course.photos.empty? %>
@@ -65,6 +69,6 @@
           </a>
         <% end %>
 
-        <%= will_paginate @courses %>
+        <%= will_paginate courses %>
       </div>
     </div>
