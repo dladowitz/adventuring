@@ -12,6 +12,7 @@ gem 'ckeditor_rails'  # for editing course and organization descriptions
 gem 'devise'
 gem 'dynamic_form'
 gem 'figaro'
+gem 'geocoder'
 gem 'google-analytics-rails'
 gem 'haml'
 gem 'jquery-rails'
@@ -19,6 +20,7 @@ gem 'paperclip'
 gem 'pg'
 gem 'thin'
 gem "remotipart", "~> 1.0"
+gem 'will_paginate', '~> 3.0.0'
 
 
 # Gems used only for assets and not required
@@ -39,6 +41,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'debugger'
+  gem 'meta_request'
   gem 'quiet_assets'
   gem 'pry'
   gem 'pry-debugger'

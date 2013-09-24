@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.all
+    @courses = Course.paginate(:per_page => 15, :page => params[:page])
   end
 
   def new
