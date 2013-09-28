@@ -8,7 +8,13 @@ class CoursesController < ApplicationController
   def index
     # @courses = Course.paginate(:per_page => 15, :page => params[:page])
     # @courses = get_courses_nearby(location = 'Saratoga, CA, USA', distance_in_mi = 60)
-    @courses = Course.text_search(params[:query]).page(params[:page]).per_page(9)
+    if params[:location]
+      #if we get a location we can look for courses nearby. This doesn't use the full text search currently. Need to add in.
+      @courses = get_courses_nearby(params[:location], 300).paginate(:page => params[:page], :per_page => 3)
+    else
+      #if we don't get a location.
+      @courses = Course.text_search(params[:query]).paginate(:page => params[:page], :per_page => 9)
+    end
   end
 
   def new
@@ -63,7 +69,7 @@ class CoursesController < ApplicationController
 
   private
     def get_courses_nearby(location = nil, distance_in_mi = nil)
-    if location and distance_in_mi
+    if location && distance_in_mi
       sections = Section.near(location, distance_in_mi)
       courses = []
       sections.each do |section|
