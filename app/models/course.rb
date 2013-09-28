@@ -17,6 +17,7 @@ class Course < ActiveRecord::Base
     else
       # This returns all courses orded by rank
       scoped#(:order => 'rank DESC')
+      #thing
     end
   end
 
