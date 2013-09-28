@@ -11,6 +11,14 @@ class Course < ActiveRecord::Base
   validates_presence_of :organization_id, :name
   validates_numericality_of :price
 
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      # This returns all courses orded by rank
+      scoped(:order => 'rank DESC')
+    end
+  end
 
   def next_dates(number_of_dates = nil)
     # Gets a specified number of next sections being offered

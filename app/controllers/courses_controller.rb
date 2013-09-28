@@ -7,7 +7,8 @@ class CoursesController < ApplicationController
 
   def index
     # @courses = Course.paginate(:per_page => 15, :page => params[:page])
-    @courses = get_courses_nearby(location = 'Saratoga, CA, USA', distance_in_mi = 60)
+    # @courses = get_courses_nearby(location = 'Saratoga, CA, USA', distance_in_mi = 60)
+    @courses = Course.text_search(params[:query]).page(params[:page]).per_page(9)
   end
 
   def new

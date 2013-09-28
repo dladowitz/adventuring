@@ -20,6 +20,7 @@ gem 'paperclip'
 gem 'pg'
 gem 'thin'
 gem "remotipart", "~> 1.0"
+gem 'texticle', require: 'texticle/rails'
 gem 'will_paginate', '~> 3.0.0'
 
 
