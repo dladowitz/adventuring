@@ -89,8 +89,10 @@ $site_green: rgba(114, 138, 66, .15);
 .hero_bar .search #cities ul li {
   display: inline;
   padding-right: 20px;
-  color: green;
+}
 
+.hero_bar .search #cities ul li a {
+  color: green;
 }
 
 .hero_bar .search #cities ul li a:visited {
