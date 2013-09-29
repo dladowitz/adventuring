@@ -49,6 +49,7 @@ $site_green: rgba(114, 138, 66, .15);
   width: 100%
 }
 
+
 .search {
   background-color: rgba(200, 200, 200, .65);
   box-shadow: 2px 2px 2px 2px rgba(100, 100, 100, .5);
@@ -56,7 +57,7 @@ $site_green: rgba(114, 138, 66, .15);
   overflow: hidden;
   max-width: 1120px;
   margin: 50px auto;
-  padding: 10px;
+  padding: 25px 10px 10px 10px;
   z-index: 2;
   position: relative;
 }
@@ -67,8 +68,40 @@ $site_green: rgba(114, 138, 66, .15);
   font-weight: 300;
   padding: 10px;
   color: #343D3A;
+}
+
+.hero_bar .search #cities {
+  // background-color: aqua;
+  width: 600px;
+  height: 40px;
+  font-size: 25px;
+  position: absolute;
+  bottom: 91px;
+  left: 562px;
+}
+
+.hero_bar .search #cities ul {
+  // background-color: rgba(255, 255, 255, .65);
+  border-radius: 5px;
+  float: left;
+}
+
+.hero_bar .search #cities ul li {
+  display: inline;
+  padding-right: 20px;
+  color: green;
 
 }
+
+.hero_bar .search #cities ul li a:visited {
+  color: green;
+}
+
+.hero_bar .search #cities ul li a:hover {
+  text-shadow: 0 0 1px green;
+  color: darkgreen;
+}
+
 .search_box {
   width: 400px;
   font-size: 20px;

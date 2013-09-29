@@ -20,10 +20,10 @@
     <div class="footer_column">
       <h2>Locations</h2>
       <ul>
-        <li><a href="#">Bay Area</a></li>
-        <li><a href="#">New York</a></li>
-        <li><a href="#">Boulder</a></li>
-        <li><a href="#">Los Angeles</a></li>
+        <li><%= link_to "San Francisco", courses_path(:location => 'San Francisco, CA') %></li>
+        <li><%= link_to "San Jose",courses_path(:location => 'San Jose, CA') %></li>
+        <li><%= link_to "Los Angeles", courses_path(:location => 'Los Angeles, CA') %></li>
+        <li><%= link_to "Boulder", courses_path(:location => 'Boulder, CO') %></li>
       </ul>
     </div>
   </div>

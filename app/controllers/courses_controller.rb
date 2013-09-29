@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
     # @courses = get_courses_nearby(location = 'Saratoga, CA, USA', distance_in_mi = 60)
     if params[:location]
       #if we get a location we can look for courses nearby. This doesn't use the full text search currently. Need to add in.
-      @courses = get_courses_nearby(params[:location], 300).paginate(:page => params[:page], :per_page => 3)
+      @courses = get_courses_nearby(params[:location], 60).paginate(:page => params[:page], :per_page => 9)
     else
       #if we don't get a location.
       @courses = Course.text_search(params[:query]).paginate(:page => params[:page], :per_page => 9)
