@@ -2,12 +2,13 @@
       <img class="hero_image" src="assets/courses/el_cap_hero_bar.jpg">
       <div class="search">
         <h1>Find Your Adventure</h1>
-        <div id="cities">
+       <div id="cities">
           <ul>
-            <li><%= link_to "San Francisco", courses_path(:location => 'San Francisco, CA') %></li>
-            <li><%= link_to "San Jose",courses_path(:location => 'San Jose, CA') %></li>
-            <li><%= link_to "Los Angeles", courses_path(:location => 'Los Angeles, CA') %></li>
-            <li><%= link_to "Boulder", courses_path(:location => 'Boulder, CO') %></li>
+            <li><%= link_to "Anywhere", courses_path(:location => 'Anywhere'), :class => ('current' if params[:location] == 'Anywhere') %></li>
+            <li><%= link_to "San Francisco", courses_path(:location => 'San Francisco, CA'), :class => ('current' if params[:location] == 'San Francisco, CA') %></li>
+            <li><%= link_to "San Jose",courses_path(:location => 'San Jose, CA'), :class => ('current' if params[:location] == 'San Jose, CA') %></li>
+            <li><%= link_to "Los Angeles", courses_path(:location => 'Los Angeles, CA'), :class => ('current' if params[:location] == 'Los Angeles, CA') %></li>
+            <!-- <li><%= link_to "Boulder", courses_path(:location => 'Boulder, CO'), :class => ('current' if params[:location] == 'Boulder, CO') %></li> -->
           </ul>
         </div>
 
@@ -21,6 +22,7 @@
           <p>
             <%= submit_tag "Search", :name => nil, :class => "search_submit_button" %>
             <%= text_field_tag :query, params[:query], :class => "search_box", :placeholder => "rock climbing, sailing, scuba diving...." %>
+            <%= hidden_field_tag :location, params[:location] %>
           </p>
         <% end %>
       </div>

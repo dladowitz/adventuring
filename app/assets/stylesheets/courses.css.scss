@@ -88,7 +88,12 @@ $site_green: rgba(114, 138, 66, .15);
 
 .hero_bar .search #cities ul li {
   display: inline;
-  padding-right: 20px;
+  padding-right: 18px;
+}
+
+.hero_bar .search #cities ul li .current {
+  text-shadow: 0 0 1px green;
+  color: darkgreen;
 }
 
 .hero_bar .search #cities ul li a {
