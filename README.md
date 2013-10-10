@@ -1,4 +1,4 @@
 adventuring
 ===========
 
-lets go!
+lets go adventuring!
