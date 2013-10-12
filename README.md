@@ -1,4 +1,4 @@
 adventuring
 ===========
 
-lets get adventuring!
+lets get adventuring today!
