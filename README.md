@@ -1,4 +1,4 @@
 adventuring
 ===========
 
-lets get adventuring today and tomorrow!
+lets get adventuring today and tomorrow and the next day!
