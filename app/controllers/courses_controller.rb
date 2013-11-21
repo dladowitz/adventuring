@@ -84,7 +84,7 @@ class CoursesController < ApplicationController
         sections = Section.near(location, distance_in_mi)
         courses = []
         sections.each do |section|
-          courses << section.course if section.course
+          courses << section.course if section.course && !courses.include?(section.course)
         end
         courses
       end

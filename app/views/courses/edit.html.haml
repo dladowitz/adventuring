@@ -55,6 +55,18 @@
                     = f.text_field :price, :autofocus => true, :placeholder => 'Price'
                     %span.update_button
                       update
+                - if current_user && current_user.site_admin?
+                  %tr.admin
+                    %th.first_cell{ :style=> "padding-left: 15px; border-radius: 5px 0px 0px 5px" } rank:
+                    %td#second_cell_rank.second_cell{ :style=> "border-radius: 0px 5px 5px 0px"}
+                      = @course.rank
+                      %span#edit_icon
+                        = image_tag "/assets/profiles/edit-11.png"
+                        edit
+                    %td#third_cell_rank.third_cell{ :style=> "padding-right: 15px; border-radius: 0px 5px 5px 0px"}
+                      = f.text_field :rank, :autofocus => true, :placeholder => 'rank'
+                      %span.update_button
+                        update
 
               .description_label Description
               %table
