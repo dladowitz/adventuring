@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rails', '3.2.12'
 
@@ -44,7 +44,7 @@ group :development do
   gem 'debugger'
   gem 'meta_request'
   gem 'quiet_assets'
-  gem 'pry'
+  gem 'pry-rails'
   gem 'pry-debugger'
 end
 
